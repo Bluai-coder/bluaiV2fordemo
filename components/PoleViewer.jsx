@@ -1530,7 +1530,7 @@ export default function PoleViewer({ modelPath }) {
       ref={containerRef}
       sx={{
         position: 'relative',
-        width: isFullscreen ? '100vw' : { xs: 280, sm: 360, md: 600 },
+       width: isFullscreen ? '100vw' : { xs: 342, sm: 628, md: 600 },
         height: isFullscreen ? '100vh' : { xs: 280, sm: 360, md: 560 },
         borderRadius: isFullscreen ? 0 : 4,
         bgcolor: 'white',
