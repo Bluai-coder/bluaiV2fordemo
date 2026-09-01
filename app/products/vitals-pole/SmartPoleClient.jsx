@@ -594,11 +594,11 @@ const ProductGallery = () => {
 
   const galleryItems = [
     { type: '360', label: '360° View', src: '/pole.png' },
-    { type: 'image', label: 'Side View', src: '/pole.png', transform: 'scaleX(-1)' },
-    { type: 'image', label: 'Front View', src: '/pole.png', transform: 'scaleX(1)' },
-    // { type: 'image', label: 'Interface', src: '/pole.png', objectPosition: 'top' },
-    { type: 'image', label: 'Deployment', src: '/pole.png', objectPosition: 'bottom' },
+    { type: 'image', label: 'Side View', src: '/pole/pole1.webp', transform: 'scaleX(-1)' },
+    { type: 'image', label: 'Front View', src: '/pole/pole2.webp', transform: 'scaleX(1)' },
+    { type: 'image', label: 'Deployment', src: '/pole/pole3.webp', objectPosition: 'bottom' },
   ];
+
 
   const handleMouseDown = (e) => {
     if (galleryItems[activeIndex].type !== '360') return;

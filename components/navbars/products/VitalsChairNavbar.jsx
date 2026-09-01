@@ -355,24 +355,25 @@ export default function VitalsChairNavbar() {
                                 href="/products/blu-neonatal"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="NeoNatal" />
+                                <ListItemText primary="NeoNatal™" />
                             </ListItemButton>
 
                             {/* SmartBed */}
-                            {/* <ListItemButton
+                            <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-pole"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="SmartBed (Upcoming)" />
-                            </ListItemButton> */}
-                            {/* <ListItemButton
+                                <ListItemText primary="VitalsPole™" />
+                            </ListItemButton>
+
+                           <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-briefcase"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="SmartPole (Upcoming)" />
-                            </ListItemButton> */}
+                                <ListItemText primary="Vitals briefcase™" />
+                            </ListItemButton>
 
                             {/* <ListItemButton
                                 component={Link}
