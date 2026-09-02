@@ -863,7 +863,7 @@ const products = [
     id: 1,
     icon: "/logos/white/BluVital-logo.png",
     title: "VitalsChair™",
-    image: "/hero-popup/vitalschair.webp",
+    image: "/hero-popup/chair.webp",
     category: "Clinical Solutions",
     description: "Smart patient monitoring seat for instant, multi-vital health tracking",
     slug: "products/vitals-chair",
@@ -887,7 +887,7 @@ const products = [
     id: 10,
     icon: "/logos/white/neonatal.png",
     title: "BluNeonatal™",
-    image: "/hero-popup/neonatal.webp",
+    image: "/hero-popup/child.webp",
     category: "Clinical Solutions",
     description: "Smart neonatal monitoring solution for real-time newborn vital tracking",
     slug: "products/blu-neonatal",
@@ -899,7 +899,7 @@ const products = [
     id: 11,
     icon: "/logos/white/briefcase.png",
     title: "VitalsBriefcase™",
-    image: "/hero-popup/briefcase.webp",
+    image: "/hero-popup/box.webp",
     category: "Clinical Solutions",
     description: "Smart patient monitoring Briefcase for instant, multi-vital health tracking",
     slug: "products/vitals-briefcase",
@@ -1123,7 +1123,7 @@ export default function HeroSection() {
 
       <Box
         sx={{
-          position: "relative",
+          // position: "relative",
           zIndex: 5,
           width: "100%",
           minHeight: "100svh",
@@ -1135,14 +1135,14 @@ export default function HeroSection() {
         <Container maxWidth="xl" sx={{ py: { xs: 10, sm: 10, md: 12 } }}>
           
           {/* ================== CINEMATIC HEADER ================== */}
-          <Box sx={{ textAlign: "center", mb: { xs: 6, sm: 8, md: 10 } }}>
+          <Box sx={{ textAlign: "center", mb: { xs: 6, sm: 8, md: 2 } }}>
             <Typography
               sx={{
                 fontSize: { xs: "clamp(34px, 7vw, 50px)", sm: "clamp(44px, 6vw, 62px)", md: "clamp(52px, 5.5vw, 65px)" },
-                fontWeight: 900,
+                fontWeight: 800,
                 lineHeight: 1.05,
                 color: "#fff",
-                maxWidth: 950,
+                maxWidth: 1150,
                 mx: "auto",
                 letterSpacing: "-1.5px",
                 textShadow: "0 10px 30px rgba(0,0,0,0.8)"
@@ -1182,7 +1182,7 @@ export default function HeroSection() {
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 width: { xs: "90%", md: "70%" },
-                height: "90%",
+                height: "70%",
                 background: "radial-gradient(ellipse, rgba(0, 212, 255, 0.2), rgba(27,77,255, 0.1) 50%, transparent 80%)",
                 // filter: "blur(80px)",
                 zIndex: -1,
@@ -1195,7 +1195,7 @@ export default function HeroSection() {
               sx={{
                 position: "relative",
                 width: "100%",
-                height: { xs: 500, sm: 550, md: 680 },
+                height: { xs: 500, sm: 550, md: 630 },
                 overflow: "visible",
               }}
             >
@@ -1243,7 +1243,6 @@ export default function HeroSection() {
                         sx={{
                           position: "relative",
                           bgcolor: isActive ? "rgba(20, 25, 45, 0.7)" : "rgba(10, 15, 30, 0.6)",
-                          // backdropFilter: "blur(25px)",
                           border: "1px solid rgba(255,255,255,0.1)",
                           borderRadius: "28px",
                           p: { xs: 3, md: 4 },
@@ -1333,6 +1332,7 @@ export default function HeroSection() {
                               position: "relative",
                               width: { xs: 280, md: 340 },
                               height: { xs: 160, md: 200 },
+                              borderRadius: "28px",
                               mx: "auto",
                               mb: { xs: 1, md: 2 },
                               // filter: isActive ? `drop-shadow(0 20px 30px ${product.glow})` : "drop-shadow(0 10px 20px rgba(0,0,0,0.5))",
@@ -1345,7 +1345,7 @@ export default function HeroSection() {
                               fill
                               style={{
                                 objectFit: "contain",
-                                borderRadius: "12px",
+                                borderRadius: "24px",
                                 maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
                                 WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
                               }}
@@ -1447,7 +1447,7 @@ export default function HeroSection() {
             </Box>
 
             {/* ================== CONTROLS ================== */}
-            <Box sx={{ display: "flex", justifyContent: "center", mt: 7, gap: 1.5, alignItems: "center" }}>
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 1.5, alignItems: "center" }}>
               {products.map((_, index) => {
                 const isActive = currentIndex === index;
                 return (
