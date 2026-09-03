@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 
 // Single images that will slide one by one
 const sliderImages = [
-  { src: "/about/briefcase.webp", alt: "Team working" },
-  { src: "/about/neonatal.webp", alt: "Healthcare tech" },
-  { src: "/about/vitals-chair.webp", alt: "Tablet interface" },
-  { src: "/about/vitals-pole.webp", alt: "Lab equipment" },
+  { src: "/hero-popup/chair.webp", alt: "Team working" },
+  { src: "/hero-popup/pole.webp", alt: "Healthcare tech" },
+  { src: "/hero-popup/child.webp", alt: "Tablet interface" },
+  { src: "/hero-popup/box.webp", alt: "Lab equipment" },
 ];
 
 const projects = [

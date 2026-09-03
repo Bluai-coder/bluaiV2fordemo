@@ -25,6 +25,7 @@ import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturi
 import ScienceIcon from "@mui/icons-material/Science";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OurTeamSlider from "../../../components/OurTeam";
+import AboutUS from "../../../components/AboutUS";
 
 const team = [{
   id : 1,
@@ -589,6 +590,7 @@ export default function About() {
         {/* our values */}
         <OurValues />
         <StatsSection />
+        <AboutUS />
         <OurSolutions />
 
 

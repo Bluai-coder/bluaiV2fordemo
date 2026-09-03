@@ -209,6 +209,10 @@
 //     </Box>
 //   );
 // }
+
+
+
+
 "use client";
 
 import * as React from "react";
@@ -219,21 +223,60 @@ import {
   Container,
   useTheme,
   useMediaQuery,
+  Chip,
 } from "@mui/material";
 import Image from "next/image";
 import { keyframes } from "@mui/system";
 
-const partners = [
-  { id: 1, name: "MSME", logo: "/partners/msms.png", des: "" },
-  { id: 2, name: "DPIIT", logo: "/partners/dpit.png", des: "" },
-  { id: 3, name: "Azure", logo: "/partners/Azure.png", des: "" },
-  { id: 4, name: "NXP", logo: "/partners/nxp.png", des: "" },
-  { id: 5, name: "Texas Instruments", logo: "/partners/Texas.png", des: "" },
+import HealingIcon from "@mui/icons-material/Healing";
+import HealthAndSafetyIcon   from "@mui/icons-material/HealthAndSafety";
+const medicalPartners = [
+  { 
+    id: 1, 
+    name: "MSME", 
+    logo: "/partners/msms.png", 
+    des: "Government Initiative",
+    category: "Government"
+  },
+  { 
+    id: 2, 
+    name: "DPIIT", 
+    logo: "/partners/dpit.png", 
+    des: "Policy Support",
+    category: "Government"
+  },
+  { 
+    id: 3, 
+    name: "Microsoft Azure", 
+    logo: "/partners/Azure.png", 
+    des: "Cloud Healthcare",
+    category: "Technology"
+  },
+  { 
+    id: 4, 
+    name: "NXP", 
+    logo: "/partners/nxp.png", 
+    des: "Medical IoT",
+    category: "Technology"
+  },
+  { 
+    id: 5, 
+    name: "Texas Instruments", 
+    logo: "/partners/Texas.png", 
+    des: "Healthcare Tech",
+    category: "Technology"
+  },
 ];
+
 
 const marquee = keyframes`
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+`;
+
+const pulseGlow = keyframes`
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 `;
 
 export default function PartnerSlider() {
@@ -243,60 +286,108 @@ export default function PartnerSlider() {
 
   const [isPaused, setIsPaused] = React.useState(false);
 
-  const itemWidth = isXs ? 160 : isSm ? 190 : 220;
-  const itemHeight = isXs ? 110 : 128;
-  const logoW = isXs ? 105 : isSm ? 125 : 145;
-  const logoH = isXs ? 42 : isSm ? 50 : 56;
-  const gap = isXs ? 16 : isSm ? 20 : 24;
+  const itemWidth = isXs ? 180 : isSm ? 210 : 240;
+  const itemHeight = isXs ? 130 : isSm ? 148 : 160;
+  const logoW = isXs ? 115 : isSm ? 135 : 155;
+  const logoH = isXs ? 48 : isSm ? 56 : 64;
+  const gap = isXs ? 18 : isSm ? 22 : 28;
 
-  const loopPartners = [...partners, ...partners];
+  const loopPartners = [...medicalPartners, ...medicalPartners];
 
   return (
     <Box
       sx={{
-        bgcolor: "#fff",
-        py: { xs: 6, sm: 7, md: 10 },
+        bgcolor: "#ffffff",
+        py: { xs: 8, sm: 10, md: 14 },
         overflow: "hidden",
         position: "relative",
       }}
     >
-      {/* Soft background accent */}
+      {/* Medical-themed background accents */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(27,77,255,0.04) 0%, transparent 70%)",
+          background: `
+            radial-gradient(ellipse 60% 40% at 0% 50%, rgba(27,77,255,0.03) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 40% at 100% 50%, rgba(27,77,255,0.03) 0%, transparent 70%)
+          `,
           pointerEvents: "none",
         }}
       />
+
+      {/* Floating medical icons decoration */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: "5%",
+          opacity: 0.06,
+          transform: "rotate(-15deg)",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+      <HealingIcon sx={{ fontSize: 100, color: "#1b4dff" }} />
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          right: "5%",
+          opacity: 0.06,
+          transform: "rotate(15deg)",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        <HealthAndSafetyIcon   sx={{ fontSize: 120, color: "#1b4dff" }} />
+      </Box>
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Stack
           spacing={1.5}
           alignItems="center"
           textAlign="center"
-          mb={{ xs: 4.5, sm: 5.5, md: 7 }}
+          mb={{ xs: 5, sm: 6, md: 8 }}
         >
-
+        
 
           <Typography
             sx={{
               fontWeight: 800,
-              fontSize: { xs: 22, sm: 26, md: 34 },
-              lineHeight: 1.25,
-              color: "#0f172a",
+              fontSize: { xs: 24, sm: 28, md: "2.8rem" },
+              lineHeight: 1.2,
+              color: "#0a1628",
               maxWidth: 780,
               px: { xs: 1, sm: 0 },
             }}
           >
-            <Box component="span" color="text.primary">
-              EXPANDING POSSIBILITIES THROUGH {" "}
+            <Box component="span" sx={{ color: "#0a1628" }}>
+              Expanding possibilities through{" "}
             </Box>
-            <Box component="span" sx={{ color: "#1b4dff" }}>
-              TRUSTED ALLIANCES
+            <Box
+              component="span"
+              sx={{
+                color: "#1b4dff",
+                position: "relative",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -4,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  borderRadius: 999,
+                  background: "linear-gradient(90deg, #1b4dff, #4a7aff)",
+                  animation: `${pulseGlow} 2s ease-in-out infinite`,
+                },
+              }}
+            >
+              Trusted Alliances
             </Box>
           </Typography>
+
+
+   
         </Stack>
       </Container>
 
@@ -310,11 +401,11 @@ export default function PartnerSlider() {
           position: "relative",
           width: "100%",
           overflow: "hidden",
-          py: 1.5,
+          py: 2.5,
           maskImage:
-            "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         }}
       >
         <Box
@@ -322,7 +413,7 @@ export default function PartnerSlider() {
             display: "flex",
             width: "max-content",
             gap: `${gap}px`,
-            animation: `${marquee} ${isXs ? 24 : 32}s linear infinite`,
+            animation: `${marquee} ${isXs ? 28 : 36}s linear infinite`,
             animationPlayState: isPaused ? "paused" : "running",
             willChange: "transform",
           }}
@@ -338,44 +429,66 @@ export default function PartnerSlider() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 1,
-                px: 2,
-                bgcolor: "#f8fafc",
-                borderRadius: { xs: "21px", md: "21px" },
-                border: "1px solid rgba(15, 23, 42, 0.06)",
-                boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)",
+                gap: 0.5,
+                px: 2.5,
+                bgcolor: "#fafcff",
+                borderRadius: { xs: 3, md: 3 },
+                border: "1px solid rgba(27,77,255,0.06)",
+                boxShadow: "0 2px 12px rgba(27,77,255,0.04)",
                 transition: "all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
                 cursor: "default",
                 position: "relative",
                 overflow: "hidden",
 
+                // Medical cross accent
+                "&::before": {
+                  content: '"+ "',
+                  position: "absolute",
+                  top: -8,
+                  right: -8,
+                  fontSize: 48,
+                  fontWeight: 300,
+                  color: "rgba(27,77,255,0.04)",
+                  fontFamily: "serif",
+                },
+
                 // Default grayscale logo
                 "& img": {
                   filter: "grayscale(100%)",
-                  opacity: 0.6,
+                  opacity: 0.5,
                   transition: "all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
                   transform: "scale(1)",
                 },
 
-                // Name label (hidden by default)
+                // Partner name (hidden by default)
                 "& .partner-name": {
                   opacity: 0,
-                  transform: "translateY(6px)",
+                  transform: "translateY(4px)",
                   transition: "all 0.35s ease",
+                },
+
+                "& .partner-des": {
+                  opacity: 0,
+                  transform: "translateY(4px)",
+                  transition: "all 0.35s ease 0.05s",
                 },
 
                 // Hover → real color + lift
                 "&:hover": {
                   bgcolor: "#ffffff",
-                  borderColor: "rgba(27, 77, 255, 0.25)",
+                  borderColor: "rgba(27,77,255,0.2)",
                   boxShadow:
-                    "0 12px 32px rgba(27, 77, 255, 0.14), 0 0 0 1px rgba(27, 77, 255, 0.08)",
-                  transform: "translateY(-6px)",
+                    "0 16px 40px rgba(27,77,255,0.12), 0 0 0 1px rgba(27,77,255,0.06)",
+                  transform: "translateY(-8px)",
+
+                  "&::before": {
+                    color: "rgba(27,77,255,0.08)",
+                  },
 
                   "& img": {
                     filter: "grayscale(0%)",
                     opacity: 1,
-                    transform: "scale(1.08)",
+                    transform: "scale(1.06)",
                   },
 
                   "& .partner-name": {
@@ -383,24 +496,31 @@ export default function PartnerSlider() {
                     transform: "translateY(0)",
                   },
 
-                  // Soft blue glow at bottom
+                  "& .partner-des": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+
+                  // Bottom accent glow
                   "&::after": {
                     opacity: 1,
+                    transform: "scaleX(1)",
                   },
                 },
 
-                // Bottom accent glow
+                // Bottom accent bar
                 "&::after": {
                   content: '""',
                   position: "absolute",
                   bottom: 0,
-                  left: "15%",
-                  right: "15%",
+                  left: "20%",
+                  right: "20%",
                   height: 3,
                   borderRadius: "3px 3px 0 0",
                   background: "linear-gradient(90deg, transparent, #1b4dff, transparent)",
                   opacity: 0,
-                  transition: "opacity 0.4s ease",
+                  transform: "scaleX(0.5)",
+                  transition: "all 0.4s ease",
                 },
               }}
             >
@@ -411,7 +531,7 @@ export default function PartnerSlider() {
                 height={logoH}
                 style={{
                   objectFit: "contain",
-                  maxWidth: "78%",
+                  maxWidth: "80%",
                 }}
               />
 
@@ -419,21 +539,37 @@ export default function PartnerSlider() {
               <Typography
                 className="partner-name"
                 sx={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: "#1b4dff",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                  lineHeight: 1,
-                  mt: 0.25,
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: "#0a1628",
+                  letterSpacing: "0.03em",
+                  lineHeight: 1.2,
+                  mt: 0.5,
                 }}
               >
                 {item.name}
+              </Typography>
+
+              {/* Partner description */}
+              <Typography
+                className="partner-des"
+                sx={{
+                  fontSize: 10,
+                  fontWeight: 500,
+                  color: "#4a6a8a",
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                  lineHeight: 1,
+                }}
+              >
+                {item.des}
               </Typography>
             </Box>
           ))}
         </Box>
       </Box>
+
+  
     </Box>
   );
 }

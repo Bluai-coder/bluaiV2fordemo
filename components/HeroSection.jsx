@@ -227,8 +227,8 @@
 
 //   return (
 //     <Box sx={{ bgcolor: "#0B1220", minHeight: "100vh", overflow: "hidden" }}>
-    
-      
+
+
 //       <Box
 //         onPointerDown={() => setIsUnlocked(true)}
 //         onTouchStart={() => setIsUnlocked(true)}
@@ -243,7 +243,7 @@
 //         }}
 //       >
 
-        
+
 //         {/* Stars */}
 //         {showStars && (
 //           <Box sx={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
@@ -826,36 +826,22 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useSwipeable } from "react-swipeable";
 import RequestDemoModal from "./popups/RequestDemoModal";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import HealingIcon from "@mui/icons-material/Healing";
 
 // ==================== CINEMATIC ANIMATIONS ====================
-const float = keyframes`
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
-  33% { transform: translateY(-30px) translateX(20px) scale(1.05); }
-  66% { transform: translateY(20px) translateX(-20px) scale(0.95); }
-`;
-const blobFloat = keyframes`
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(80px, -120px) scale(1.2); }
-  66% { transform: translate(-60px, 60px) scale(0.8); }
-  100% { transform: translate(0, 0) scale(1); }
-`;
+
 const rotateGlow = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 `;
-const shimmer = keyframes`
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-`;
+
 const textGradient = keyframes`
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 `;
-const pulseRing = keyframes`
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.2); opacity: 0; }
-`;
+
 
 // ==================== DATA ====================
 const products = [
@@ -867,11 +853,11 @@ const products = [
     category: "Clinical Solutions",
     description: "Smart patient monitoring seat for instant, multi-vital health tracking",
     slug: "products/vitals-chair",
-    gradient: "linear-gradient(135deg, #89f7fe, #66a6ff)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
     glow: "rgba(102,166,255, 0.55)",
     textColor: "#89f7fe",
   },
-    {
+  {
     id: 9,
     icon: "/logos/white/pole.png",
     title: "VitalsPole™",
@@ -879,23 +865,23 @@ const products = [
     category: "Clinical Solutions",
     description: "Smart patient monitoring pole, multi-vital health tracking",
     slug: "products/vitals-pole",
-    gradient: "linear-gradient(135deg, #aace46, #66a6ff)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
     glow: "rgba(102,166,255, 0.55)",
     textColor: "#aace46",
   },
-    {
+  {
     id: 10,
     icon: "/logos/white/neonatal.png",
     title: "BluNeonatal™",
     image: "/hero-popup/child.webp",
     category: "Clinical Solutions",
-    description: "Smart neonatal monitoring solution for real-time newborn vital tracking",
+    description: "Smart neonatal monitoring solution for real-time newborn vital tracki ng",
     slug: "products/blu-neonatal",
-    gradient: "linear-gradient(135deg, #daa351, #66a6ff)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
     glow: "rgba(102,166,255, 0.55)",
     textColor: "#daa351",
   },
-    {
+  {
     id: 11,
     icon: "/logos/white/briefcase.png",
     title: "VitalsBriefcase™",
@@ -903,7 +889,7 @@ const products = [
     category: "Clinical Solutions",
     description: "Smart patient monitoring Briefcase for instant, multi-vital health tracking",
     slug: "products/vitals-briefcase",
-    gradient: "linear-gradient(135deg, #bb78e2, #66a6ff)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
     glow: "rgba(102,166,255, 0.55)",
     textColor: "#bb78e2",
   },
@@ -916,8 +902,8 @@ const products = [
     category: "Community Health",
     description: "Automated medical documentation from clinician-patient conversations",
     slug: "products/blu-notes",
-    gradient: "linear-gradient(135deg, #f093fb, #f5576c)",
-    glow: "rgba(240,147,251, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#f093fb",
   },
   {
@@ -928,8 +914,8 @@ const products = [
     category: "Access & Security",
     description: "Smart, secure access & workflow automation across hospital and industries",
     slug: "products/blu-access",
-    gradient: "linear-gradient(135deg, #4facfe, #00f2fe)",
-    glow: "rgba(0,242,254, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#4facfe",
   },
   {
@@ -940,8 +926,8 @@ const products = [
     category: "Digital Health Platform",
     description: "Centralized health intelligence portal for real-time, connected care",
     slug: "products/blu-health",
-    gradient: "linear-gradient(135deg, #43e97b, #38f9d7)",
-    glow: "rgba(56,249,215, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#43e97b",
   },
   {
@@ -952,8 +938,8 @@ const products = [
     category: "Digital Identity",
     description: "Seamless healthcare access via blockchain biometrics",
     slug: "products/blu-id",
-    gradient: "linear-gradient(135deg, #fa709a, #fee140)",
-    glow: "rgba(250,112,154, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#fa709a",
   },
   {
@@ -964,8 +950,8 @@ const products = [
     category: "Mental Wellness",
     description: "An intelligent way to understand and support mental health",
     slug: "products/blu-mental-health",
-    gradient: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
-    glow: "rgba(161,140,209, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#a18cd1",
   },
   {
@@ -976,8 +962,8 @@ const products = [
     category: "Secure Communication",
     description: "Intelligent document management for healthcare operations",
     slug: "products/blu-dms",
-    gradient: "linear-gradient(135deg, #fccb90, #d57eeb)",
-    glow: "rgba(213,126,235, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#fccb90",
   },
   {
@@ -988,8 +974,8 @@ const products = [
     category: "AI Clinical Documentation",
     description: "Conversational AI for patient triage and engagement using natural language",
     slug: "products/blu-asha",
-    gradient: "linear-gradient(135deg, #667eea, #764ba2)",
-    glow: "rgba(102,126,234, 0.55)",
+    gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
+    glow: "rgba(102,166,255, 0.55)",
     textColor: "#667eea",
   },
 ];
@@ -1085,41 +1071,41 @@ export default function HeroSection() {
   }
 
   return (
-    <Box 
-      sx={{ 
-        minHeight: "100vh", 
-        overflow: "hidden", 
+    <Box
+      sx={{
+        minHeight: "100vh",
+        overflow: "hidden",
         position: "relative",
-        bgcolor: "#05060A", // Deep void black base
-        background: "radial-gradient(circle at 50% 40%, #151A2E 0%, #0A0D1C 60%, #05060A 100%)"
+        bgcolor: "#060B16", // Deep void black base
+        // background: "radial-gradient(circle at 50% 40%, #151A2E 0%, #0A0D1C 60%, #05060A 100%)"
       }}
     >
       {/* ================== IMMERSIVE AURORA BACKGROUND ================== */}
-      <Box sx={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", overflow: "hidden" }}>
-        {/* Core Aurora Left */}
-        <Box sx={{ 
-          position: "absolute", top: "-20%", left: "-15%", width: "60vw", height: "60vw", 
-          borderRadius: "50%", 
-          background: "conic-gradient(from 180deg, rgba(27,77,255,0.3), rgba(137,247,254,0.2), transparent 60%)",
-          filter: "blur(120px)", animation: `${blobFloat} 25s ease-in-out infinite` 
-        }} />
-        
-        {/* Core Aurora Right */}
-        <Box sx={{ 
-          position: "absolute", top: "20%", right: "-20%", width: "50vw", height: "50vw", 
-          borderRadius: "50%", 
-          background: "conic-gradient(from 0deg, rgba(240,147,251,0.2), rgba(102,126,234,0.4), transparent 70%)",
-          filter: "blur(120px)", animation: `${blobFloat} 35s ease-in-out infinite reverse` 
-        }} />
-
-        {/* Floor reflection glow */}
-        <Box sx={{ 
-          position: "absolute", bottom: "-30%", left: "25%", width: "50vw", height: "30vw",
-          borderRadius: "50%", 
-          background: "radial-gradient(ellipse, rgba(0, 212, 255, 0.15), transparent 70%)",
-          filter: "blur(80px)", animation: `${float} 15s ease-in-out infinite`
-        }} />
+  <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "5%",
+          opacity: 0.06,
+          transform: "rotate(-15deg)",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        <LocalHospitalIcon sx={{ fontSize: 120, color: "#ffffff" }} />
       </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          right: "5%",
+          opacity: 0.06,
+          transform: "rotate(15deg)",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        <HealingIcon sx={{ fontSize: 100, color: "#fefeff" }} />
+      </Box>
+      
 
       <Box
         sx={{
@@ -1133,15 +1119,15 @@ export default function HeroSection() {
         }}
       >
         <Container maxWidth="xl" sx={{ py: { xs: 10, sm: 10, md: 12 } }}>
-          
+
           {/* ================== CINEMATIC HEADER ================== */}
-          <Box sx={{ textAlign: "center", mb: { xs: 6, sm: 8, md: 2 } }}>
+          <Box sx={{ textAlign: "center", mb: { xs: 2, sm: 2, md: 2 } }}>
             <Typography
               sx={{
                 fontSize: { xs: "clamp(34px, 7vw, 50px)", sm: "clamp(44px, 6vw, 62px)", md: "clamp(52px, 5.5vw, 65px)" },
                 fontWeight: 800,
                 lineHeight: 1.05,
-                color: "#fff",
+                color: "white",
                 maxWidth: 1150,
                 mx: "auto",
                 letterSpacing: "-1.5px",
@@ -1152,7 +1138,7 @@ export default function HeroSection() {
               <Box
                 component="span"
                 sx={{
-                  background: "linear-gradient(90deg, #1b4dff, #eceff0, #1b4dff)",
+                  background: "linear-gradient(40deg, #1b4dff, #e7edf0, #1b4dff)",
                   backgroundSize: "300% 100%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -1178,18 +1164,17 @@ export default function HeroSection() {
               "&::before": {
                 content: '""',
                 position: "absolute",
-                top: "50%",
+                top: "80%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 width: { xs: "90%", md: "70%" },
-                height: "70%",
-                background: "radial-gradient(ellipse, rgba(0, 212, 255, 0.2), rgba(27,77,255, 0.1) 50%, transparent 80%)",
-                // filter: "blur(80px)",
+                height: "5%",
+                // background: "radial-gradient(ellipse, rgba(224, 228, 236, 0.2), rgba(230, 232, 238, 0.1) 20%, transparent 60%)",
                 zIndex: -1,
               }
             }}
           >
-            
+
             {/* ================== TRACK ================== */}
             <Box
               sx={{
@@ -1251,18 +1236,18 @@ export default function HeroSection() {
                           cursor: "pointer",
                           transition: "all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)",
                           overflow: "hidden",
-                     
+
                           "&::before": {
                             content: '""',
                             position: "absolute",
                             inset: 0,
-                            background: isActive 
-                              ? `linear-gradient(180deg, ${product.glow.replace("0.55", "0.3")}, transparent 40%)` 
+                            background: isActive
+                              ? `linear-gradient(180deg, ${product.glow.replace("0.55", "0.3")}, transparent 40%)`
                               : "linear-gradient(180deg, rgba(255,255,255,0.05), transparent 30%)",
                             pointerEvents: "none",
                             zIndex: 1
                           },
-                          
+
                           // Animated Conic Border Glow
                           "&::after": {
                             content: '""',
@@ -1270,8 +1255,8 @@ export default function HeroSection() {
                             inset: -2,
                             borderRadius: "inherit",
                             padding: "2px",
-                            background: isActive 
-                              ? `conic-gradient(from 0deg, transparent 10%, ${product.gradient}, transparent 90%)` 
+                            background: isActive
+                              ? `conic-gradient(from 0deg, transparent 10%, ${product.gradient}, transparent 90%)`
                               : "transparent",
                             WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                             WebkitMaskComposite: "xor",
@@ -1280,38 +1265,14 @@ export default function HeroSection() {
                             animation: isActive ? `${rotateGlow} 6s linear infinite` : "none",
                             pointerEvents: "none"
                           },
-                          
+
                           "&:hover": {
                             transform: "translateY(-10px) scale(1.02)",
-                            boxShadow: `0 50px 120px ${product.glow}, 0 0 60px rgba(0,0,0,0.8)`
+                            // boxShadow: `0 50px 120px ${product.glow}, 0 0 60px rgba(0,0,0,0.8)`
                           }
                         }}
                       >
-                        {/* Shimmer Top Bar on Hover/Active */}
-                        {isActive && (
-                          <Box sx={{
-                            position: "absolute",
-                            top: 0, left: 0, right: 0, height: "4px",
-                            background: `linear-gradient(90deg, transparent, ${product.gradient}, transparent)`,
-                            backgroundSize: "200% 100%",
-                            animation: `${shimmer} 2s linear infinite`,
-                            zIndex: 5,
-                            borderRadius: "28px 28px 0 0"
-                          }} />
-                        )}
 
-                        {/* Center Pulse Ring */}
-                        {isActive && (
-                          <Box sx={{
-                            position: "absolute", top: "50%", left: "50%",
-                            transform: "translate(-50%, -50%)",
-                            width: "80%", height: "80%",
-                            border: `1px solid ${product.glow}`,
-                            borderRadius: "50%",
-                            animation: `${pulseRing} 3s ease-out infinite`,
-                            pointerEvents: "none"
-                          }} />
-                        )}
 
                         <CardContent
                           sx={{
@@ -1331,21 +1292,21 @@ export default function HeroSection() {
                             sx={{
                               position: "relative",
                               width: { xs: 280, md: 340 },
-                              height: { xs: 160, md: 200 },
-                              borderRadius: "28px",
+                              height: { xs: 160, md: 180 },
+                              borderRadius: "20px",
+                              overflow: "hidden",
                               mx: "auto",
-                              mb: { xs: 1, md: 2 },
-                              // filter: isActive ? `drop-shadow(0 20px 30px ${product.glow})` : "drop-shadow(0 10px 20px rgba(0,0,0,0.5))",
                               transition: "filter 0.4s"
                             }}
                           >
                             <Image
                               src={product.image}
                               alt={product.title}
+
                               fill
                               style={{
-                                objectFit: "contain",
-                                borderRadius: "24px",
+                                objectFit: "cover",
+
                                 maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
                                 WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
                               }}
@@ -1353,7 +1314,7 @@ export default function HeroSection() {
                           </Box>
 
                           <Box sx={{ height: 10 }} />
-                          
+
                           {/* Icon Badge */}
                           <Box
                             sx={{
@@ -1447,7 +1408,7 @@ export default function HeroSection() {
             </Box>
 
             {/* ================== CONTROLS ================== */}
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1.5, alignItems: "center" }}>
+            {/* <Box sx={{ display: "flex", justifyContent: "center", gap: 1.5, alignItems: "center" }}>
               {products.map((_, index) => {
                 const isActive = currentIndex === index;
                 return (
@@ -1471,7 +1432,7 @@ export default function HeroSection() {
                   />
                 );
               })}
-            </Box>
+            </Box> */}
 
             {/* ================== CTA BUTTONS ================== */}
             <Stack
@@ -1479,7 +1440,7 @@ export default function HeroSection() {
               spacing={3}
               justifyContent="center"
               alignItems="center"
-              mt={{ xs: 6, md: 8 }}
+            mt={{ xs: 6, md: 0}}
             >
               <Button
                 variant="contained"
@@ -1488,8 +1449,8 @@ export default function HeroSection() {
                 sx={{
                   background: " #1b4dff",
                   color: "#fff",
-                  px: { xs: 6, md: 7 },
-                  py: 2,
+                  px: { xs: 6, md: 6 },
+                  py: 1.5,
                   fontWeight: 900,
                   fontSize: "17px",
                   borderRadius: "50px",
@@ -1513,8 +1474,8 @@ export default function HeroSection() {
                 size="large"
                 onClick={() => router.push("#")}
                 sx={{
-                  px: { xs: 6, md: 7 },
-                  py: 2,
+                  px: { xs: 6, md: 6 },
+                  py: 1.5,
                   fontWeight: 700,
                   fontSize: "17px",
                   borderRadius: "50px",
@@ -1536,39 +1497,39 @@ export default function HeroSection() {
 
           </Box>
         </Container>
-        
+
         {/* Premium Floating Arrows */}
-        <IconButton 
-          onClick={handlePrev} 
-          sx={{ 
-            position: "absolute", 
-            left: {xs: "3%", md: "8%"}, 
-            top: "50%", 
-            zIndex: 10, 
-            color: "#fff", 
-            border: "1px solid rgba(255,255,255,0.2)", 
+        <IconButton
+          onClick={handlePrev}
+          sx={{
+            position: "absolute",
+            left: { xs: "3%", md: "8%" },
+            top: "50%",
+            zIndex: 10,
+            color: "#fff",
+            border: "1px solid rgba(255,255,255,0.2)",
             bgcolor: "rgba(10, 15, 30, 0.5)",
             // backdropFilter: "blur(10px)",
             width: 60, height: 60,
-            "&:hover": { bgcolor: "rgba(27,77,255, 0.4)", borderColor: "#00d2ff", boxShadow: "0 0 30px rgba(27,77,255, 0.4)" },
+            "&:hover": { bgcolor: "rgba(13, 64, 218, 0.4)", borderColor: "#f5f8f8", boxShadow: "0 0 30px rgba(24, 48, 230, 0.4)" },
             display: { xs: "none", sm: "flex" }
           }}
         >
           <ChevronLeftIcon sx={{ fontSize: 30 }} />
         </IconButton>
-        <IconButton 
-          onClick={handleNext} 
-          sx={{ 
-            position: "absolute", 
-            right: {xs: "3%", md: "8%"}, 
-            top: "50%", 
-            zIndex: 10, 
-            color: "#fff", 
-            border: "1px solid rgba(255,255,255,0.2)", 
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            position: "absolute",
+            right: { xs: "3%", md: "8%" },
+            top: "50%",
+            zIndex: 10,
+            color: "#fff",
+            border: "1px solid rgba(255,255,255,0.2)",
             bgcolor: "rgba(10, 15, 30, 0.5)",
             // backdropFilter: "blur(10px)",
             width: 60, height: 60,
-            "&:hover": { bgcolor: "rgba(27,77,255, 0.4)", borderColor: "#00d2ff", boxShadow: "0 0 30px rgba(27,77,255, 0.4)" },
+            "&:hover": { bgcolor: "rgba(13, 64, 218, 0.4)", borderColor: "#f5f8f8", boxShadow: "0 0 30px rgba(24, 48, 230, 0.4)" },
             display: { xs: "none", sm: "flex" }
           }}
         >
