@@ -1424,7 +1424,7 @@ export default function NeonatalViewer({ modelPath }) {
   const controlsRef = useRef(null);
   const interactionCountRef = useRef(0);
 
- const DEFAULT_CAMERA_POSITION = [0, 0.5, 5];
+ const DEFAULT_CAMERA_POSITION = [0, 0.5, 4];
 
   useEffect(() => {
     setIsMounted(true);
@@ -1530,8 +1530,8 @@ export default function NeonatalViewer({ modelPath }) {
       ref={containerRef}
       sx={{
         position: 'relative',
-       width: isFullscreen ? '100vw' : { xs: 342, sm: 628, md: 600 },
-        height: isFullscreen ? '100vh' : { xs: 280, sm: 360, md: 560 },
+      width: isFullscreen ? '100vw' :  "100%",
+        height: isFullscreen ? '100vh' : { xs: 280, sm: 550, md: 760 },
         borderRadius: isFullscreen ? 0 : 4,
         bgcolor: 'white',
         overflow: 'hidden',
@@ -1562,7 +1562,7 @@ export default function NeonatalViewer({ modelPath }) {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 10, 7]} intensity={1.5} />
-        <directionalLight position={[-5, 0, 5]} intensity={0.5} color="#4488ff" />
+        {/* <directionalLight position={[-5, 0, 5]} intensity={0.5} color="#4488ff" /> */}
         <hemisphereLight skyColor="#4488ff" groundColor="#e2e2e2" intensity={0.3} />
 
         <Suspense fallback={<Loader />}>
@@ -1575,22 +1575,7 @@ export default function NeonatalViewer({ modelPath }) {
           />
         </Suspense>
 
-        {/* <OrbitControls
-          ref={controlsRef}
-          makeDefault
-          enableRotate={true}
-          enableZoom={isFullscreen}
-          enablePan={isFullscreen}
-          rotateSpeed={0.8}
-          zoomSpeed={1.2}
-          panSpeed={0.8}
-          enableDamping
-          dampingFactor={0.05}
-          minDistance={1}
-          maxDistance={50}
-          onStart={handleInteractionStart}
-          onEnd={handleInteractionEnd}
-        /> */}
+
 
         <OrbitControls
           ref={controlsRef}
@@ -1618,46 +1603,7 @@ export default function NeonatalViewer({ modelPath }) {
         />
       </Canvas>
 
-      {/* Fullscreen button */}
-      <IconButton
-        onClick={toggleFullscreen}
-        sx={{
-          position: 'absolute',
-          top: 12, right: 12,
-          zIndex: 10,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(8px)',
-          color: 'white',
-          borderRadius: '8px',
-          padding: '8px',
-          border: '1px solid rgba(255,255,255,0.1)',
-          '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-        }}
-      >
-        {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
-      </IconButton>
 
-      {/* Reset camera button - only show in fullscreen */}
-      {isFullscreen && (
-        <IconButton
-          onClick={resetCamera}
-          sx={{
-            position: 'absolute',
-            top: 12, right: 58,
-            zIndex: 10,
-            height: 42, width: 42,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(8px)',
-            color: 'white',
-            borderRadius: '8px',
-            padding: '8px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-          }}
-        >
-          ⟲
-        </IconButton>
-      )}
     </Box>
   );
 }

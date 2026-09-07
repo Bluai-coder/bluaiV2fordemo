@@ -41,7 +41,7 @@ const pages = [
   { label: "Our Products", route: "#", children: true, value: "products" },
   { label: "Investor", route: "/investor/" },
   { label: "Contact", route: "/contact/" },
-  { label: "Our Story", route: "/our-story/" },
+  // { label: "Our Story", route: "/our-story/" },
   { label: "Careers", route: "https://careerportal.bluai.ai/BLU-IXC" },
   
 ];

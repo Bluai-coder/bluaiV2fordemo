@@ -817,9 +817,8 @@
 
 "use client";
 
-import { Box, Container, Typography, Card, CardContent, IconButton, useTheme, useMediaQuery, Button, Stack } from "@mui/material";
-import { keyframes } from "@mui/system";
 import Image from "next/image";
+import { keyframes } from "@mui/system";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -828,6 +827,7 @@ import { useSwipeable } from "react-swipeable";
 import RequestDemoModal from "./popups/RequestDemoModal";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import HealingIcon from "@mui/icons-material/Healing";
+import { Box, Container, Typography, Card, CardContent, IconButton, useTheme, useMediaQuery, Button, Stack } from "@mui/material";
 
 // ==================== CINEMATIC ANIMATIONS ====================
 
@@ -1076,12 +1076,11 @@ export default function HeroSection() {
         minHeight: "100vh",
         overflow: "hidden",
         position: "relative",
-        bgcolor: "#060B16", // Deep void black base
-        // background: "radial-gradient(circle at 50% 40%, #151A2E 0%, #0A0D1C 60%, #05060A 100%)"
+        bgcolor: "#060B16",
       }}
     >
       {/* ================== IMMERSIVE AURORA BACKGROUND ================== */}
-  <Box
+      <Box
         sx={{
           position: "absolute",
           top: "10%",
@@ -1093,6 +1092,7 @@ export default function HeroSection() {
       >
         <LocalHospitalIcon sx={{ fontSize: 120, color: "#ffffff" }} />
       </Box>
+
       <Box
         sx={{
           position: "absolute",
@@ -1105,7 +1105,6 @@ export default function HeroSection() {
       >
         <HealingIcon sx={{ fontSize: 100, color: "#fefeff" }} />
       </Box>
-      
 
       <Box
         sx={{
@@ -1169,7 +1168,6 @@ export default function HeroSection() {
                 transform: "translate(-50%, -50%)",
                 width: { xs: "90%", md: "70%" },
                 height: "5%",
-                // background: "radial-gradient(ellipse, rgba(224, 228, 236, 0.2), rgba(230, 232, 238, 0.1) 20%, transparent 60%)",
                 zIndex: -1,
               }
             }}
@@ -1268,7 +1266,6 @@ export default function HeroSection() {
 
                           "&:hover": {
                             transform: "translateY(-10px) scale(1.02)",
-                            // boxShadow: `0 50px 120px ${product.glow}, 0 0 60px rgba(0,0,0,0.8)`
                           }
                         }}
                       >
@@ -1291,7 +1288,7 @@ export default function HeroSection() {
                           <Box
                             sx={{
                               position: "relative",
-                              width: { xs: 280, md: 340 },
+                              width: { xs: "100%", md: 340 },
                               height: { xs: 160, md: 180 },
                               borderRadius: "20px",
                               overflow: "hidden",
@@ -1440,7 +1437,7 @@ export default function HeroSection() {
               spacing={3}
               justifyContent="center"
               alignItems="center"
-            mt={{ xs: 6, md: 0}}
+              mt={{ xs: 6, md: 0 }}
             >
               <Button
                 variant="contained"

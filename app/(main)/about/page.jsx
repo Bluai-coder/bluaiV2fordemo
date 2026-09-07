@@ -400,34 +400,7 @@ export default function About() {
             </Box>
           </Box>
 
-          {/* RIGHT IMAGE */}
-          <Box
-            sx={{
-              flex: 1,
-              position: "relative",
-              minHeight: { xs: 260, md: "auto" },
-            }}
-          >
-            <Image
-              src="/about.avif"
-              alt="BluAI Team Collaboration"
-              fill
-              priority
-              style={{ objectFit: "cover" }}
-            />
-
-            {/* overlay */}
-            <Box
-              sx={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(90deg, rgba(11,20,48,0.92) 0%, rgba(11,20,48,0.55) 45%, rgba(11,20,48,0.18) 100%)",
-              }}
-            />
-
-
-          </Box>
+        
         </Box>
 
 

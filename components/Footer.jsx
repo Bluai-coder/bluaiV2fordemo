@@ -162,14 +162,40 @@ export default function Footer() {
   };
 
   return (
-    <Box
-      component="footer"
-      sx={{
-        background: "#0B1220",
-        // color: "#E2E8F0",
+  <Box
+        sx={{
+          width: "100%",
+          bgcolor: "#0B1220",
+          position: "relative",
+          overflow: "hidden",
         pt: { xs: 6, md: 8 },
-      }}
-    >
+        }}
+      >
+        {/* soft glow accents */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: -80,
+            right: -60,
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: -100,
+            left: -40,
+            width: 360,
+            height: 360,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
     
       <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 4, md: 6, lg: 8 } }}>
         {/* =====================================================

@@ -200,7 +200,7 @@ export default function BriefcaseViewer({ modelPath }) {
   const controlsRef = useRef(null);
   const interactionCountRef = useRef(0);
 
-  const DEFAULT_CAMERA_POSITION = [0, 0.5, 1];
+  const DEFAULT_CAMERA_POSITION = [0, 0.5, 1.2];
 
   useEffect(() => {
     setIsMounted(true);
@@ -306,8 +306,8 @@ export default function BriefcaseViewer({ modelPath }) {
       ref={containerRef}
       sx={{
         position: 'relative',
-       width: isFullscreen ? '100vw' : { xs: 342, sm: 628, md: 600 },
-        height: isFullscreen ? '100vh' : { xs: 280, sm: 360, md: 530 },
+        width: isFullscreen ? '100vw' :  "100%",
+        height: isFullscreen ? '100vh' : { xs: 280, sm: 550, md: 760 },
         borderRadius: isFullscreen ? 0 : 4,
         bgcolor: 'white',
         overflow: 'hidden',
@@ -351,22 +351,6 @@ export default function BriefcaseViewer({ modelPath }) {
           />
         </Suspense>
 
-        {/* <OrbitControls
-          ref={controlsRef}
-          makeDefault
-          enableRotate={true}
-          enableZoom={isFullscreen}
-          enablePan={isFullscreen}
-          rotateSpeed={0.8}
-          zoomSpeed={1.2}
-          panSpeed={0.8}
-          enableDamping
-          dampingFactor={0.05}
-          minDistance={1}
-          maxDistance={50}
-          onStart={handleInteractionStart}
-          onEnd={handleInteractionEnd}
-        /> */}
 
         <OrbitControls
           ref={controlsRef}
@@ -394,46 +378,7 @@ export default function BriefcaseViewer({ modelPath }) {
         />
       </Canvas>
 
-      {/* Fullscreen button */}
-      <IconButton
-        onClick={toggleFullscreen}
-        sx={{
-          position: 'absolute',
-          top: 12, right: 12,
-          zIndex: 10,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(8px)',
-          color: 'white',
-          borderRadius: '8px',
-          padding: '8px',
-          border: '1px solid rgba(255,255,255,0.1)',
-          '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-        }}
-      >
-        {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
-      </IconButton>
-
-      {/* Reset camera button - only show in fullscreen */}
-      {isFullscreen && (
-        <IconButton
-          onClick={resetCamera}
-          sx={{
-            position: 'absolute',
-            top: 12, right: 58,
-            zIndex: 10,
-            height: 42, width: 42,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(8px)',
-            color: 'white',
-            borderRadius: '8px',
-            padding: '8px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-          }}
-        >
-          ⟲
-        </IconButton>
-      )}
+  
     </Box>
   );
 }

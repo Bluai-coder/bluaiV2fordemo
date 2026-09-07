@@ -401,7 +401,7 @@
 'use client';
 
 import { useState, useRef } from "react";
-import { Box, Container, Typography, Stack, Chip, Paper, Button, Divider} from "@mui/material";
+import { Box, Container, Typography, Stack, Chip, Paper, Button, Divider } from "@mui/material";
 import { ArrowRight, Shield, Activity, Cloud, HeartPulse, Scale, Star, PlayCircle, CheckCircle2, Radio, BadgeCheck, Fingerprint, Cpu, Rotate3d, ChevronLeft, ChevronRight, Plus, Minus } from "lucide-react";
 import VitalsBriefcase3D from "../../../components/VitalsBriefcase3D";
 import RequestDemoModal from "../../../components/popups/RequestDemoModal"
@@ -464,7 +464,7 @@ const FAQItem = ({ question, answer, defaultOpen = false }) => {
   );
 };
 
-// --- Product Gallery (360 Viewer & Thumbnails) ---
+// --- 360 Viewer ---
 const ProductGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -473,7 +473,6 @@ const ProductGallery = () => {
 
   const galleryItems = [
     { type: '360', label: '360° View', src: '/briefcase-use.png' },
-    // { type: 'image', label: 'Deployment', src: '/briefcase/briefcase-4.webp', objectPosition: 'bottom' },
     { type: 'image', label: 'Side View', src: '/briefcase/briefcase-1.webp', transform: 'bottom)' },
     { type: 'image', label: 'Front View', src: '/briefcase/briefcase-2.webp', transform: 'bottom' },
     { type: 'image', label: 'Deployment', src: '/briefcase/briefcase-5.webp', objectPosition: 'bottom' },
@@ -497,13 +496,14 @@ const ProductGallery = () => {
   const handlePrev = () => setActiveIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 650, mx: 'auto', position: 'relative' }}>
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: "column", md: 'row' }, overflow: { xs: "hidden", sm: 'auto', md: 'auto' }, width: '100%', mx: 'auto', position: 'relative', gap: 2 }}>
       <Box
         sx={{
-          position: 'relative', width: '100%', height: { xs: 350, sm: 420, md: 535 },
+          position: 'relative', width: '100%',
           borderRadius: 4, overflow: 'hidden', bgcolor: 'transparent',
           cursor: galleryItems[activeIndex].type === '360' ? (isDragging ? 'grabbing' : 'grab') : 'default',
-          userSelect: 'none'
+          userSelect: 'none',
+          mt: { xs: 4, sm: 6, md: 6 }
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -511,20 +511,20 @@ const ProductGallery = () => {
         onMouseLeave={handleMouseUp}
       >
         {galleryItems[activeIndex].type === '360' ? (
-          <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <VitalsBriefcase3D />
-          </Box>
+          <VitalsBriefcase3D />
         ) : (
           <img
             src={galleryItems[activeIndex].src}
             alt={galleryItems[activeIndex].label}
             style={{
-              width: '100%', height: '100%', objectFit: 'cover',
+              width: '100%', height: '100%', objectFit: 'fill',
               transform: galleryItems[activeIndex].transform || 'none',
               objectPosition: galleryItems[activeIndex].objectPosition || 'center'
             }}
           />
         )}
+
+
 
         <Box sx={{ position: 'absolute', top: '50%', left: 16, transform: 'translateY(-50%)', width: 48, height: 48, borderRadius: 2, bgcolor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 5, '&:hover': { bgcolor: 'rgba(0,0,0,0.1)' } }} onClick={handlePrev}>
           <ChevronLeft size={28} color="#111827" />
@@ -533,37 +533,34 @@ const ProductGallery = () => {
           <ChevronRight size={28} color="#111827" />
         </Box>
 
-        {galleryItems[activeIndex].type === '360' && (
-          <Box sx={{ position: 'absolute', bottom: 20, left: '70%', transform: 'translateX(-50%)', display: 'flex', alignItems: 'center', gap: 2, bgcolor: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(10px)', px: 4, py: 1.5, borderRadius: 3, border: '1px solid rgba(255,255,255,0.1)' }}>
-            <Typography sx={{ fontSize: 16, fontWeight: 800, color: '#fff' }}>360°</Typography>
-            <Rotate3d size={24} color="#fff" />
-          </Box>
-        )}
+
       </Box>
 
-      <Box sx={{ display: 'flex', gap: 2, mt: 2, overflowX: 'auto', pb: 2, '&::-webkit-scrollbar': { height: 6 }, '&::-webkit-scrollbar-thumb': { bgcolor: '#cbd5e1', borderRadius: 3 } }}>
+      <Box sx={{ mt: 8, pb: 2, gap: 4, display: "flex", flexDirection: { xs: 'row', sm: 'row', md: 'column' }, overflow: { xs: "auto", sm: 'auto', md: 'hidden' } }}>
         {galleryItems.map((item, i) => (
           <Box
             key={i}
             onClick={() => setActiveIndex(i)}
             sx={{
-              position: 'relative', flex: '0 0 auto', width: { xs: 100, md: 130 }, height: { xs: 70, md: 90 },
+
+              position: 'relative', flex: '0 0 auto', height: { xs: 70, sm: 80, md: 90 }, width: { xs: 70, sm: 70, md: "auto" },
               borderRadius: 3, overflow: 'hidden', cursor: 'pointer',
               border: activeIndex === i ? '3px solid #4756d4' : '3px solid transparent',
               boxShadow: activeIndex === i ? '0 10px 20px rgba(71,86,212,0.2)' : 'none',
-              transition: 'all 0.3s ease', '&:hover': { opacity: 0.9 }
+              transition: 'all 0.3s ease', '&:hover': { opacity: 0.9 },
             }}
           >
             {item.type === '360' ? (
               <Box sx={{ width: '100%', height: '100%', bgcolor: '#eef2ff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
                 <Rotate3d size={28} color="#4756d4" />
-                {/* <Typography sx={{ fontSize: 12, fontWeight: 800, color: '#4756d4' }}>360°</Typography> */}
+                <Typography sx={{ fontSize: 12, fontWeight: 800, color: '#4756d4' }}>360°</Typography>
               </Box>
             ) : (
               <img src={item.src} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: item.transform || 'none', objectPosition: item.objectPosition || 'center' }} />
             )}
             {i === 0 && (
-              '')}
+              <Box sx={{ position: 'absolute', top: 4, right: 4, bgcolor: '#f59e0b', color: '#fff', borderRadius: '50%', width: 18, height: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 900 }}>360</Box>
+            )}
           </Box>
         ))}
       </Box>
@@ -617,71 +614,56 @@ export default function VitalsBriefcaseClient() {
   ];
 
   return (
-    <Box sx={{ width: "100%", backgroundColor: "#ffffff", fontFamily: 'Inter, sans-serif', overflowX: 'hidden' }}>
+    <Box sx={{ width: "100%", backgroundColor: "#fff" }}>
 
-      <style>{`
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
-        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(71,86,212,0.5); } 70% { box-shadow: 0 0 0 20px rgba(71,86,212,0); } 100% { box-shadow: 0 0 0 0 rgba(71,86,212,0); } }
-        .hover-lift { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1); border-color: #4756d4 !important; }
-      `}</style>
+      {/* 1. HERO - PERFECT & UNTOUCHED */}
+      <Container maxWidth="lg" sx={{ textAlign: "center", }}>
+        <ProductGallery />
+      </Container>
 
-      {/* 1. PREMIUM HERO - 3D LEFT, MINIMAL TEXT RIGHT */}
-      <Box sx={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center',
-        position: 'relative', overflow: 'hidden',
-        pt: { xs: 6, md: 8 }, pb: { xs: 6, md: 10 },
-        background: 'linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #ffffff 100%)'
-      }}>
-        <Box sx={{ position: 'absolute', top: -100, left: -100, width: 500, height: 500, bgcolor: '#4756d4', opacity: 0.1, borderRadius: '50%', filter: 'blur(100px)' }} />
-        <Box sx={{ position: 'absolute', bottom: -100, right: -100, width: 500, height: 500, bgcolor: '#10b981', opacity: 0.1, borderRadius: '50%', filter: 'blur(100px)' }} />
 
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: { xs: 6, md: 8 } }}>
 
-            {/* LEFT: Product 360 Gallery */}
-            <Box sx={{ flex: 1.2, position: 'relative', width: '100%', order: { xs: 1, md: 1 } }}>
-              <ProductGallery />
-            </Box>
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
 
-            {/* RIGHT: Minimal Text & CTA */}
-            <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' }, width: '100%', order: { xs: 2, md: 2 } }}>
-           
 
-              <Typography sx={{ fontWeight: 900, fontSize: { xs: 38, sm: 48, md: 48 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 4 }}>
-                Vitals briefcase™ <br /> by BluAI
-              </Typography>
+        {/* RIGHT: Minimal Text & CTA */}
+        <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'center' }, width: '100%', order: { xs: 2, md: 2 } }}>
 
-              <Typography sx={{ fontWeight: 900, fontSize: { xs: 22, sm: 28, md: 36 }, background: 'linear-gradient(90deg, #4756d4, #10b981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
-                Manage. My Health. My Way.™
-              </Typography>
 
-              <Typography sx={{ color: '#4b5563', fontSize: { xs: 15, md: 18 }, mb: 5, maxWidth: 600, lineHeight: 1.7, mx: { xs: 'auto', md: 0 } }}>
-                <b>AI-Powered | Contactless | Cloud-Connected.</b> Introducing Vitals briefcase™, a next-generation health screening kiosk designed for rapid, contactless vitals monitoring in high-traffic settings.
-              </Typography>
+          <Typography sx={{ fontWeight: 900, fontSize: { xs: 38, sm: 48, md: 34 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
+            Vitals briefcase™  by BluAI
+          </Typography>
 
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }} sx={{ mb: 5 }}>
-                <Button variant="contained" endIcon={<ArrowRight />}
-                onClick={() => setOpenDemo(true)}
-                sx={{
-                  bgcolor: '#0a1a3c', color: '#fff', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-                  textTransform: 'none', fontSize: 16, boxShadow: '0 15px 30px rgba(10,26,60,0.3)', width: { xs: '100%', sm: 'auto' },
-                  '&:hover': { bgcolor: '#1e3a8a', transform: 'translateY(-2px)', boxShadow: '0 20px 40px rgba(10,26,60,0.4)' }
-                }}>
-                  Request Demo
-                </Button>
-                
-                <Button variant="outlined" startIcon={<PlayCircle size={20} />} sx={{
-                  borderColor: '#cbd5e1', color: '#0a1a3c', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-                  textTransform: 'none', fontSize: 16, bgcolor: 'rgba(255,255,255,0.8)', width: { xs: '100%', sm: 'auto' },
-                  '&:hover': { borderColor: '#4756d4', color: '#4756d4', bgcolor: '#fff' }
-                }}>
-                  Watch Demo
-                </Button>
-              </Stack>
-              <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+          <Typography sx={{ fontWeight: 900, fontSize: { xs: 20, sm: 24, md: 16 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
+            Manage. My Health. My Way.™
+          </Typography>
 
-              {/* <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }}>
+          <Typography sx={{ color: '#4b5563', fontSize: { xs: 15, md: 18 }, mb: 5, lineHeight: 1.7, mx: { xs: 'auto', md: 0 } }}>
+            <b>AI-Powered | Contactless | Cloud-Connected.</b> Introducing Vitals briefcase™, a next-generation health screening kiosk designed for rapid, contactless vitals monitoring in high-traffic settings.
+          </Typography>
+
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex' }} sx={{ mb: 5 }}>
+            <Button variant="contained" endIcon={<ArrowRight />}
+              onClick={() => setOpenDemo(true)}
+              sx={{
+                bgcolor: '#0a1a3c', color: '#fff', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
+                textTransform: 'none', fontSize: 16, boxShadow: '0 15px 30px rgba(10,26,60,0.3)', width: { xs: '100%', sm: 'auto' },
+                '&:hover': { bgcolor: '#1e3a8a', transform: 'translateY(-2px)', boxShadow: '0 20px 40px rgba(10,26,60,0.4)' }
+              }}>
+              Request Demo
+            </Button>
+
+            <Button variant="outlined" startIcon={<PlayCircle size={20} />} sx={{
+              borderColor: '#cbd5e1', color: '#0a1a3c', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
+              textTransform: 'none', fontSize: 16, bgcolor: 'rgba(255,255,255,0.8)', width: { xs: '100%', sm: 'auto' },
+              '&:hover': { borderColor: '#4756d4', color: '#4756d4', bgcolor: '#fff' }
+            }}>
+              Watch Demo
+            </Button>
+          </Stack>
+          <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+
+          {/* <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
                   <Shield size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>HIPAA Secured</Typography>
                 </Box>
@@ -692,10 +674,8 @@ export default function VitalsBriefcaseClient() {
                   <Fingerprint size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>Multi-Login</Typography>
                 </Box>
               </Stack> */}
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
 
       {/* 2. DARK FEATURES (COMPACT & TIGHT) */}
       <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#0a1a3c', color: '#fff', position: 'relative', overflow: 'hidden' }}>

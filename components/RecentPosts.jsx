@@ -11,6 +11,7 @@ import {
   Avatar,
   Stack,
   Button,
+  keyframes,
 } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -46,6 +47,10 @@ const posts = [
 ];
 
 /* -------------------- COMPONENT -------------------- */
+const pulseGlow = keyframes`
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+`;
 
 export default function RecentPosts() {
   const router = useRouter();
@@ -53,10 +58,11 @@ export default function RecentPosts() {
   return (
     <Box
       sx={{
-        // py: { xs: 6, sm: 8, md: 11 },
+        py: { xs: 6, sm: 8, md: 3 },
         bgcolor: "#fafbfd",
         position: "relative",
         overflow: "hidden",
+
       }}
     >
       {/* Background accent */}
@@ -82,23 +88,40 @@ export default function RecentPosts() {
           textAlign="center"
           mb={{ xs: 4.5, sm: 5.5, md: 7 }}
         >
-      
+
 
           <Typography
             sx={{
               fontWeight: 800,
-              fontSize: { xs: 22, sm: 26, md: 34 },
-              lineHeight: 1.25,
-              color: "#0f172a",
-              maxWidth: 680,
+              fontSize: { xs: 24, sm: 28, md: "2.8rem" },
+              lineHeight: 1.2,
+              color: "#0a1628",
+              maxWidth: 780,
               px: { xs: 1, sm: 0 },
             }}
           >
-            <Box component="span" color="text.primary">
-              RECENT POSTS FROM OUR{" "}
+            <Box component="span" sx={{ color: "#0a1628" }}>
+              Recent Posts From Our{" "}
             </Box>
-            <Box component="span" sx={{ color: "#1b4dff" }}>
-              BLOG
+             <Box
+                          component="span"
+                          sx={{
+                            color: "#1b4dff",
+                            position: "relative",
+                            "&::after": {
+                              content: '""',
+                              position: "absolute",
+                              bottom: -4,
+                              left: 0,
+                              right: 0,
+                              height: 3,
+                              borderRadius: 999,
+                              background: "linear-gradient(90deg, #1b4dff, #4a7aff)",
+                              animation: `${pulseGlow} 2s ease-in-out infinite`,
+                            },
+                          }}
+                        >
+              Blog
             </Box>
           </Typography>
         </Stack>
