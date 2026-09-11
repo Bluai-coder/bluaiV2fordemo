@@ -45,7 +45,7 @@ export default function StatsSectionPremium() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={{ xs: 2.2, md: 3 }}

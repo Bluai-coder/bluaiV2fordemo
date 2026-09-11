@@ -21,7 +21,7 @@ export default async function BlogDetailsPage({ params }) {
   if (!blog) return null;
   return (
     <Box component="main">
-      <Container maxWidth="lg" className='mt-15' sx={{ py: { xs: 3, md: 6 } }}>
+      <Container maxWidth="xl" className='mt-15' sx={{ py: { xs: 3, md: 6 } , px: {  md: 10 }, }}>
         <BlogHero
           title={blog.heroTitle}
           description={blog.heroDescription}

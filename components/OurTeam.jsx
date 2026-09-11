@@ -96,8 +96,8 @@ export default function OurTeamSlider({ team: partners }) {
   /* ---------------- UI ---------------- */
 
   return (
-    <Box py={{ xs: 6, md: 6 }} mt={5} bgcolor="#fff">
-      <Container maxWidth="lg">
+    <Box py={{ xs: 6, md: 5 }}  bgcolor="#fff">
+      <Container maxWidth="xl">
 
         {/* HEADER */}
         <Stack

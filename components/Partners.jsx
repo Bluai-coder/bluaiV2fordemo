@@ -362,7 +362,7 @@ export default function PartnerSlider() {
             }}
           >
             <Box component="span" sx={{ color: "#0a1628" }}>
-              Expanding possibilities through{" "}
+              Expanding Possibilities Through{" "}
             </Box>
             <Box
               component="span"

@@ -37,7 +37,7 @@ const PRODUCTS = [
   { label: "NeoNatal™", route: "/products/blu-neonatal" },
   { label: "BluID™", route: "/products/blu-id" },
   { label: "BluMental Health", route: "/products/blu-mental-health" },
-  
+
 ];
 
 const SOLUTIONS = [
@@ -145,7 +145,7 @@ const SOCIAL_LINKS = [
 export default function Footer() {
   const router = useRouter();
   const [activeLocation, setActiveLocation] = useState([]);
-      const [openDemo, setOpenDemo] = useState(false);
+  const [openDemo, setOpenDemo] = useState(false);
 
 
   const scrollToTop = () => {
@@ -162,42 +162,42 @@ export default function Footer() {
   };
 
   return (
-  <Box
-        sx={{
-          width: "100%",
-          bgcolor: "#0B1220",
-          position: "relative",
-          overflow: "hidden",
+    <Box
+      sx={{
+        width: "100%",
+        bgcolor: "#0B1220",
+        position: "relative",
+        overflow: "hidden",
         pt: { xs: 6, md: 8 },
+      }}
+    >
+      {/* soft glow accents */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: -80,
+          right: -60,
+          width: 420,
+          height: 420,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)",
+          pointerEvents: "none",
         }}
-      >
-        {/* soft glow accents */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: -80,
-            right: -60,
-            width: 420,
-            height: 420,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: -100,
-            left: -40,
-            width: 360,
-            height: 360,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-    
-      <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 4, md: 6, lg: 8 } }}>
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: -100,
+          left: -40,
+          width: 360,
+          height: 360,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container maxWidth="xl" >
         {/* =====================================================
             TOP SECTION
         ===================================================== */}
@@ -217,7 +217,7 @@ export default function Footer() {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 3 }}>
 
               <Image src="/logo.png" alt="BluAI" width={80} height={80} />
-              
+
             </Box>
 
             <Typography
@@ -234,7 +234,7 @@ export default function Footer() {
               My Way.™
             </Typography>
 
-            
+
 
             {/* CTA Buttons */}
             <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap", mb: 3 }}>
@@ -258,7 +258,7 @@ export default function Footer() {
               </Button>
 
             </Box>
-              <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+            <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
 
 
           </Box>
@@ -810,18 +810,17 @@ export default function Footer() {
       >
         <Container
           maxWidth="xl"
-          sx={{
-            px: { xs: 3, sm: 4, md: 6, lg: 8 },
+          sx={{            
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             gap: 3,
             flexWrap: "",
           }}
-        > 
+        >
           <Typography sx={{ fontSize: 12.5, color: "rgba(148,163,184,0.6)" }}>
             © 2026 BluAI Inc. & BluAI Private Limited.
-        
+
             All Rights Reserved.
           </Typography>
 

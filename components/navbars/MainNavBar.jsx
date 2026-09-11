@@ -170,7 +170,6 @@ export default function MainNavBar() {
           disableGutters
           sx={{
             minHeight: { xs: 64, md: 76 },
-            px: { xs: 1, sm: 2 },
             gap: 2,
           }}
         >

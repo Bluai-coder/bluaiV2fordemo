@@ -80,13 +80,16 @@ export default function RecentPosts() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+      <Container maxWidth="xl" sx={{
+        position: "relative", zIndex: 1,
+      }}>
         {/* HEADER — same style as Partner section */}
         <Stack
           spacing={1.5}
           alignItems="center"
           textAlign="center"
           mb={{ xs: 4.5, sm: 5.5, md: 7 }}
+
         >
 
 
@@ -103,24 +106,24 @@ export default function RecentPosts() {
             <Box component="span" sx={{ color: "#0a1628" }}>
               Recent Posts From Our{" "}
             </Box>
-             <Box
-                          component="span"
-                          sx={{
-                            color: "#1b4dff",
-                            position: "relative",
-                            "&::after": {
-                              content: '""',
-                              position: "absolute",
-                              bottom: -4,
-                              left: 0,
-                              right: 0,
-                              height: 3,
-                              borderRadius: 999,
-                              background: "linear-gradient(90deg, #1b4dff, #4a7aff)",
-                              animation: `${pulseGlow} 2s ease-in-out infinite`,
-                            },
-                          }}
-                        >
+            <Box
+              component="span"
+              sx={{
+                color: "#1b4dff",
+                position: "relative",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -4,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  borderRadius: 999,
+                  background: "linear-gradient(90deg, #1b4dff, #4a7aff)",
+                  animation: `${pulseGlow} 2s ease-in-out infinite`,
+                },
+              }}
+            >
               Blog
             </Box>
           </Typography>
@@ -133,7 +136,7 @@ export default function RecentPosts() {
             flexDirection: { xs: "column", sm: "row" },
             flexWrap: "wrap",
             justifyContent: "center",
-            gap: { xs: 3, sm: 3.5, md: 4 },
+            gap: { xs: 3, sm: 3, md: 4 },
           }}
         >
           {posts.map((post) => (
@@ -146,7 +149,7 @@ export default function RecentPosts() {
                   sm: "calc(50% - 14px)",
                   md: "calc(33.333% - 22px)",
                 },
-                maxWidth: { xs: "100%", sm: 380 },
+                maxWidth: { xs: "100%", sm: 480 },
                 display: "flex",
                 flexDirection: "column",
                 // borderRadius: 3.5,

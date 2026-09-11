@@ -1492,7 +1492,6 @@ export default function HeroSection() {
           display: "flex",
           alignItems: "center",
           flexDirection: { xs: "column", sm: "row" },
-          px: { xs: 2, sm: 4, md: 10 },
           py: { xs: 2, sm: 0 },
           marginTop : { xs: 3, sm: 0, md: 0}
         }}
@@ -1503,7 +1502,6 @@ export default function HeroSection() {
           sx={{
             width: { xs: "100%", sm: "55%", md: "55%" },
             textAlign: { xs: "center", sm: "left" },
-            pr: { md: 4 },
             display: "flex",
             flexDirection: "column",
             alignItems: { xs: "center", sm: "flex-start" },

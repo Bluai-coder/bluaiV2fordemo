@@ -119,13 +119,14 @@ export default function PortfolioShowcase() {
           }}
         />
 
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
               alignItems: "center",
               gap: { xs: 5, md: 6 },
+              // px: { xs: 2, sm: 4, md: 7 },
             }}
           >
             {/* Left content */}
@@ -196,7 +197,7 @@ export default function PortfolioShowcase() {
                   color: "#94A3B8",
                   fontSize: { xs: "0.95rem", md: "1.05rem" },
                   lineHeight: 1.65,
-                  maxWidth: 440,
+                  maxWidth: 540,
                   mb: 3.5,
                   mx: { xs: "auto", md: 0 },
                 }}

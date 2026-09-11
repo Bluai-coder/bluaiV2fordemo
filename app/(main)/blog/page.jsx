@@ -119,7 +119,9 @@ export default function BlogPage() {
           textAlign: 'center',
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl"  sx={{
+        px: { xs: 2, sm: 4, md: 7 },
+      }}>
           <Box textAlign="center" className="mt-0" mb={0}>
             <Typography
               variant="caption"
@@ -155,7 +157,7 @@ export default function BlogPage() {
 
       </Box>
 
-      <Container maxWidth="lg" className='!pt-0' sx={{ py: { xs: 4, md: 6 } }}>
+      <Container maxWidth="xl" className='!pt-0' sx={{ py: { xs: 4, md: 6 } , px: { xs: 2, sm: 4, md: 10 }, }}>
         <Box
           sx={{
             display: 'flex',
