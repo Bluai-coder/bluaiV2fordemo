@@ -229,7 +229,7 @@ export default function VitalsChairEnquiryNavbar() {
                                 Medical Softwares
                             </Typography>
 
-                             {productMenu[4]?.children?.map((c) => (
+                             {productMenu[3]?.children?.map((c) => (
                                     <MenuItem
                                         key={c.label}
                                         component={Link}

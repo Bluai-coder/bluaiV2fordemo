@@ -50,7 +50,7 @@ const menuCategories = [
     value: "first",
     items: [
       { label: "VitalsChair™", value: "VitalsChair™", route: "/products/vitals-chair" },
-      { label: "NeoNatal™", value: "NeoNatal", route: "/products/blu-neonatal" },
+      // { label: "NeoNatal™", value: "NeoNatal", route: "/products/blu-neonatal" },
       { label: "VitalsPole™", value: "VitalsPole™", route: "/products/vitals-pole" },
       { label: "Vitals Briefcase™", value: "VitalsBriefcase™", route: "/products/vitals-briefcase" },
     ],

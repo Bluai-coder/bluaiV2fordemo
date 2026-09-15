@@ -213,23 +213,15 @@
 //     </Box>
 //   );
 // }
-
-
 "use client";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Paper,
-  Stack,
-} from "@mui/material";
+import { Box, Container, Typography, Paper, Stack } from "@mui/material";
 import Image from "next/image";
 
 const values = [
   {
     title: "VitalsChair™",
-    image: "/values/VitalsChair.png",
+    image: "/hero-popup/chair.webp",
     description:
       "VitalsChair™, our comprehensive vitals gathering system, supporting 32+ critical health parameters.",
   },
@@ -250,20 +242,31 @@ const values = [
 export default function OurValues() {
   return (
     <Box
+      component="section"
+      aria-labelledby="our-values-heading"
       sx={{
-        py: { xs: 8, md: 8 },
+        py: { xs: 8, md: 10 },
         bgcolor: "#FFFFFF",
         position: "relative",
       }}
     >
-      <Container maxWidth="xl" >
+      <Container maxWidth="xl">
         {/* Header */}
-        <Stack spacing={2}  mb={{ xs: 5, md: 7 }}>
+        <Stack
+          spacing={2}
+          sx={{
+            mb: { xs: 5, md: 7 },
+            maxWidth: 820,
+            mx: "auto",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <Typography
+            component="span"
             sx={{
               fontWeight: 800,
               fontSize: 12,
-              textAlign: "center",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               color: "#1B4DFF",
@@ -273,13 +276,13 @@ export default function OurValues() {
           </Typography>
 
           <Typography
+            id="our-values-heading"
+            component="h2"
             sx={{
               fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.5rem" },
               fontWeight: 800,
               lineHeight: 1.2,
-              textAlign: "center",
               color: "#0A0F1F",
-              maxWidth: "100%",
               letterSpacing: -0.5,
             }}
           >
@@ -288,109 +291,124 @@ export default function OurValues() {
 
           <Typography
             sx={{
-              maxWidth: "100%",
               color: "#5A6478",
               fontSize: { xs: 14.5, md: 15.5 },
               lineHeight: 1.8,
+              maxWidth: 720,
             }}
           >
-            At BluAI, we craft complex embedded systems by integrating hardware, user interfaces,
-            and advanced software. Our expertise extends to connectivity and proximity
-            technologies, ensuring your products are always connected and responsive.
+            At BluAI, we craft complex embedded systems by integrating hardware,
+            user interfaces, and advanced software. Our expertise extends to
+            connectivity and proximity technologies, ensuring your products are
+            always connected and responsive.
           </Typography>
         </Stack>
 
         {/* Cards */}
         <Box
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
+            },
             gap: { xs: 2.5, md: 3 },
-            justifyContent: "center",
-            alignItems: "stretch",
           }}
         >
           {values.map((item) => (
-            <Box
+            <Paper
               key={item.title}
+              component="article"
+              elevation={0}
               sx={{
-                width: { xs: "100%", sm: "calc(50% - 12px)", lg: "calc(33.33% - 16px)" },
-                maxWidth: 480,
+                height: "100%",
+                borderRadius: 4,
+                bgcolor: "#FFFFFF",
+                border: "1px solid #E8ECF5",
+                overflow: "hidden",
+                transition:
+                  "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
                 display: "flex",
+                flexDirection: "column",
+                "&:hover": {
+                  transform: "translateY(-6px)",
+                  boxShadow: "0 20px 45px rgba(15, 23, 42, 0.10)",
+                  borderColor: "#1B4DFF",
+                },
+                "&:hover img": {
+                  transform: "scale(1.04)",
+                },
               }}
             >
-              <Paper
-                elevation={0}
+              <Box
                 sx={{
-                  height: "100%",
-                  width: "100%",
-                  borderRadius: 4,
-                  bgcolor: "#FFFFFF",
-                  border: "1px solid #E8ECF5",
-                  overflow: "hidden",
-                  transition: "all 0.35s ease",
+                  p: { xs: 2.5, md: 3 },
                   display: "flex",
                   flexDirection: "column",
-                  "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: "0 20px 45px rgba(15, 23, 42, 0.10)",
-                    borderColor: "#1B4DFF",
-                  },
+                  flex: 1,
                 }}
               >
-                <Box sx={{ p: { xs: 2.5, md: 3 }, display: "flex", flexDirection: "column", flex: 1 }}>
-                  {/* Image Container */}
-                  <Box
-                    sx={{
+                {/* Image Container */}
+                <Box
+                  sx={{
+                    width: "100%",
+                    borderRadius: 3,
+                    bgcolor: "#F7F9FF",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    py: 3,
+                    px: 2,
+                    mb: 2.5,
+                    minHeight: 180,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={400}
+                    height={140}
+                    style={{
+                      objectFit: "contain",
                       width: "100%",
-                      borderRadius: 3,
-                      bgcolor: "#F7F9FF",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      py: 3,
-                      mb: 2.5,
-                      minHeight: 180,
+                      height: "auto",
+                      maxHeight: 160,
+                      transition: "transform 0.35s ease",
                     }}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={220}
-                      height={140}
-                      style={{ objectFit: "contain" }}
-                    />
-                  </Box>
-
-                  {/* Title */}
-                  <Typography
-                    sx={{
-                      fontWeight: 800,
-                      fontSize: 17,
-                      mb: 1.2,
-                      textAlign: "center",
-                      color: "#0A0F1F",
-                      lineHeight: 1.35,
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-
-                  {/* Description */}
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      color: "#5A6478",
-                      textAlign: "center",
-                      lineHeight: 1.75,
-                      flex: 1,
-                    }}
-                  >
-                    {item.description}
-                  </Typography>
+                  />
                 </Box>
-              </Paper>
-            </Box>
+
+                {/* Title */}
+                <Typography
+                  component="h3"
+                  sx={{
+                    fontWeight: 800,
+                    fontSize: 17,
+                    mb: 1.2,
+                    textAlign: "center",
+                    color: "#0A0F1F",
+                    lineHeight: 1.35,
+                  }}
+                >
+                  {item.title}
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  sx={{
+                    fontSize: 14,
+                    color: "#5A6478",
+                    textAlign: "center",
+                    lineHeight: 1.75,
+                    flex: 1,
+                  }}
+                >
+                  {item.description}
+                </Typography>
+              </Box>
+            </Paper>
           ))}
         </Box>
       </Container>

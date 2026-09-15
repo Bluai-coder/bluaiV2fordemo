@@ -6,80 +6,14 @@ import { Box, Container, Typography, Button, Card, CardContent } from "@mui/mate
 import { useRouter } from "next/navigation";
 
 // Single images that will slide one by one
-const sliderImages = [
-  { src: "/hero-popup/chair.webp", alt: "Team working" },
-  { src: "/hero-popup/pole.webp", alt: "Healthcare tech" },
-  { src: "/hero-popup/child.webp", alt: "Tablet interface" },
-  { src: "/hero-popup/box.webp", alt: "Lab equipment" },
-];
 
-const projects = [
-  {
-    name: "Smart Pole™",
-    description: "AI-enabled health kiosk for public spaces and rural communities.",
-    iconBg: "#F3E8FF",
-    iconColor: "#7C3AED",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z" stroke="currentColor" strokeWidth="1.8" fill="none" />
-        <circle cx="12" cy="11" r="2.5" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    name: "BluNotes™",
-    description: "AI medical scribe that automates clinical notes and documentation.",
-    iconBg: "#FEE2E2",
-    iconColor: "#DC2626",
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" strokeWidth="1.8" fill="none" />
-        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="1.6" />
-      </svg>
-    ),
-  },
-  {
-    name: "BluAccess™",
-    description: "Secure patient portal for seamless data access and engagement.",
-    iconBg: "#FFEDD5",
-    iconColor: "#EA580C",
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    ),
-  },
-  {
-    name: "BluDMS™",
-    description: "Intelligent document management for healthcare enterprises.",
-    iconBg: "#FEF3C7",
-    iconColor: "#D97706",
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" strokeWidth="1.8" fill="none" />
-      </svg>
-    ),
-  },
-];
 
 export default function PortfolioShowcase() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  // Auto slide one image at a time
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
-        setIsFading(false);
-      }, 400);
-    }, 3500); // change every 3.5 seconds
 
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -244,13 +178,13 @@ export default function PortfolioShowcase() {
                   borderRadius: 3,
                   overflow: "hidden",
                   height: { xs: 280, sm: 340, md: 400 },
-                  boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+                  // boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
                 }}
               >
                 <Box
                   component="img"
-                  src={sliderImages[currentIndex].src}
-                  alt={sliderImages[currentIndex].alt}
+                  src={"/hero-popup/work.png"}
+                  alt={"alt"}
                   sx={{
                     width: "100%",
                     height: "100%",

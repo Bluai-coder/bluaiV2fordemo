@@ -26,7 +26,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import BluNotesRequestDemoModal from '../../../components/popups/BluNotesRequestDemoModal'
+import RequestDemoModal from "../../../components/popups/RequestDemoModal"
 import Image from "next/image";
 import { productMenu } from "../../productMenu";
 
@@ -144,7 +144,7 @@ export default function BluNotesNavbar() {
                                 Request Demo
                             </Button>
 
-                            <BluNotesRequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+                                <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
 
 
                         </Box>
@@ -235,7 +235,7 @@ export default function BluNotesNavbar() {
                                 Medical Softwares
                             </Typography>
 
-                            {productMenu[4]?.children?.map((c) => (
+                            {productMenu[3]?.children?.map((c) => (
                                 <MenuItem
                                     key={c.label}
                                     component={Link}
@@ -327,16 +327,16 @@ export default function BluNotesNavbar() {
                                 <ListItemText primary="VitalsChair™" />
                             </ListItemButton>
 
-                       
+
 
                             {/* NeoNatal */}
-                            <ListItemButton
+                            {/* <ListItemButton
                                 component={Link}
                                 href="#"
                                 onClick={() => setMobileOpen(false)}
                             >
                                 <ListItemText primary="NeoNatal™" />
-                            </ListItemButton>
+                            </ListItemButton> */}
 
                             {/* SmartBed */}
                             {/* <ListItemButton
@@ -370,7 +370,7 @@ export default function BluNotesNavbar() {
                                 <ListItemText primary="BluECG (Wireless ECG)(Upcoming)" />
                             </ListItemButton> */}
 
-                                 {/* BluHealth Accordion */}
+                            {/* BluHealth Accordion */}
                             <ListItemButton onClick={() => setMobileBluHealthOpen((p) => !p)}>
                                 <ListItemText primary="Medical Softwares" />
                                 <KeyboardArrowDownIcon
@@ -383,7 +383,7 @@ export default function BluNotesNavbar() {
 
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
-                                    {productMenu[4]?.children?.map((c) => (
+                                    {productMenu[3]?.children?.map((c) => (
                                         <ListItemButton
                                             key={c.label}
                                             component={Link}
@@ -421,7 +421,7 @@ export default function BluNotesNavbar() {
                         Request Demo
                     </Button>
 
-                    <BluNotesRequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+                    <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
 
                 </Stack>
             </Drawer>

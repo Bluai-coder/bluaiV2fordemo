@@ -132,7 +132,7 @@ export default function BluNotesHero() {
             </Typography>
 
             {/* CTA */}
-            <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+            {/* <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
               <Button
                 variant="outlined"
                 startIcon={<PlayCircleOutlineRoundedIcon />}
@@ -155,7 +155,7 @@ export default function BluNotesHero() {
               >
                 Watch Our Story
               </Button>
-            </Stack>
+            </Stack> */}
           </Box>
 
           {/*  RIGHT MOCKUP AREA */}
@@ -185,7 +185,7 @@ export default function BluNotesHero() {
               >
                 <Box
                   component="img"
-                  src="/blu-notes/hero-mac.png"
+                  src="/hero-popup/blunotes.png"
                   alt="BluNotes Product"
                   sx={{
                     width: "100%",

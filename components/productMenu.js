@@ -1,6 +1,6 @@
 export const productMenu = [
     { label: "VitalsChair™", route: "/products/vitals-chair" },
-    { label: "NeoNatal™", route: "/products/blu-neonatal" },
+    // { label: "NeoNatal™", route: "/products/blu-neonatal" },
      { label: "VitalsPole™", route: "/products/vitals-pole" },
      { label: "Vitals Briefcase™", route: "/products/vitals-briefcase" },
 

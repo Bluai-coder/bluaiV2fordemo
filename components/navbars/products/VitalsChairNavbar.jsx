@@ -254,7 +254,7 @@ export default function VitalsChairNavbar() {
                                 Medical Softwares
                             </Typography>
 
-                            {productMenu[4]?.children?.map((c) => (
+                            {productMenu[3]?.children?.map((c) => (
 
                                 <MenuItem
                                     key={c.label}
@@ -350,13 +350,13 @@ export default function VitalsChairNavbar() {
 
 
                             {/* NeoNatal */}
-                            <ListItemButton
+                            {/* <ListItemButton
                                 component={Link}
                                 href="/products/blu-neonatal"
                                 onClick={() => setMobileOpen(false)}
                             >
                                 <ListItemText primary="NeoNatal™" />
-                            </ListItemButton>
+                            </ListItemButton> */}
 
                             {/* SmartBed */}
                             <ListItemButton
@@ -405,7 +405,7 @@ export default function VitalsChairNavbar() {
 
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
-                                    {productMenu[4]?.children?.map((c) => (
+                                    {productMenu[3]?.children?.map((c) => (
                                         <ListItemButton
                                             key={c.label}
                                             component={Link}

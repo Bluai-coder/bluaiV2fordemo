@@ -53,7 +53,7 @@
 //                 message: formData.message,
 //                 source: formData.source
 //             });
-            
+
 //             if (data?.data?.success) {
 //                 setSubmittedName(formData.name);
 //                 setSuccess(true);
@@ -87,7 +87,7 @@
 //             <div className="max-w-3xl mx-auto">
 //                 {/* Header */}
 //                 <div className="text-center mb-8">
- 
+
 //                     <p className="text-lg text-gray-600 dark:text-gray-300">
 //                         Join us in revolutionizing healthcare with AI-powered diagnostics
 //                     </p>
@@ -304,8 +304,6 @@
 
 
 
-
-
 'use client';
 
 import { useState } from 'react';
@@ -403,14 +401,7 @@ export default function InvestorForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 pb-24 pt-2">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <p className="text-[16px] text-slate-500 leading-relaxed max-w-md mx-auto">
-          Join us in revolutionizing healthcare with AI-powered diagnostics
-        </p>
-      </div>
-
+    <div className="mx-auto w-full max-w-5xl px-4">
       {/* Success Modal */}
       {success && (
         <div
@@ -425,7 +416,10 @@ export default function InvestorForm() {
               <div className="relative">
                 <div className="absolute inset-0 bg-emerald-400/25 blur-xl rounded-full" />
                 <div className="relative w-[68px] h-[68px] rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                  <CheckCircle className="w-8 h-8 text-white" strokeWidth={2.5} />
+                  <CheckCircle
+                    className="w-8 h-8 text-white"
+                    strokeWidth={2.5}
+                  />
                 </div>
               </div>
             </div>
@@ -439,7 +433,7 @@ export default function InvestorForm() {
 
             <div className="rounded-2xl bg-slate-50 border border-slate-100 p-5 mb-7">
               <p className="text-[12px] font-medium text-slate-400 uppercase tracking-wider mb-3">
-                What’s next
+                What&apos;s next
               </p>
               <ul className="space-y-2.5 text-[14px] text-slate-700">
                 <li className="flex gap-2.5">
@@ -449,8 +443,10 @@ export default function InvestorForm() {
                 <li className="flex gap-2.5">
                   <span className="text-emerald-500">✓</span>
                   <span>
-                    You’ll hear from us within{' '}
-                    <span className="font-medium text-slate-900">24–48 hours</span>
+                    You&apos;ll hear from us within{' '}
+                    <span className="font-medium text-slate-900">
+                      24–48 hours
+                    </span>
                   </span>
                 </li>
               </ul>
@@ -480,7 +476,7 @@ export default function InvestorForm() {
 
       {/* Form Card */}
       <div className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)] overflow-hidden">
-        <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-8">
+        <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
           {/* Personal */}
           <section>
             <div className="flex items-center gap-2.5 mb-5">
@@ -604,7 +600,7 @@ export default function InvestorForm() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows={4}
+              rows={5}
               placeholder="Tell us about your interest in BluAI or any questions you have..."
               className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-transparent hover:border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-[15px] text-slate-900 placeholder:text-slate-400 transition-all resize-none"
             />

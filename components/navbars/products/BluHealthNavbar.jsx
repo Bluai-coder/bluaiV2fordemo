@@ -239,7 +239,7 @@ export default function BluHealthNavbar() {
                                 Medical Softwares
                             </Typography>
 
-                            {productMenu[4]?.children?.map((c) => (
+                            {productMenu[3]?.children?.map((c) => (
                                 <MenuItem
                                     key={c.label}
                                     component={Link}
@@ -334,13 +334,13 @@ export default function BluHealthNavbar() {
                          
 
                             {/* NeoNatal */}
-                            <ListItemButton
+                            {/* <ListItemButton
                                 component={Link}
                                 href="/products/blu-neonatal"
                                 onClick={() => setMobileOpen(false)}
                             >
                                 <ListItemText primary="NeoNatal™" />
-                            </ListItemButton>
+                            </ListItemButton> */}
 
                             {/* SmartBed */}
                             {/* <ListItemButton
@@ -388,7 +388,7 @@ export default function BluHealthNavbar() {
 
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
-                                    {productMenu[4]?.children?.map((c) => (
+                                    {productMenu[3]?.children?.map((c) => (
                                         <ListItemButton
                                             key={c.label}
                                             component={Link}

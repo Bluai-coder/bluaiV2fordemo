@@ -1220,12 +1220,7 @@ import { Box, Container, Typography, IconButton, useTheme, useMediaQuery, Button
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 
-// ==================== CINEMATIC ANIMATIONS ====================
-const textGradient = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-`;
+
 
 const fadeInUp = keyframes`
   0% { opacity: 0; transform: translateY(30px); }
@@ -1288,7 +1283,7 @@ const products = [
   },
 
 
-    {
+  {
     id: 4,
     icon: "/logos/white/BluHealth-logo.png",
     title: "BluHealth™",
@@ -1301,7 +1296,7 @@ const products = [
     textColor: "#43e97b",
     features: ["AI-powered EMR", "Patient-centric", "Agentic AI"],
   },
-    {
+  {
     id: 2,
     icon: "/logos/white/BluNotes-logo.png",
     title: "BluNotes™",
@@ -1314,7 +1309,7 @@ const products = [
     textColor: "#f093fb",
     features: ["Conversation Capture", "AI Documentation", "Multi-device Sync"],
   },
-    {
+  {
     id: 6,
     icon: "/logos/white/BluMental-logo.png",
     title: "BluMental™",
@@ -1493,7 +1488,7 @@ export default function HeroSection() {
           alignItems: "center",
           flexDirection: { xs: "column", sm: "row" },
           py: { xs: 2, sm: 0 },
-          marginTop : { xs: 3, sm: 0, md: 0}
+          marginTop: { xs: 3, sm: 0, md: 0 }
         }}
       >
         {/* LEFT SIDE: DYNAMIC PRODUCT TEXT */}
@@ -1670,50 +1665,6 @@ export default function HeroSection() {
 
           </Stack>
 
-          {/* ================== BOTTOM CATEGORY NAV ================== */}
-          {/* <Stack
-            direction="row"
-            spacing={{ sx: 2, sm: 4, md: 4 }}
-            sx={{
-              display: {
-                xs: "flex",
-                sm: "flex",
-                md: "flex",
-                lg: "flex",
-                xl: "flex",
-
-              },
-              marginTop: { xs: 3, sm: 4, md: 6 },
-              padding: {
-                xs: 2,
-                sm: 3,
-                md: 4
-              },
-              borderTop: "1px solid rgba(255,255,255,0.15)",
-              width: "100%",
-              maxWidth: "100%",
-              alignItems: "flex-start",
-            }}
-          >
-            {["Clinical Devices", "Health Platforms", "Secure Access"].map((item) => (
-              <Typography
-                key={item}
-                sx={{
-                  fontSize: { xs: "12px", sm: "12px", md: "12px" },
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.4)",
-                  cursor: "pointer",
-                  transition: "color 0.3s",
-                  "&:hover": {
-                    color: "#fff",
-                  },
-                }}
-              >
-                {item}
-              </Typography>
-            ))}
-          </Stack> */}
         </Box>
 
         {/* RIGHT SIDE: FLOATING PRODUCT IMAGE */}
@@ -1750,6 +1701,67 @@ export default function HeroSection() {
               }}
             />
           </Box>
+          {console.log({
+            currentIndex,
+            title: activeProduct.title,
+          })}
+
+          {activeProduct.title === "BluNotes™" && (
+            <Box
+              component="a"
+              href="https://blunotes.bluai.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                position: "absolute",
+                bottom: { xs: -5, sm: -10, md: -10 },
+                right: { xs: "10%", sm: "10%", md: "35%" },
+                display: { xs: "none", sm: "flex" },
+                flexDirection: "column",
+                alignItems: "flex-start",
+                pl: 2,
+                textDecoration: "none",
+                cursor: "pointer",
+                animation: `${fadeInUp} 0.6s ease-out 0.5s both`,
+                transition: "all 0.3s ease",
+
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                },
+
+                "&:hover .title": {
+                  color: activeProduct.textColor,
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { sm: "10px", md: "11px" },
+                  fontWeight: 700,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: activeProduct.textColor,
+                  opacity: 0.9,
+                  mb: 0.5,
+                }}
+              >
+                LIVE DEMO
+              </Typography>
+
+              <Typography
+                className="title"
+                sx={{
+                  fontSize: { sm: "14px", md: "18px" },
+                  fontWeight: 800,
+                  color: "#fff",
+                  lineHeight: 1.2,
+                  transition: "color 0.3s ease",
+                }}
+              >
+                Experience BluNotes™
+              </Typography>
+            </Box>
+          )}
 
           {/* ================== FEATURED SYSTEM LABEL ================== */}
           <Box

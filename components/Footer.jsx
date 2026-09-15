@@ -34,7 +34,7 @@ const PRODUCTS = [
   { label: "VitalsChair™", route: "/products/vitals-chair" },
   { label: "VitalsPole™", route: "/products/vitals-pole" },
   { label: "VitalsBriefcase™", route: "/products/vitals-briefcase" },
-  { label: "NeoNatal™", route: "/products/blu-neonatal" },
+  // { label: "NeoNatal™", route: "/products/blu-neonatal" },
   { label: "BluID™", route: "/products/blu-id" },
   { label: "BluMental Health", route: "/products/blu-mental-health" },
 
@@ -69,7 +69,7 @@ const COMPANY = [
 
 const RESOURCES = [
   { label: "Blog", route: "/blog/" },
-  { label: "Downloads", route: "#" },
+  // { label: "Downloads", route: "#" },
   { label: "Support", route: "/support/" },
   { label: "Privacy Policy", route: "/privacy-policy" },
   { label: "Terms & Conditions", route: "/terms-of-services" },

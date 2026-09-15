@@ -658,15 +658,15 @@ import { getTheme } from "../theme";
 
 const galleryItems = [
   { id: 1, type: "images", title: "PCB Board", src: "/gallery/img1.jpg" },
-  { id: 2, type: "images", title: "Embedded System", src: "/gallery/img2.jpg" },
-  { id: 3, type: "images", title: "IoT Module", src: "/gallery/img3.jpg" },
+  // { id: 2, type: "images", title: "Embedded System", src: "/gallery/img2.jpg" },
+  // { id: 3, type: "images", title: "IoT Module", src: "/gallery/img3.jpg" },
   { id: 4, type: "images", title: "IoT Module", src: "/gallery/img4.jpg" },
   { id: 5, type: "images", title: "IoT Module", src: "/gallery/img5.jpg" },
-  { id: 6, type: "images", title: "IoT Module", src: "/gallery/img6.jpg" },
-  { id: 7, type: "images", title: "IoT Module", src: "/gallery/img7.jpg" },
-  { id: 8, type: "images", title: "PCB Board", src: "/gallery/img8.jpg" },
-  { id: 9, type: "images", title: "Embedded System", src: "/gallery/img9.jpg" },
-  { id: 10, type: "images", title: "Embedded System", src: "/gallery/img10.jpg" },
+  // { id: 6, type: "images", title: "IoT Module", src: "/gallery/img6.jpg" },
+  // { id: 7, type: "images", title: "IoT Module", src: "/gallery/img7.jpg" },
+  // { id: 8, type: "images", title: "PCB Board", src: "/gallery/img8.jpg" },
+  // { id: 9, type: "images", title: "Embedded System", src: "/gallery/img9.jpg" },
+  // { id: 10, type: "images", title: "Embedded System", src: "/gallery/img10.jpg" },
   { id: 11, type: "images", title: "Embedded System", src: "/gallery/img11.jpg" },
   {
     id: 12,

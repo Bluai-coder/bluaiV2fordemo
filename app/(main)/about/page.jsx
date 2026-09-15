@@ -1160,7 +1160,7 @@ export default function About() {
             >
               <Typography
                 sx={{
-                  fontSize: { xs: 18, sm: 26, md: 42 },
+                  fontSize: { xs: 18, sm: 26, md: 92 },
                   fontWeight: 950,
                   lineHeight: 1.15,
                   mb: { xs: 0.5, sm: 1, md: 2 },
