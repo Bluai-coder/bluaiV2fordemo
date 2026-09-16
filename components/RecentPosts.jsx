@@ -34,7 +34,7 @@ const posts = [
       "Face Recognition Attendance in EAMMS: The Next Step in Smart Workforce Management",
     author: "Himanshu",
     date: "NOV 20, 2025",
-    image: "/recent-blog/blog2.webp",
+    image: "/hero-popup/face.png",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const posts = [
       "BluAI Office Culture: A Vision of Innovation and Collaboration",
     author: "AdminBluAI",
     date: "JUNE 14, 2024",
-    image: "/recent-blog/blog3.png",
+    image: "/recent-blog/blog3.webp",
   },
 ];
 

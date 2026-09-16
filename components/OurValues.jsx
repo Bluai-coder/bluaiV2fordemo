@@ -304,113 +304,119 @@ export default function OurValues() {
           </Typography>
         </Stack>
 
-        {/* Cards */}
-        <Box
+       {/* Cards */}
+<Box
+  sx={{
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "1fr",
+      sm: "repeat(2, 1fr)",
+      lg: "repeat(3, 1fr)",
+    },
+    gap: { xs: 2.5, md: 3 },
+  }}
+>
+  {values.map((item) => (
+    <Paper
+      key={item.title}
+      component="article"
+      elevation={0}
+      sx={{
+        position: "relative",
+        height: 280,
+        borderRadius: 4,
+        overflow: "hidden",
+        border: "1px solid #E8ECF5",
+        cursor: "pointer",
+        transition:
+          "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
+        "&:hover": {
+          transform: "translateY(-6px)",
+          boxShadow: "0 20px 45px rgba(15, 23, 42, 0.15)",
+          borderColor: "#1B4DFF",
+        },
+        "&:hover img": {
+          transform: "scale(1.08)",
+        },
+        "&:hover .card-content": {
+          transform: "translateY(0)",
+          opacity: 1,
+        },
+      }}
+    >
+      {/* Background Image */}
+      <Box
+        component="img"
+        src={item.image}
+        alt={item.title}
+        sx={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transition: "transform 0.6s ease",
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(10,15,31,0.92) 0%, rgba(10,15,31,0.55) 45%, rgba(10,15,31,0.15) 75%, rgba(10,15,31,0) 100%)",
+          transition: "background 0.35s ease",
+        }}
+      />
+
+      {/* Content */}
+      <Box
+        className="card-content"
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          p: { xs: 2.5, md: 3 },
+          color: "#FFFFFF",
+          transform: "translateY(8px)",
+          opacity: 0.95,
+          transition: "transform 0.4s ease, opacity 0.4s ease",
+        }}
+      >
+        <Typography
+          component="h3"
           sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
-            },
-            gap: { xs: 2.5, md: 3 },
+            fontWeight: 800,
+            fontSize: 18,
+            lineHeight: 1.3,
+            mb: 0.75,
+            textShadow: "0 2px 8px rgba(0,0,0,0.35)",
           }}
         >
-          {values.map((item) => (
-            <Paper
-              key={item.title}
-              component="article"
-              elevation={0}
-              sx={{
-                height: "100%",
-                borderRadius: 4,
-                bgcolor: "#FFFFFF",
-                border: "1px solid #E8ECF5",
-                overflow: "hidden",
-                transition:
-                  "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
-                display: "flex",
-                flexDirection: "column",
-                "&:hover": {
-                  transform: "translateY(-6px)",
-                  boxShadow: "0 20px 45px rgba(15, 23, 42, 0.10)",
-                  borderColor: "#1B4DFF",
-                },
-                "&:hover img": {
-                  transform: "scale(1.04)",
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  p: { xs: 2.5, md: 3 },
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: 1,
-                }}
-              >
-                {/* Image Container */}
-                <Box
-                  sx={{
-                    width: "100%",
-                    borderRadius: 3,
-                    bgcolor: "#F7F9FF",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    py: 3,
-                    px: 2,
-                    mb: 2.5,
-                    minHeight: 180,
-                    overflow: "hidden",
-                  }}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={140}
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: 160,
-                      transition: "transform 0.35s ease",
-                    }}
-                  />
-                </Box>
+          {item.title}
+        </Typography>
 
-                {/* Title */}
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontWeight: 800,
-                    fontSize: 17,
-                    mb: 1.2,
-                    textAlign: "center",
-                    color: "#0A0F1F",
-                    lineHeight: 1.35,
-                  }}
-                >
-                  {item.title}
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                  sx={{
-                    fontSize: 14,
-                    color: "#5A6478",
-                    textAlign: "center",
-                    lineHeight: 1.75,
-                    flex: 1,
-                  }}
-                >
-                  {item.description}
-                </Typography>
-              </Box>
-            </Paper>
-          ))}
-        </Box>
+        <Typography
+          sx={{
+            fontSize: 13.5,
+            lineHeight: 1.6,
+            color: "rgba(255,255,255,0.85)",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          {item.description}
+        </Typography>
+      </Box>
+    </Paper>
+  ))}
+</Box>
       </Container>
     </Box>
   );

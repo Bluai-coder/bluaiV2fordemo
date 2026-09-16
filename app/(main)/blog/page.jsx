@@ -10,7 +10,7 @@ const blogs = [
     id: 1,
     title:
       'The Future of Healthcare: How Facial Expression Analysis is Revolutionizing Medical Monitoring',
-    image: '/blog/blog-9.webp',
+    image: '/recent-blog/blog1.webp',
     author: 'Anurag Shrivastva - BluAI',
     date: 'Dec 10, 2025',
     excerpt:
@@ -20,7 +20,7 @@ const blogs = [
     id: 2,
     title:
       'Face Recognition Attendance in EAMMS: The Next Step in Smart Workforce Management',
-    image: '/blog/blog-8.webp',
+    image: '/hero-popup/face.png',
     author: 'Himanshu - BluAI',
     date: 'Nov 20, 2025',
     excerpt:
@@ -60,7 +60,7 @@ const blogs = [
     id: 6,
     title:
       'Bluai Office Culture: A Vision of Innovation and Collaboration',
-    image: '/blog/blog-1.png',
+    image: '/recent-blog/blog3.webp',
     author: 'AdminBluAI',
     date: 'June 14, 2024',
     excerpt:
