@@ -775,14 +775,14 @@ export default function SmartPoleClient() {
             </Button>
           </Stack>
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'center' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'center' } }}>
               <Shield size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>Secure & Compliant</Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'center' } }}>
               <Cloud size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>Cloud Connected</Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'center' } }}>
               <Fingerprint size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>AI-Powered</Typography>
             </Box>
           </Stack>
