@@ -758,7 +758,7 @@ export default function SmartPoleClient() {
             A next-generation health screening kiosk for rapid, contactless vitals monitoring in high-traffic settings.
           </Typography>
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }} sx={{ mb: 5 }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'center' }} sx={{ mb: 5 }}>
             <Button variant="contained" endIcon={<ArrowRight />} sx={{
               bgcolor: '#0a1a3c', color: '#fff', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
               textTransform: 'none', fontSize: 16, boxShadow: '0 15px 30px rgba(10,26,60,0.3)', width: { xs: '100%', sm: 'auto' },
