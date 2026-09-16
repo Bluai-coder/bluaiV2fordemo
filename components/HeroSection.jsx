@@ -453,37 +453,38 @@ export default function HeroSection() {
         <Box
           sx={{
             width: { xs: "100%", sm: "45%", md: "45%" },
-            height: { xs: "40vh", sm: "60vh", md: "70vh" },
+            height: { xs: "33vh", sm: "60vh", md: "70vh" },
             position: "relative",
             display: "flex",
             alignItems: "center",
             justifyContent: { xs: "center", sm: "flex-end" },
-            mt: { xs: -8, sm: -5, md: 0 },
+            mt: { xs: -3, sm: -5, md: 0 },
             mb: { xs: 2, sm: 0 },
           }}
         >
-          <Box
-            key={currentIndex}
-            sx={{
-              position: "relative",
-              width: { xs: "80%", sm: "90%", md: "100%" },
-              height: { xs: "80%", sm: "90%", md: "100%" },
-              animation: `${fadeInUp} 0.8s ease-out 0.4s both`,
-            }}
-          >
-            <Image
-              src={activeProduct.image}
-              alt={activeProduct.title}
-              fill
-              priority
-              sizes="(max-width: 600px) 80vw, (max-width: 900px) 45vw, 45vw"
-              style={{
-                objectFit: "contain",
-                filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+          {products.map((product, idx) => (
+            <Box
+              key={product.id}
+              sx={{
+                position: "absolute",
+                inset: 0,
+                opacity: idx === currentIndex ? 1 : 0,
+                transition: "opacity 0.5s ease",
+                pointerEvents: idx === currentIndex ? "auto" : "none",
               }}
-            />
-          </Box>
-      
+            >
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
+                sizes="(max-width: 600px) 80vw, 45vw"
+                priority={idx === 0}            // only the first one
+                loading={idx === 0 ? "eager" : "lazy"}
+                style={{ objectFit: "contain", filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))" }}
+              />
+            </Box>
+          ))}
+
 
           {activeProduct.title === "BluNotes™" && (
             <Box
@@ -493,14 +494,17 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               sx={{
                 position: "absolute",
-                bottom: { xs: -5, sm: -10, md: -10 },
-                right: { xs: "10%", sm: "10%", md: "35%" },
-                display: { xs: "none", sm: "flex" },
+                bottom: { xs: 4, sm: -10, md: 0, lg: -10 },
+                right: { xs: 16, sm: 140, md: 180, lg: "35%" },
+                left: { xs: 16, sm: "auto" }, // full-width feel on xs, auto from sm up
+                display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                pl: 2,
+                alignItems: { xs: "flex-start", sm: "flex-start" },
+                maxWidth: { xs: "100%", sm: 260, md: 300 },
+                pl: { xs: 0, sm: 2, md: 2 },
                 textDecoration: "none",
                 cursor: "pointer",
+                zIndex: 3,
                 animation: `${fadeInUp} 0.6s ease-out 0.5s both`,
                 transition: "all 0.3s ease",
 
@@ -515,13 +519,14 @@ export default function HeroSection() {
             >
               <Typography
                 sx={{
-                  fontSize: { sm: "10px", md: "11px" },
+                  fontSize: { xs: "7px", sm: "10px", md: "11px" },
                   fontWeight: 700,
-                  letterSpacing: "2px",
+                  letterSpacing: { xs: "1.5px", md: "2px" },
                   textTransform: "uppercase",
                   color: activeProduct.textColor,
                   opacity: 0.9,
                   mb: 0.5,
+                  whiteSpace: "nowrap",
                 }}
               >
                 LIVE DEMO
@@ -530,11 +535,13 @@ export default function HeroSection() {
               <Typography
                 className="title"
                 sx={{
-                  fontSize: { sm: "14px", md: "18px" },
+                  fontSize: { xs: "11px", sm: "14px", md: "16px", lg: "18px" },
                   fontWeight: 800,
                   color: "#fff",
-                  lineHeight: 1.2,
+                  lineHeight: 1.25,
                   transition: "color 0.3s ease",
+                  textShadow: "0 1px 6px rgba(0,0,0,0.35)",
+                  wordBreak: "break-word",
                 }}
               >
                 Experience BluNotes™
