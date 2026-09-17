@@ -1004,12 +1004,6 @@
 
 
 
-
-
-
-
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -1125,6 +1119,39 @@ const LOCATIONS = [
   },
 ];
 
+const CERTIFICATIONS = [
+  {
+    label: "ABDM",
+    src: "/certification/abdm.webp",
+    alt: "ABDM",
+  },
+  {
+    label: "HIPAA",
+    src: "/certification/hippa.jpg",
+    alt: "HIPAA",
+  },
+  {
+    label: "ISO13485",
+    src: "/certification/iso.jpg",
+    alt: "ISO13485",
+  },
+  {
+    label: "ISO-27001",
+    src: "/certification/ISO-27001.png",
+    alt: "ISO-27001",
+  },
+  {
+    label: "CE",
+    src: "/certification/ce.avif",
+    alt: "ce",
+  }, ,
+  {
+    label: "FHIR ",
+    src: "/certification/fhir-logo-r4.png",
+    alt: "FHIR ",
+  },
+];
+
 const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
@@ -1167,6 +1194,45 @@ const getDistance = (lat1, lng1, lat2, lng2) => {
     Math.sin(dLng / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
+};
+
+// Find the nearest location given lat/lng
+const findNearestLocation = (lat, lng) => {
+  let nearest = null;
+  let minDistance = Infinity;
+
+  LOCATIONS.forEach((loc) => {
+    const distance = getDistance(lat, lng, loc.lat, loc.lng);
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearest = { ...loc, distance };
+    }
+  });
+
+  return nearest;
+};
+
+// IP-based geolocation (no permission popup)
+const getCoordsFromIP = async () => {
+  try {
+    const res = await fetch("https://ipwho.is/", {
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) return null;
+
+    const data = await res.json();
+    if (!data.success || !data.latitude || !data.longitude) return null;
+
+    return {
+      lat: data.latitude,
+      lng: data.longitude,
+      city: data.city,
+      country: data.country,
+    };
+  } catch (err) {
+    console.warn("⚠️ IP geolocation failed:", err.message);
+    return null;
+  }
 };
 
 const getAddressFromCoords = async (lat, lng) => {
@@ -1214,45 +1280,26 @@ export default function Footer() {
   const [openDemo, setOpenDemo] = useState(false);
 
   useEffect(() => {
-    if (!navigator.geolocation) {
-      console.warn("⚠️ Geolocation not supported");
-      return;
-    }
+    const detectNearestLocation = async () => {
+      // IP-based lookup — silent, no permission popup
+      const coords = await getCoordsFromIP();
 
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        setUserCoords({ lat: latitude, lng: longitude });
+      // If IP lookup fails, quietly do nothing (footer still renders)
+      if (!coords) return;
 
-        // Find nearest location
-        let nearestId = null;
-        let minDistance = Infinity;
+      setUserCoords({ lat: coords.lat, lng: coords.lng });
 
-        LOCATIONS.forEach((loc) => {
-          const distance = getDistance(latitude, longitude, loc.lat, loc.lng);
-          if (distance < minDistance) {
-            minDistance = distance;
-            nearestId = loc.id;
-          }
-        });
+      const nearest = findNearestLocation(coords.lat, coords.lng);
+      if (!nearest) return;
 
-        setNearestLocationId(nearestId);
-        setActiveLocation(
-          LOCATIONS.find((loc) => loc.id === nearestId) || null,
-        );
+      setNearestLocationId(nearest.id);
+      setActiveLocation(nearest);
 
-        // Optional: fetch user's address (uses your geocoding function)
-        await getAddressFromCoords(latitude, longitude);
-      },
-      (err) => {
-        console.warn("⚠️ Location access denied:", err.message);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 60000,
-      },
-    );
+      // Optional: reverse-geocode the IP coords (cached, non-blocking)
+      await getAddressFromCoords(coords.lat, coords.lng);
+    };
+
+    detectNearestLocation();
   }, []);
 
   const scrollToTop = () => {
@@ -1314,17 +1361,18 @@ export default function Footer() {
           sx={{
             display: "grid",
             gridTemplateColumns: {
-              xs: "1fr",
+              xs: "1fr 1fr",
+              sm: "1fr 1fr 1fr",
               md: "1.4fr 1fr 1fr 1fr 1fr 0.9fr",
             },
-            gap: { xs: 5, md: 3, lg: 4 },
-            pb: 6,
+            gap: { xs: 4, md: 3, lg: 4 },
+            pb: 2,
           }}
         >
           {/* Brand + CTA */}
           <Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 3 }}>
-              <Image src="/logo.png" alt="BluAI" width={80} height={90} />
+            <Box sx={{ display: "flex", alignItems: "center", gap: 5, mb: 1 }}>
+              <Image src="/logo.png" alt="BluAI" width={90} height={100} />
             </Box>
 
             <Typography
@@ -1333,7 +1381,7 @@ export default function Footer() {
                 fontWeight: 600,
                 lineHeight: 1.3,
                 color: "#F8FAFC",
-                mb: 1.5,
+                mb: 5,
               }}
             >
               Manage. My Health.
@@ -1341,7 +1389,7 @@ export default function Footer() {
               My Way.™
             </Typography>
 
-            <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap", mb: 3 }}>
+            <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap", mb: 3 }}>
               <Button
                 variant="contained"
                 endIcon={<ArrowForward sx={{ fontSize: 16 }} />}
@@ -1491,8 +1539,8 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     sx={{
-                      width: 42,
-                      height: 42,
+                      width: {xs : 22 , md : 42 , lg : 42 , xl: 42},
+                      height: {xs : 22 , md : 42 , lg : 42 , xl: 42},
                       color: "#94A3B8",
                       border: "1px solid rgba(148,163,184,0.25)",
                       "&:hover": {
@@ -1509,15 +1557,14 @@ export default function Footer() {
             </Box>
           </Box>
         </Box>
-
         {/* =====================================================
             OUR GLOBAL OFFICES + CERTIFICATIONS
         ===================================================== */}
         <Box
           sx={{
             borderTop: "1px solid rgba(148,163,184,0.1)",
-            pt: { xs: 5, md: 6 },
-            pb: { xs: 5, md: 6 },
+            pt: { xs: 2, md: 2 },
+            pb: { xs: 2, md: 2 },
             color: "#e2e8f0",
           }}
         >
@@ -1526,13 +1573,13 @@ export default function Footer() {
               display: "grid",
               gridTemplateColumns: {
                 xs: "1fr",
-                lg: "minmax(280px, 1fr) 2.2fr",
+                lg: "minmax(320px, 1fr) 2.2fr",
               },
               gap: { xs: 3, lg: 4 },
-              alignItems: "stretch",
+              alignItems: "flex-start",
             }}
           >
-            {/* ===================== LEFT: CERTIFICATIONS ===================== */}
+            {/* ===================== LEFT: CERTIFICATIONS (horizontal auto-scroll) ===================== */}
             <Box
               sx={{
                 background: "rgba(15, 23, 42, 0.55)",
@@ -1542,7 +1589,9 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                height: "100%",
+                height: 237,
+                overflow: "hidden",
+                position: "relative",
               }}
             >
               <Typography
@@ -1553,106 +1602,55 @@ export default function Footer() {
                   color: "#60A5FA",
                   textTransform: "uppercase",
                   textAlign: "center",
-                  mb: 3.5,
+                  mb: 3,
+                  flexShrink: 0,
                 }}
               >
                 Certifications & Compliance
               </Typography>
 
+              {/* Horizontal scroll viewport */}
               <Box
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  width: "100%",
-                  gap: { xs: 4, sm: 5 },
                   flex: 1,
+                  width: "100%",
+                  overflow: "hidden",
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  maskImage:
+                    "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                  "&:hover .cert-track": {
+                    animationPlayState: "paused",
+                  },
                 }}
               >
-                {/* ABDM */}
+                {/* Horizontal scrolling track — duplicated for seamless loop */}
                 <Box
+                  className="cert-track"
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
                     alignItems: "center",
-                    textAlign: "center",
-                    minWidth: 90,
+                    gap: 3,
+                    width: "max-content",
+                    animation: "certScrollX 30s linear infinite",
+                    "@keyframes certScrollX": {
+                      "0%": { transform: "translateX(0)" },
+                      "100%": { transform: "translateX(-50%)" },
+                    },
                   }}
                 >
-                  <Box
-                    component="img"
-                    src="/certification/abdm.webp"
-                    alt="ABDM"
-                    sx={{
-                      height: { xs: 64, sm: 72 },
-                      width: "auto",
-                      objectFit: "contain",
-                      mb: 1.5,
-                      borderRadius: "50%",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      fontWeight: 700,
-                      color: "#F8FAFC",
-                      mb: 0.4,
-                    }}
-                  >
-                    ABDM
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: 12,
-                      color: "rgba(148,163,184,0.75)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Compliant
-                  </Typography>
-                </Box>
-
-                {/* HIPAA */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    minWidth: 90,
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src="/certification/hippa.jpg"
-                    alt="HIPAA"
-                    sx={{
-                      height: { xs: 64, sm: 72 },
-                      width: "auto",
-                      objectFit: "contain",
-                      mb: 1.5,
-                      borderRadius: "50%",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      fontWeight: 700,
-                      color: "#F8FAFC",
-                      mb: 0.4,
-                    }}
-                  >
-                    HIPAA
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: 12,
-                      color: "rgba(148,163,184,0.75)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Compliant
-                  </Typography>
+                  {/* First copy */}
+                  {CERTIFICATIONS.map((cert) => (
+                    <CertificationBadge key={`a-${cert.label}`} {...cert} />
+                  ))}
+                  {/* Duplicate copy for seamless loop */}
+                  {CERTIFICATIONS.map((cert) => (
+                    <CertificationBadge key={`b-${cert.label}`} {...cert} />
+                  ))}
                 </Box>
               </Box>
             </Box>
@@ -1666,7 +1664,6 @@ export default function Footer() {
                 p: { xs: 3, sm: 3.5 },
                 display: "flex",
                 flexDirection: "column",
-                height: "100%",
               }}
             >
               <Typography
@@ -1692,7 +1689,7 @@ export default function Footer() {
                     md: "repeat(3, 1fr)",
                   },
                   gap: 2,
-                  flex: 1,
+                  alignItems: "start",
                 }}
               >
                 {[...LOCATIONS]
@@ -1744,7 +1741,6 @@ export default function Footer() {
                           textDecoration: "none",
                           color: "inherit",
                           transition: "all 0.2s ease",
-                          height: "100%",
                           "&:hover": {
                             background: "rgba(30, 41, 59, 0.7)",
                             borderColor: isNearest
@@ -1754,30 +1750,10 @@ export default function Footer() {
                           },
                         }}
                       >
-                        {/* Nearest Badge */}
-                        {/* {isNearest && (
-                          <Box
-                            sx={{
-                              position: "absolute",
-                              top: -8,
-                              right: 10,
-                              fontSize: 10,
-                              fontWeight: 700,
-                              px: 1,
-                              py: 0.3,
-                              borderRadius: 1,
-                              background: "#16a34a",
-                              color: "#fff",
-                              letterSpacing: 0.5,
-                              boxShadow: "0 2px 6px rgba(22,163,74,0.4)",
-                            }}
-                          >
-                            📍 NEAREST
-                          </Box>
-                        )} */}
-
                         {/* Company + Flag */}
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
+                        >
                           <ReactCountryFlag
                             svg
                             countryCode={loc.country}
@@ -1805,7 +1781,7 @@ export default function Footer() {
                           sx={{
                             display: "flex",
                             alignItems: "flex-start",
-                            gap: 1,
+                            gap: .5,
                             pl: 0.2,
                           }}
                         >
@@ -1851,7 +1827,14 @@ export default function Footer() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             >
-                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                              <rect
+                                x="9"
+                                y="9"
+                                width="13"
+                                height="13"
+                                rx="2"
+                                ry="2"
+                              />
                               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                             </svg>
                           </Box>
@@ -1887,7 +1870,9 @@ export default function Footer() {
                           </Typography>
 
                           <Box
-                            onClick={(e) => handleCopy(e, loc.phone.replace(/\s+/g, ""))}
+                            onClick={(e) =>
+                              handleCopy(e, loc.phone.replace(/\s+/g, ""))
+                            }
                             title="Copy phone number"
                             sx={{
                               display: "flex",
@@ -1915,7 +1900,14 @@ export default function Footer() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             >
-                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                              <rect
+                                x="9"
+                                y="9"
+                                width="13"
+                                height="13"
+                                rx="2"
+                                ry="2"
+                              />
                               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                             </svg>
                           </Box>
@@ -1943,6 +1935,7 @@ export default function Footer() {
           maxWidth="xl"
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
             alignItems: "center",
             justifyContent: "space-between",
             gap: 3,
@@ -2071,6 +2064,62 @@ function ContactPill({ children, href, icon }) {
         {icon}
       </Box>
       <Box>{children}</Box>
+    </Box>
+  );
+}
+
+function CertificationBadge({ src, alt, label }) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        flexShrink: 0,
+        transition: "transform 0.2s ease",
+        "&:hover": {
+          transform: "translateY(-3px)",
+        },
+      }}
+    >
+      <Box
+        component="img"
+        src={src}
+        alt={alt}
+        loading="lazy"
+        sx={{
+          height: { xs: 48, sm: 56, md: 64 },
+          width: { xs: 48, sm: 56, md: 64 },
+          objectFit: "contain",
+          bgcolor: "white",
+          borderRadius: "50%",
+          mb: 1.5,
+          flexShrink: 0,
+        }}
+      />
+      <Typography
+        sx={{
+          fontSize: { xs: 12.5, sm: 13.5 },
+          fontWeight: 700,
+          color: "#F8FAFC",
+          lineHeight: 1.2,
+          whiteSpace: "nowrap",
+          mb: 0.3,
+        }}
+      >
+        {label}
+      </Typography>
+      <Typography
+        sx={{
+          fontSize: 11,
+          color: "rgba(148,163,184,0.75)",
+          fontWeight: 500,
+          whiteSpace: "nowrap",
+        }}
+      >
+        Compliant
+      </Typography>
     </Box>
   );
 }

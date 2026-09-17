@@ -1,217 +1,3 @@
-// "use client";
-
-// import * as React from "react";
-// import {
-//   Box,
-//   Typography,
-//   IconButton,
-//   Stack,
-//   Container,
-// } from "@mui/material";
-// import Image from "next/image";
-
-// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-
-// const partners = [
-//   { id: 1, name: "MSME", logo: "/partners/msms.png", des: "" },
-//   { id: 2, name: "DPIIT", logo: "/partners/dpit.png", des: "" },
-//   { id: 3, name: "Azure", logo: "/partners/Azure.png", des: "" },
-//   { id: 4, name: "NXP", logo: "/partners/nxp.png", des: "" },
-//   { id: 5, name: "Texas Instruments", logo: "/partners/Texas.png", des: "" },
-// ];
-
-// /* ---------- SETTINGS -------------- */
-
-// const AUTO_SLIDE_DELAY = 3000;
-
-// /* ---------- COMPONENT ------------ */
-
-// export default function PartnerSlider() {
-//   const [index, setIndex] = React.useState(0);
-//   const intervalRef = React.useRef(null);
-
-//   const total = partners.length;
-
-
-
-//   const startAutoSlide = () => {
-//     stopAutoSlide();
-//     intervalRef.current = setInterval(() => {
-//       setIndex((prev) => (prev + 1) % total);
-//     }, AUTO_SLIDE_DELAY);
-//   };
-
-//   const stopAutoSlide = () => {
-//     if (intervalRef.current) clearInterval(intervalRef.current);
-//   };
-//   /* Auto Slide */
-//   React.useEffect(() => {
-//     startAutoSlide();
-//     return stopAutoSlide;
-//   }, [index]);
-
-//   const prev = () => setIndex((i) => (i - 1 + total) % total);
-//   const next = () => setIndex((i) => (i + 1) % total);
-
-
-
-
-//   return (
-//     <Box 
-//     // py={{ xs: 6, md: 10 }}
-//     //  mt={5} 
-//      bgcolor="#fff">
-//       <Container maxWidth="lg">
-
-//         <Stack spacing={2} alignItems="center" textAlign="center" mb={{ xs: 4, md: 6 }}>
-
-//           <Box
-//             sx={{
-//               display: "inline-flex",
-//               alignItems: "center",
-//               gap: 1,
-//               px: 2,
-//               py: 0.9,
-//               borderRadius: 99,
-//               bgcolor: "rgba(27,77,255,0.10)",
-//               border: "1px solid rgba(27,77,255,0.18)",
-//             }}
-//           >
-//             <Typography
-//               sx={{
-//                 fontWeight: 900,
-//                 fontSize: 12,
-//                 letterSpacing: "0.12em",
-//                 textTransform: "uppercase",
-//                 color: "#1B4DFF",
-//               }}
-//             >
-//               OUR PARTNER NETWORK
-
-//             </Typography>
-//           </Box>
-
-//           <Typography
-//             variant="h4"
-//             sx={{
-//               textAlign: "center",
-//               fontWeight: 800,
-//               fontSize: { xs: 24, sm: 28, md: 32 },
-//               color: "#0f172a",
-//               mb: { xs: 4, md: 5 },
-//             }}
-//           >
-//             <Box component="span" className="!text-[#1f2a56]" color="text.primary">
-
-//               Expanding Possibilities Through {" "}
-//             </Box>
-//             <Box component="span" className="!text-[#1b4dff]" color="primary.main">
-//               Trusted Alliances
-//             </Box>
-//           </Typography>
-//         </Stack>
-
-
-//         {/* SLIDER */}
-//         <Box
-//           onMouseEnter={stopAutoSlide}
-//           onMouseLeave={startAutoSlide}
-//           sx={{
-//             position: "relative",
-//             overflow: "hidden",
-//           }}
-//         >
-//           {/* Track */}
-//           <Box
-//             sx={{
-//               display: "flex",
-//               transition: "transform 0.6s ease",
-//               transform: `translateX(-${index * 220}px)`,
-//             }}
-//           >
-//             {[...partners, ...partners].map((item, i) => (
-//               <Box
-//                 key={i}
-//                 sx={{
-//                   minWidth: 220,
-//                   height: 130,
-//                   display: "flex",
-//                   alignItems: "center",
-//                   justifyContent: "center",
-//                   opacity: 1,
-//                   transition: "0.3s",
-//                 }}
-//               >
-
-
-//                 <Image
-//                   src={item.logo}
-//                   alt={item.name}
-//                   width={160}
-//                   height={60}
-//                   style={{ objectFit: "contain" }}
-//                 />
-//               </Box>
-//             ))}
-//           </Box>
-
-//           {/* ARROWS */}
-//           <IconButton
-//             onClick={prev}
-//             sx={{
-//               position: "absolute",
-//               left: 0,
-//               top: "50%",
-//               transform: "translateY(-50%)",
-//               bgcolor: "#fff",
-//               boxShadow: 2,
-//             }}
-//           >
-//             <ChevronLeftIcon />
-//           </IconButton>
-
-//           <IconButton
-//             onClick={next}
-//             sx={{
-//               position: "absolute",
-//               right: 0,
-//               top: "50%",
-//               transform: "translateY(-50%)",
-//               bgcolor: "#fff",
-//               boxShadow: 2,
-//             }}
-//           >
-//             <ChevronRightIcon />
-//           </IconButton>
-//         </Box>
-
-//         {/* DOTS */}
-//         <Stack direction="row" justifyContent="center" spacing={1} mt={4}>
-//           {partners.map((_, i) => (
-//             <Box
-//               key={i}
-//               onClick={() => setIndex(i)}
-//               sx={{
-//                 width: 10,
-//                 height: 10,
-//                 borderRadius: "50%",
-//                 cursor: "pointer",
-//                 bgcolor: i === index ? "#6c4cf1" : "#ddd",
-//                 transition: "0.3s",
-//               }}
-//             />
-//           ))}
-//         </Stack>
-//       </Container>
-      
-//     </Box>
-//   );
-// }
-
-
-
 
 "use client";
 
@@ -223,49 +9,100 @@ import {
   Container,
   useTheme,
   useMediaQuery,
-  Chip,
 } from "@mui/material";
 import Image from "next/image";
 import { keyframes } from "@mui/system";
 
 import HealingIcon from "@mui/icons-material/Healing";
-import HealthAndSafetyIcon   from "@mui/icons-material/HealthAndSafety";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 const medicalPartners = [
-  { 
-    id: 1, 
-    name: "MSME", 
-    logo: "/partners/msms.png", 
+  {
+    id: 1,
+    name: "MSME",
+    logo: "/partners/msms.png",
     des: "Government Initiative",
     category: "Government"
   },
-  { 
-    id: 2, 
-    name: "DPIIT", 
-    logo: "/partners/dpit.png", 
+  {
+    id: 2,
+    name: "DPIIT",
+    logo: "/partners/dpit.png",
     des: "Policy Support",
     category: "Government"
   },
-  { 
-    id: 3, 
-    name: "Microsoft Azure", 
-    logo: "/partners/Azure.png", 
+  {
+    id: 3,
+    name: "Microsoft Azure",
+    logo: "/partners/Azure.png",
     des: "Cloud Healthcare",
     category: "Technology"
   },
-  { 
-    id: 4, 
-    name: "NXP", 
-    logo: "/partners/nxp.png", 
+  {
+    id: 4,
+    name: "NXP",
+    logo: "/partners/nxp.png",
     des: "Medical IoT",
     category: "Technology"
   },
-  { 
-    id: 5, 
-    name: "Texas Instruments", 
-    logo: "/partners/Texas.png", 
+  {
+    id: 5,
+    name: "Texas Instruments",
+    logo: "/partners/Texas.png",
     des: "Healthcare Tech",
     category: "Technology"
   },
+  {
+    id: 5,
+    name: "NHA",
+    logo: "/partners/nha.png",
+    des: "",
+    category: ""
+  },
+  {
+    id: 5,
+    name: "NABH",
+    logo: "/partners/nabh.png",
+    des: "",
+    category: ""
+  },
+  {
+    id: 5,
+    name: "Qualcomm",
+    logo: "/partners/Qualcomm.webp",
+    des: "",
+    category: ""
+  },
+  {
+    id: 5,
+    name: "Eclinical",
+    logo: "/partners/eclinical.webp",
+    des: "",
+    category: ""
+  },
+  {
+    id: 5,
+    name: "JCI",
+    logo: "/partners/jci.png",
+    des: "",
+    category: ""
+  }
+  ,
+  {
+    id: 5,
+    name: "Microsoft",
+    logo: "/partners/micro001.png",
+    des: "",
+    category: ""
+  }
+  ,
+  {
+    id: 5,
+    name: "FDA",
+    logo: "/partners/fda.png",
+    des: "",
+    category: ""
+  }
+
 ];
 
 
@@ -327,7 +164,7 @@ export default function PartnerSlider() {
           display: { xs: "none", md: "block" },
         }}
       >
-      <HealingIcon sx={{ fontSize: 100, color: "#1b4dff" }} />
+        <HealingIcon sx={{ fontSize: 100, color: "#1b4dff" }} />
       </Box>
       <Box
         sx={{
@@ -339,7 +176,7 @@ export default function PartnerSlider() {
           display: { xs: "none", md: "block" },
         }}
       >
-        <HealthAndSafetyIcon   sx={{ fontSize: 120, color: "#1b4dff" }} />
+        <HealthAndSafetyIcon sx={{ fontSize: 120, color: "#1b4dff" }} />
       </Box>
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
@@ -349,7 +186,7 @@ export default function PartnerSlider() {
           textAlign="center"
           mb={{ xs: 5, sm: 6, md: 8 }}
         >
-        
+
 
           <Typography
             sx={{
@@ -387,7 +224,7 @@ export default function PartnerSlider() {
           </Typography>
 
 
-   
+
         </Stack>
       </Container>
 
@@ -430,7 +267,7 @@ export default function PartnerSlider() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: 0.5,
-                px: 2.5,
+                px: 3,
                 bgcolor: "#fafcff",
                 borderRadius: { xs: 3, md: 3 },
                 border: "1px solid rgba(27,77,255,0.06)",
@@ -569,7 +406,7 @@ export default function PartnerSlider() {
         </Box>
       </Box>
 
-  
+
     </Box>
   );
 }
