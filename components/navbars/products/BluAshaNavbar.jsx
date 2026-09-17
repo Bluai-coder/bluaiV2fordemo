@@ -202,7 +202,7 @@ export default function BluAshaNavbar() {
                                     mb: 1,
                                 }}
                             >
-                                Medical Products
+                                Medical Devices
                             </Typography>
                             {productMenu?.map((p) => (
                                 <MenuItem

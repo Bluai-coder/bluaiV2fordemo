@@ -46,7 +46,7 @@ const pages = [
 /* ================= PRODUCTS MEGA MENU DATA ================= */
 const menuCategories = [
   {
-    label: "Medical Products",
+    label: "Medical Devices",
     value: "first",
     items: [
       { label: "VitalsChair™", value: "VitalsChair™", route: "/products/vitals-chair" },

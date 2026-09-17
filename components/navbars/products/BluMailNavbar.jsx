@@ -201,7 +201,7 @@ export default function BluMailNavbar() {
                                     mb: 1,
                                 }}
                             >
-                                Medical Products
+                                Medical Devices
                             </Typography>
                             {productMenu?.map((p) => (
                                 <MenuItem

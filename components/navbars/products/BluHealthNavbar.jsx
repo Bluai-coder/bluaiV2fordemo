@@ -203,7 +203,7 @@ export default function BluHealthNavbar() {
                                     mb: 1,
                                 }}
                             >
-                                Medical Products
+                                Medical Devices
                             </Typography>
                             {productMenu?.map((p) => (
                                 <MenuItem
