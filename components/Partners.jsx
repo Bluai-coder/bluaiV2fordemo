@@ -102,6 +102,14 @@ const medicalPartners = [
     des: "",
     category: ""
   }
+   ,
+  {
+    id: 6,
+    name: "Athenahealth",
+    logo: "/partners/Athenahealth-Logo.png",
+    des: "",
+    category: ""
+  }
 
 ];
 
@@ -124,7 +132,7 @@ export default function PartnerSlider() {
   const [isPaused, setIsPaused] = React.useState(false);
 
   const itemWidth = isXs ? 180 : isSm ? 210 : 240;
-  const itemHeight = isXs ? 130 : isSm ? 148 : 160;
+  const itemHeight = isXs ? 130 : isSm ? 148 : 150;
   const logoW = isXs ? 115 : isSm ? 135 : 155;
   const logoH = isXs ? 48 : isSm ? 56 : 64;
   const gap = isXs ? 18 : isSm ? 22 : 28;
@@ -267,7 +275,7 @@ export default function PartnerSlider() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: 0.5,
-                px: 3,
+                px: 4,
                 bgcolor: "#fafcff",
                 borderRadius: { xs: 3, md: 3 },
                 border: "1px solid rgba(27,77,255,0.06)",
@@ -373,7 +381,7 @@ export default function PartnerSlider() {
               />
 
               {/* Partner name on hover */}
-              <Typography
+              {/* <Typography
                 className="partner-name"
                 sx={{
                   fontSize: 12,
@@ -385,10 +393,10 @@ export default function PartnerSlider() {
                 }}
               >
                 {item.name}
-              </Typography>
+              </Typography> */}
 
               {/* Partner description */}
-              <Typography
+              {/* <Typography
                 className="partner-des"
                 sx={{
                   fontSize: 10,
@@ -400,7 +408,7 @@ export default function PartnerSlider() {
                 }}
               >
                 {item.des}
-              </Typography>
+              </Typography> */}
             </Box>
           ))}
         </Box>

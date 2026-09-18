@@ -134,7 +134,7 @@ const products = [
     id: 8,
     icon: "/logos/white/BluAsha-logo.png",
     title: "BluASHA™",
-    image: "/blu-asha/hero-asha-2.png",
+    image: "/hero-popup/asha.png",
     category: "AI Clinical Documentation",
     description: `ASHA workers spend 40% of their time on manual record-keeping and reporting, reducing time available for actual healthcare delivery. Critical health data gets lost, delayed, or becomes illegible.Rural areas lack reliable internet connectivity, making digital health systems unusable when workers need them most. Existing solutions fail when connectivity is poor or absent.`,
     slug: "products/blu-asha",
@@ -186,7 +186,6 @@ const products = [
 export default function HeroSection() {
   const router = useRouter();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [openDemo, setOpenDemo] = useState(false);

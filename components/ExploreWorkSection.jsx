@@ -21,7 +21,7 @@ export default function PortfolioShowcase() {
       <Box
         sx={{
           width: "100%",
-          bgcolor: "#0B1220",
+          background: "radial-gradient(circle at 70% 50%, #0F1E5C 0%, #060B20 45%, #040913 100%)",
           position: "relative",
           overflow: "hidden",
           py: { xs: 6, md: 9 },
@@ -60,6 +60,7 @@ export default function PortfolioShowcase() {
               flexDirection: { xs: "column", md: "row" },
               alignItems: "center",
               gap: { xs: 5, md: 6 },
+
               // px: { xs: 2, sm: 4, md: 7 },
             }}
           >
@@ -141,7 +142,7 @@ export default function PortfolioShowcase() {
               </Typography>
 
               <Button
-                onClick={() => router.push("/portfolio")}
+                onClick={() => router.push("/gallery")}
                 variant="contained"
                 sx={{
                   bgcolor: "#1b4dff",
@@ -196,7 +197,7 @@ export default function PortfolioShowcase() {
                 />
               </Box>
 
-          
+
             </Box>
           </Box>
         </Container>
@@ -204,7 +205,7 @@ export default function PortfolioShowcase() {
 
       {/* ===== PRODUCT CARDS ===== */}
       <Box sx={{ bgcolor: "#F8FAFC", py: { xs: 6, md: 8 } }}>
-    
+
       </Box>
     </Box>
   );

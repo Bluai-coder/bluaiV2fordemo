@@ -658,10 +658,10 @@ import { getTheme } from "../theme";
 
 const galleryItems = [
   { id: 1, type: "images", title: "PCB Board", src: "/gallery/img1.jpg" },
-  // { id: 2, type: "images", title: "Embedded System", src: "/gallery/img2.jpg" },
-  // { id: 3, type: "images", title: "IoT Module", src: "/gallery/img3.jpg" },
-  { id: 4, type: "images", title: "IoT Module", src: "/gallery/img4.jpg" },
-  { id: 5, type: "images", title: "IoT Module", src: "/gallery/img5.jpg" },
+  { id: 2, type: "images", title: "Embedded System", src: "/gallery/img2.jpg" },
+  { id: 3, type: "images", title: "IoT Module", src: "/gallery/img3.jpg" },
+  { id: 4, type: "images", title: "VitalsChair™", src: "/gallery/img4.jpg" },
+  { id: 5, type: "images", title: "Document", src: "/gallery/img5.jpg" },
   // { id: 6, type: "images", title: "IoT Module", src: "/gallery/img6.jpg" },
   // { id: 7, type: "images", title: "IoT Module", src: "/gallery/img7.jpg" },
   // { id: 8, type: "images", title: "PCB Board", src: "/gallery/img8.jpg" },
@@ -672,12 +672,46 @@ const galleryItems = [
     id: 12,
     type: "videos",
     title: "VitalsChair™ Demo",
-    // src: "/gallery/video.mp4",
     src: "https://youtu.be/1nHIzjtbpqk?si=iZaUrSZ20H2PfK6p",
     thumb: "/gallery/video-thumb.png",
   },
-  {
+    {
     id: 13,
+    type: "videos",
+    title: "BluCompliance",
+    src: "https://youtu.be/RtH4f2Y8ngw?si=mUuBxmnzhqQCvD8J",
+    thumb: "/gallery/complince-thumb.png",
+  },
+    {
+    id: 14,
+    type: "videos",
+    title: "Yashoda Medicity",
+    src: "https://youtu.be/XkUVDMY_nMc?si=cmC8s0Y15e3bdSk3",
+    thumb: "/gallery/yashodha-thumb.png",
+  },
+    {
+    id: 15,
+    type: "videos",
+    title: " BluNotes™",
+    src: "https://youtu.be/hgppB67TYzM?si=zGqT_Jg6QbQ-t-7c",
+    thumb: "/gallery/doctor-thumb.png",
+  },
+    {
+    id: 16,
+    type: "videos",
+    title: "Medical Fair 2026 Delhi",
+    src: "https://youtu.be/omx7wwTag8g?si=g9wLlTAJTZGTwooz",
+    thumb: "/gallery/fair-thumb.png",
+  },
+    {
+    id: 17,
+    type: "videos",
+    title: "Blu Health™ Portal",
+    src: "https://youtu.be/oVK_xSm_JZM?si=dqjt2aaipHliFpBh",
+    thumb: "/gallery/health-thumb.png",
+  },
+  {
+    id: 18,
     type: "documents",
     title: "Product Specs PDF",
     src: "/gallery/BluAccess-EAMMS.pdf",
@@ -685,7 +719,7 @@ const galleryItems = [
 
   },
   {
-    id: 14,
+    id: 19,
     type: "documents",
     title: "Product Specs PDF",
     src: "/gallery/BluNotes-single-india.pdf",
@@ -693,7 +727,7 @@ const galleryItems = [
 
   },
   {
-    id: 15,
+    id: 20,
     type: "documents",
     title: "Product Specs PDF",
     src: "/gallery/VitalsChair-single-india.pdf",
