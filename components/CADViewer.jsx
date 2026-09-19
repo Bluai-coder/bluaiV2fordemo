@@ -362,46 +362,6 @@ export default function CADViewer({ modelPath }) {
         />
       </Canvas>
 
-      {/* Fullscreen button */}
-      {/* <IconButton
-        onClick={toggleFullscreen}
-        sx={{
-          position: 'absolute',
-          top: 12, right: 12,
-          zIndex: 10,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(8px)',
-          color: 'white',
-          borderRadius: '8px',
-          padding: '8px',
-          border: '1px solid rgba(255,255,255,0.1)',
-          '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-        }}
-      >
-        {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
-      </IconButton> */}
-
-      {/* Reset camera button - only show in fullscreen */}
-      {/* {isFullscreen && (
-        <IconButton
-          onClick={resetCamera}
-          sx={{
-            position: 'absolute',
-            top: 12, right: 58,
-            zIndex: 10,
-            height: 42, width: 42,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(8px)',
-            color: 'white',
-            borderRadius: '8px',
-            padding: '8px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-          }}
-        >
-          ⟲
-        </IconButton>
-      )} */}
     </Box>
   );
 }

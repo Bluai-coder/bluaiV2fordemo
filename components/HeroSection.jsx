@@ -185,7 +185,6 @@ const products = [
 // ==================== COMPONENT ====================
 export default function HeroSection() {
   const router = useRouter();
-  const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [openDemo, setOpenDemo] = useState(false);
@@ -306,6 +305,7 @@ export default function HeroSection() {
 
           {/* Dynamic Product Title */}
           <Typography
+            component="h1" variant="h1"
             sx={{
               fontSize: {
                 xs: "clamp(24px, 5vw, 32px)",
@@ -493,8 +493,8 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               sx={{
                 position: "absolute",
-                bottom: { xs: 4, sm: -10, md: 0, lg: -15 , xl : 0 },
-                right: { xs: 16, sm: 140, md: 180, lg : "60%", xl: 190 },
+                bottom: { xs: 4, sm: -10, md: 0, lg: -15, xl: 0 },
+                right: { xs: 16, sm: 140, md: 180, lg: "60%", xl: 190 },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: { xs: "flex-start", sm: "flex-start" },
@@ -553,7 +553,7 @@ export default function HeroSection() {
             sx={{
               position: "absolute",
               bottom: { xs: -5, sm: -10, md: -10, lg: -20, xl: -10 },
-              right: { xs: "10%", sm: "10%", md: "5%", lg : "100%", xl: "5%" },
+              right: { xs: "10%", sm: "10%", md: "5%", lg: "100%", xl: "5%" },
               textAlign: "left",
               borderLeft: `2px solid ${activeProduct.textColor}`,
               pl: 2,
@@ -586,8 +586,8 @@ export default function HeroSection() {
       <Box
         sx={{
           position: "absolute",
-          bottom: { xs: "20px", sm: "30px", md: "50px" , lg : "5px", xl: "50px" },
-          right: { xs: "50%", sm: "30px", md: "60px" , lg : "60px", xl: "60px" },
+          bottom: { xs: "20px", sm: "30px", md: "50px", lg: "5px", xl: "50px" },
+          right: { xs: "50%", sm: "30px", md: "60px", lg: "60px", xl: "60px" },
           transform: { xs: "translateX(50%)", sm: "none" },
           zIndex: 10,
           display: "flex",

@@ -232,12 +232,7 @@ The integration of facial expression analysis into medical monitoring represents
                     `The future of healthcare is not just about collecting more data about understanding the human experience more deeply and responding with greater precision, empathy, and effectiveness. Facial expression analysis represents a crucial step toward that future, offering a window into the patient experience that has never been available to medical science.`,
             },
 
-            // { type: 'heading', value: 'Future Outlook' },
-            // {
-            //     type: 'paragraph',
-            //     value:
-            //         'As AI matures, facial expression analysis will play a central role in personalized, patient-centric healthcare.',
-            // },
+
         ],
 
         tags: ['AI', 'Healthcare', 'Medical', 'Innovation'],

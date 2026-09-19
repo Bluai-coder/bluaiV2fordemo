@@ -10,8 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
-import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import TranslateRoundedIcon from "@mui/icons-material/TranslateRounded";
 
 import MicRoundedIcon from "@mui/icons-material/MicRounded";

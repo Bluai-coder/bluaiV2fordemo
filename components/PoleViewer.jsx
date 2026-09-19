@@ -1561,7 +1561,6 @@ export default function PoleViewer({ modelPath }) {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 10, 7]} intensity={1.5} />
-        {/* <directionalLight position={[-5, 0, 5]} intensity={0.5} color="#4488ff" /> */}
         <hemisphereLight skyColor="#4488ff" groundColor="#e2e2e2" intensity={0.3} />
 
         <Suspense fallback={<Loader />}>

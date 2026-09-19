@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import {
   Box,
-  Button,
   Container,
   IconButton,
   Modal,
@@ -15,7 +14,6 @@ import {
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
-import PlayCircleOutlineRoundedIcon from "@mui/icons-material/PlayCircleOutlineRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 export default function BluNotesHero() {
@@ -131,31 +129,7 @@ export default function BluNotesHero() {
               existing EMR/EHR systems.
             </Typography>
 
-            {/* CTA */}
-            {/* <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
-              <Button
-                variant="outlined"
-                startIcon={<PlayCircleOutlineRoundedIcon />}
-                onClick={handleOpen}
-                sx={{
-                  textTransform: "none",
-                  fontWeight: 900,
-                  borderRadius: 99,
-                  px: 3.2,
-                  py: 1.25,
-                  borderColor: "rgba(27,77,255,0.35)",
-                  color: "#1B4DFF",
-                  bgcolor: "rgba(255,255,255,0.55)",
-                  backdropFilter: "blur(10px)",
-                  "&:hover": {
-                    borderColor: "#1B4DFF",
-                    bgcolor: "rgba(27,77,255,0.06)",
-                  },
-                }}
-              >
-                Watch Our Story
-              </Button>
-            </Stack> */}
+         
           </Box>
 
           {/*  RIGHT MOCKUP AREA */}

@@ -1,8 +1,8 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
-import { Box, Container, Typography, Button, Card, CardContent } from "@mui/material";
+import { useState } from "react";
+import { Box, Container, Typography, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 // Single images that will slide one by one
@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 
 export default function PortfolioShowcase() {
   const router = useRouter();
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
 

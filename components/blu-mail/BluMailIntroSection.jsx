@@ -141,8 +141,6 @@ export default function BluMailPremiumSection() {
                         </Box>
                     </Grid>
 
-                    {/* ================= RIGHT PREMIUM CARD ================= */}
-                    {/* You can add here later and it will stay centered automatically */}
                 </Grid>
             </Container>
 
