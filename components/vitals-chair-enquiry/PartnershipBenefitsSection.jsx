@@ -46,7 +46,7 @@ export default function PartnershipBenefitsSection() {
                     "radial-gradient(900px 500px at 80% 30%, rgba(79,107,255,0.22), transparent 60%), linear-gradient(180deg, #f5f7ff 0%, #eef1ff 100%)",
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Box
                     sx={{
                         display: "flex",

@@ -8,9 +8,6 @@ import {
   Container,
   Typography,
   Stack,
-  List,
-  ListItem,
-  ListItemText,
   Table,
   TableBody,
   TableCell,
@@ -26,11 +23,10 @@ import {
   Tabs,
   Tab
 } from "@mui/material";
-import Image from "next/image";
 import ProductFlow from "@/components/ProductFlow";
-import { ArrowDown, ArrowRight, CheckCircleIcon, CheckIcon, ChevronLeft, ChevronRight, Cloud, Cpu, Fingerprint, HelpCircleIcon, PlayCircle, Rotate3d, Shield } from "lucide-react";
-import VitalsChair3D from "../../../components/VitalsChair3D";
+import { ArrowDown, ArrowRight, CheckCircleIcon, ChevronLeft, ChevronRight, Rotate3d } from "lucide-react";
 import { useRef, useState } from "react";
+import VitalsChair3D from "../../../components/VitalsChair3D";
 
 
 function a11yProps(index) {
@@ -298,18 +294,6 @@ export default function VitalsChairLanding() {
     { certification: "HIPAA compliance", status: "Yes (BluHealth Portal)" },
   ];
 
-  const technicalSpecs = [
-    { spec: "Session duration", details: "7–10 minutes" },
-    { spec: "Display", details: "15.6\" Touchscreen, 1920x1080" },
-    { spec: "Connectivity", details: "Wi-Fi 6, Gigabit LAN, 4G/LTE optional, Bluetooth 5.2" },
-    { spec: "Power", details: "100-240V AC, 50/60Hz, Integrated UPS backup" },
-    { spec: "Dimensions (W × D × H)", details: "850mm × 750mm × 1150mm" },
-    { spec: "Weight", details: "85 kg" },
-    { spec: "Operating temperature", details: "10°C to 40°C" },
-    { spec: "Data storage", details: "Cloud + 64GB local storage" },
-    { spec: "Multi-language support", details: "English, Hindi, Punjabi" },
-    { spec: "Patient ID / biometric login", details: "ABHA ID, QR code, RFID, Fingerprint optional" },
-  ];
 
   const useCases = [
     "Hospitals and multi-specialty clinics — OPD triage and pre-consultation vitals",
@@ -334,14 +318,9 @@ export default function VitalsChairLanding() {
   ];
 
   const faqs = [
-    { q: "How long does a full assessment take?", a: "A complete checkup covering all 55+ parameters takes 7–10 minutes." },
-    { q: "Does it require trained staff to operate?", a: "The chair is designed for self-service operation with on-screen guidance. Basic training is provided for setup and maintenance." },
     { q: "Can it work in areas with intermittent internet?", a: "Yes, the chair has local storage and can buffer data, syncing automatically when connectivity is restored." },
-    { q: "Which blood tests can be done at the point of care?", a: "Currently, blood glucose is confirmed. For comprehensive POC panels including HbA1c, lipids, and haemoglobin, please contact our team." },
     { q: "What EMR systems is it currently integrated with?", a: "VitalsChair supports HL7 and FHIR standards, enabling integration with Epic, Cerner, Bahmni, eHospital, and other major EMR systems." },
-    { q: "Is it listed on the Government e-Marketplace (GeM)?", a: "Coming soon. Contact us for procurement inquiries." },
     { q: "Is the device CDSCO approved?", a: "The device is in the final stages of CDSCO approval. Please contact us for the latest status." },
-    { q: "Can reports be shared with patients via WhatsApp or email?", a: "Yes, reports can be automatically shared via WhatsApp, email, or SMS through the BluHealth Portal." },
   ];
   const [value, setValue] = useState(0);
 
@@ -357,11 +336,7 @@ export default function VitalsChairLanding() {
         <ProductGallery />
       </Container>
 
-
-
-
-
-        <Container maxWidth="lg"
+      <Container maxWidth="lg"
         sx={{
           borderBottom: 1,
           borderColor: "divider",
@@ -501,10 +476,6 @@ export default function VitalsChairLanding() {
                   >
                     <img
                       src="/new-vc-image.png"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       style={{
                         width: "100%",
                         height: "100%",
@@ -809,8 +780,6 @@ export default function VitalsChairLanding() {
           </Accordion>
         </Container>
 
-
-
         {/* USE CASES */}
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <SectionTitle> Use Cases</SectionTitle>
@@ -840,9 +809,6 @@ export default function VitalsChairLanding() {
           </Container>
         </Box>
       </CustomTabPanel>
-
-
-
       {/* FAQ SECTION */}
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
         <SectionTitle> Frequently Asked Questions</SectionTitle>
@@ -859,8 +825,8 @@ export default function VitalsChairLanding() {
             "Smart: AI-powered analytic for early health risk detection.",
             "Connected: Real-time sync to cloud platforms for continuous patient records.",
             "Scalable: Easily integrable into hospitals, diagnostics labs, corporate wellness programs, and telemedicine platforms.",
-          ].map((faq) => (
-            <AccordionDetails>
+          ].map((faq, i) => (
+            <AccordionDetails key={i} >
               <Typography sx={{ color: "#555" }}>{faq}</Typography>
             </AccordionDetails>
           ))}
@@ -877,10 +843,7 @@ export default function VitalsChairLanding() {
 
 
       </Container>
-
-
-
-      <ProductFlow />
+      {/* <ProductFlow /> */}
     </Box>
   )
 }

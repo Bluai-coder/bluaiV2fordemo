@@ -1,13 +1,39 @@
 
 'use client';
 
-import { useState, useRef } from "react";
-import { Box, Container, Typography, Stack, Chip, Paper, Button, Divider } from "@mui/material";
-import { ArrowRight, Shield, Activity, Cloud, HeartPulse, Scale, Star, PlayCircle, CheckCircle2, Radio, BadgeCheck, Fingerprint, Cpu, Rotate3d, ChevronLeft, ChevronRight, Plus, Minus } from "lucide-react";
+import { useRef, useState } from "react";
+;
+import {
+  ChevronDown, Rotate3d, ChevronLeft, ChevronRight, Plus, Minus, CheckCircleIcon, ArrowDown
+} from "lucide-react";
+
+import {
+  Box,
+  Container,
+  Typography,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Chip,
+  Accordion,
+  Divider,
+  AccordionSummary,
+  AccordionDetails,
+  Button,
+  Tabs,
+  Tab
+} from "@mui/material";
+
 import VitalsBriefcase3D from "../../../components/VitalsBriefcase3D";
 import RequestDemoModal from "../../../components/popups/RequestDemoModal"
 
-// --- Premium Reusable Components ---
+
+// --- Typography Helper ---
 const SectionTitle = ({ children, align = "center", light = false }) => (
   <Typography sx={{
     fontWeight: 900, fontSize: { xs: 28, sm: 36, md: 42 }, color: light ? "#fff" : "#0a1a3c",
@@ -17,54 +43,53 @@ const SectionTitle = ({ children, align = "center", light = false }) => (
   </Typography>
 );
 
-const SubHeading = ({ children, align = "center", light = false }) => (
-  <Typography sx={{
-    color: light ? "#cbd5e1" : "#6b7280", fontSize: { xs: 15, md: 18 }, mb: { xs: 6, md: 8 },
-    textAlign: align, maxWidth: 650, mx: "auto", lineHeight: 1.6, fontWeight: 400
-  }}>
-    {children}
-  </Typography>
-);
 
-// --- Working FAQ Accordion ---
-const FAQItem = ({ question, answer, defaultOpen = false }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
 
   return (
-    <Box sx={{
-      mb: 1.5, borderRadius: 2, border: '1px solid #e5e7eb',
-      bgcolor: '#fff', overflow: 'hidden',
-      transition: 'all 0.3s ease',
-      '&:hover': { borderColor: '#4756d4' }
-    }}>
-      <Box
-        onClick={() => setIsOpen(!isOpen)}
-        sx={{ p: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', userSelect: 'none', gap: 2 }}
-      >
-        <Typography sx={{ fontWeight: 800, fontSize: { xs: 15, md: 16 }, color: '#111827' }}>{question}</Typography>
-        <Box sx={{
-          width: 28, height: 28, borderRadius: '50%',
-          bgcolor: isOpen ? '#0a1a3c' : '#f3f4f6',
-          color: isOpen ? '#fff' : '#111827', flexShrink: 0,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'all 0.3s ease'
-        }}>
-          {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      tabIndex={0}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+  );
+}
+
+function SubSectionTitle({ children }) {
+  return (
+    <Typography sx={{ fontWeight: 800, fontSize: { xs: 18, md: 20 }, color: "#0b1c3d", mb: 2, mt: 3 }}>
+      {children}
+    </Typography>
+  );
+}
+
+function PointItem({ text }) {
+  return (
+    <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
+      <Box sx={{ width: 34, display: "flex", justifyContent: "center", flexShrink: 0, pt: "2px" }}>
+        <Box sx={{ width: 22, height: 22, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#fff" }}>
+          <CheckCircleIcon className="!text-[#1b4dff]" sx={{ fontSize: 15, color: "#1b4dff" }} />
         </Box>
       </Box>
-      <Box sx={{
-        maxHeight: isOpen ? '300px' : '0px', opacity: isOpen ? 1 : 0, overflow: 'hidden',
-        transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease'
-      }}>
-        <Box sx={{ px: 3, pb: 3, pt: 0 }}>
-          <Divider sx={{ mb: 2 }} />
-          <Typography sx={{ color: '#6b7280', fontSize: 14, lineHeight: 1.7 }}>{answer}</Typography>
-        </Box>
-      </Box>
+      <Typography sx={{ fontSize: 16, lineHeight: 1.9, color: "rgba(7,18,44,0.78)", whiteSpace: "pre-line", flex: 1 }}>
+        {text.trim()}
+      </Typography>
     </Box>
   );
-};
-
+}
 // --- 360 Viewer ---
 const ProductGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -173,21 +198,6 @@ export default function VitalsBriefcaseClient() {
   const [openDemo, setOpenDemo] = useState(false);
 
 
-  const integrationStandards = [
-    { standard: "HL7 v2.x", status: "Confirmed" },
-    { standard: "HL7 v3", status: "Confirmed" },
-    { standard: "FHIR R4", status: "Confirmed" },
-    { standard: "SMART on FHIR", status: "Confirmed" },
-    { standard: "IHE profiles", status: "Confirmed" },
-  ];
-
-  const certifications = [
-    { certification: "CDSCO (India)", status: "In Process" },
-    { certification: "FDA (USA)", status: "Planned" },
-    { certification: "CE (Europe)", status: "Planned" },
-    { certification: "ISO 13485", status: "In Progress" },
-    { certification: "HIPAA", status: "Yes (BluHealth Portal)" },
-  ];
 
   const useCases = [
     "Hospitals & Clinics — OPD triage",
@@ -199,20 +209,29 @@ export default function VitalsBriefcaseClient() {
   ];
 
   const comparisonData = [
-    { feature: "Form Factor", briefcase: "Standalone Kiosk", competitor1: "Wall-mounted", competitor2: "Portable" },
-    { feature: "Parameters", briefcase: "30+", competitor1: "10", competitor2: "15" },
-    { feature: "Contactless Vitals", briefcase: "Yes", competitor1: "No", competitor2: "No" },
-    { feature: "AI Insights", briefcase: "Yes", competitor1: "No", competitor2: "No" },
-    { feature: "ABHA Integration", briefcase: "Yes", competitor1: "No", competitor2: "No" },
+    { feature: "Form factor", vitals: "Briefcase", coc: "Standing kiosk", welch: "Wheeled monitor" },
+    { feature: "Parameters", vitals: "55+", coc: "60+", welch: "~10" },
+    { feature: "Gel-free 12-lead ECG", vitals: "Yes", coc: "Not specified", welch: "No" },
+    { feature: "Body composition (BIA)", vitals: "Yes", coc: "Yes", welch: "No" },
+    { feature: "POC blood tests", vitals: "Yes", coc: "Yes", welch: "No" },
+    { feature: "AI health insights", vitals: "Yes", coc: "Yes", welch: "No" },
+    { feature: "India-made / locally supported", vitals: "Yes", coc: "Yes", welch: "No" },
+    { feature: "ABDM / ABHA integration", vitals: "Available", coc: "Partial", welch: "No" },
   ];
 
   const faqs = [
     { q: "How long does a screening take?", a: "A full screening takes 5–7 minutes." },
-    { q: "Does it require staff to operate?", a: "Designed for self-service with voice guidance." },
+    // { q: "Does it require staff to operate?", a: "Designed for self-service with voice guidance." },
     { q: "Can it work offline?", a: "Yes, with local storage and auto-sync." },
-    { q: "Which EMR systems are supported?", a: "Epic, Cerner, Bahmni, and more via FHIR." },
-    { q: "Is it GeM listed?", a: "Coming soon. Contact us for procurement." },
+    // { q: "Which EMR systems are supported?", a: "Epic, Cerner, Bahmni, and more via FHIR." },
+    // { q: "Is it GeM listed?", a: "Coming soon. Contact us for procurement." },
   ];
+
+    const [value, setValue] = useState(0);
+    
+      const handleChange = (event, newValue) => {
+        setValue(newValue);
+      }
 
   return (
     <Box sx={{ width: "100%", backgroundColor: "#fff" }}>
@@ -224,250 +243,339 @@ export default function VitalsBriefcaseClient() {
 
 
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-
-
-        {/* RIGHT: Minimal Text & CTA */}
-        <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'center' }, width: '100%', order: { xs: 2, md: 2 } }}>
-
-
-          <Typography sx={{ fontWeight: 900, fontSize: { xs: 38, sm: 48, md: 34 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
-            Vitals briefcase™  by BluAI
-          </Typography>
-
-          <Typography sx={{ fontWeight: 900, fontSize: { xs: 20, sm: 24, md: 16 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
-            Manage. My Health. My Way.™
-          </Typography>
-
-          <Typography sx={{ color: '#4b5563', fontSize: { xs: 15, md: 18 }, mb: 5, lineHeight: 1.7, mx: { xs: 'auto', md: 0 } }}>
-            <b>AI-Powered | Contactless | Cloud-Connected.</b> Introducing Vitals briefcase™, a next-generation health screening kiosk designed for rapid, contactless vitals monitoring in high-traffic settings.
-          </Typography>
-
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex' }} sx={{ mb: 5 }}>
-            <Button variant="contained" endIcon={<ArrowRight />}
-              onClick={() => setOpenDemo(true)}
-              sx={{
-                bgcolor: '#0a1a3c', color: '#fff', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-                textTransform: 'none', fontSize: 16, boxShadow: '0 15px 30px rgba(10,26,60,0.3)', width: { xs: '100%', sm: 'auto' },
-                '&:hover': { bgcolor: '#1e3a8a', transform: 'translateY(-2px)', boxShadow: '0 20px 40px rgba(10,26,60,0.4)' }
-              }}>
-              Request Demo
-            </Button>
-
-            <Button variant="outlined" startIcon={<PlayCircle size={20} />} sx={{
-              borderColor: '#cbd5e1', color: '#0a1a3c', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-              textTransform: 'none', fontSize: 16, bgcolor: 'rgba(255,255,255,0.8)', width: { xs: '100%', sm: 'auto' },
-              '&:hover': { borderColor: '#4756d4', color: '#4756d4', bgcolor: '#fff' }
-            }}>
-              Watch Demo
-            </Button>
-          </Stack>
-          <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
-
-          {/* <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                  <Shield size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>HIPAA Secured</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                  <Cloud size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>Cloud Connected</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                  <Fingerprint size={18} color="#10b981" /> <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>Multi-Login</Typography>
-                </Box>
-              </Stack> */}
-        </Box>
+      <Container maxWidth="lg"
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          mb: 3,
+        }}
+      >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          centered
+          aria-label="basic tabs example"
+          sx={{
+            "& .MuiTabs-flexContainer": {
+              justifyContent: "center",
+            },
+            "& .MuiTabs-indicator": {
+              height: 3,
+              borderRadius: 2,
+            },
+            "& .MuiTab-root": {
+              textTransform: "none",
+              fontSize: "1rem",
+              fontWeight: 600,
+              color: "#080808",
+              px: 4,
+              py: 1.5,
+              minHeight: 56,
+            },
+            "& .Mui-selected": {
+              color: "#000",
+            },
+          }}
+        >
+          <Tab label="Description" {...a11yProps(0)} />
+          <Tab label="Additional Information" {...a11yProps(1)} />
+        </Tabs>
       </Container>
 
-      {/* 2. DARK FEATURES (COMPACT & TIGHT) */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#0a1a3c', color: '#fff', position: 'relative', overflow: 'hidden' }}>
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-          <SectionTitle light>Core Measurement Capabilities</SectionTitle>
-          <SubHeading light>Comprehensive health data from a single, streamlined device.</SubHeading>
+      <CustomTabPanel value={value} index={0}>
 
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 6, md: 8 }, alignItems: 'center' }}>
-            {/* Left: Capabilities */}
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
-              {[
-                { icon: <HeartPulse size={24} />, title: "Smart Connectivity & Integration", desc: "Multi-Login Support: IC Card, QR Code Scanning, Fingerprint Recognition, ABHA ID. Cloud-Ready: Fully compatible with BluAI Database and BluHealth™ Portal. Developer-Friendly: Complete API suite available for seamless third-party integration." },
-                { icon: <Activity size={24} />, title: "Vital Signs & Basic Metrics", desc: "Blood Pressure, Temperature, Respiration, Heart Rate, Oxygen Level (SpO2). Age, Weight, Height, BMI." },
-                { icon: <Scale size={24} />, title: "Physical Composition", desc: "Body Fat (%, Subcutaneous %, Visceral Fat 1-10). Muscle/Mass Metrics (Skeletal Muscle, Lean Mass, Bone Mass, Fat Free Weight, Protein). BMR, Health Score." },
-                { icon: <Radio size={24} />, title: "Monitoring & Detection", desc: "Body Posture, Emotional State Assessment. Facial monitoring & treatment effectiveness tracking." },
-                { icon: <Star size={24} />, title: "Advanced Diagnostic Features", desc: "Color Blindness Detection. Eyesight Screening System. High-Resolution Integrated Display for real-time data visualization." },
-              ].map((item, i) => (
-                <Box key={i} className="hover-lift" sx={{
-                  display: 'flex', alignItems: 'flex-start', gap: 2, p: 2.5, borderRadius: 3,
-                  border: '1px solid rgba(255,255,255,0.1)', bgcolor: 'rgba(255,255,255,0.05)', width: '100%',
-                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)', borderColor: '#4756d4' }
-                }}>
-                  <Box sx={{ p: 1.5, bgcolor: 'rgba(71,86,212,0.2)', color: '#fff', borderRadius: 2, flexShrink: 0 }}>{item.icon}</Box>
-                  <Box>
-                    <Typography sx={{ fontWeight: 800, fontSize: 16, mb: 0.5, color: '#fff' }}>{item.title}</Typography>
-                    <Typography sx={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6 }}>{item.desc}</Typography>
+        <Container maxWidth="lg" sx={{ textAlign: "center", mt: { xs: 4, sm: 0, md: 0 }, mb: { xs: 4, sm: 6, md: 6 } }}>
+          <Box >
+
+
+            <Typography sx={{ fontWeight: 900, textAlign: "center", fontSize: { xs: 38, sm: 48, md: 48 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
+              Briefcase™  by BluAI
+            </Typography>
+
+            <Typography sx={{ fontWeight: 900, textAlign: "center", fontSize: { xs: 20, sm: 24, md: 18 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
+              Manage. My Health. My Way.™
+            </Typography>
+            <Typography sx={{ color: "#0b1c3d", textAlign: "start", fontWeight: 900, fontSize: { xs: 13.5, sm: 14.5 } }}>
+              Patent Pending #202411094218 | Medical-Grade | AI-Driven | Cloud-Connected
+            </Typography>
+            <Typography sx={{ mt: 1, color: "#334155", textAlign: "start", lineHeight: 1.8, fontSize: { xs: 14.5, md: 15.5 } }}>
+              Introducing Briefcase™, a groundbreaking innovation in patient health assessments—designed to deliver a complete set of vital measurements in a single, effortless sitting. Built with precision, powered by AI, and seamlessly integrated with the BluHealth™ Portal, Briefcase™ redefines the way healthcare professionals collect, analyze, and monitor patient health data.
+            </Typography>
+            <Typography sx={{ mt: 2, fontWeight: 800, textAlign: "start", fontSize: { xs: 15.5, md: 16.5 }, color: "#0b1c3d" }}>
+              Comprehensive Vital Monitoring – All in One Chair
+            </Typography>
+            <Typography sx={{ color: "#334155", textAlign: "start", lineHeight: 1.8, fontSize: { xs: 14.5, md: 15.5 } }}>
+              Briefcase™ is an indigenous AI-powered health monitoring chair designed to deliver a complete diagnostic health assessment from a single seated position. Built for hospitals, clinics, corporate wellness programs, health camps, and senior living communities, it consolidates what traditionally requires multiple devices, rooms, and staff into one ergonomic, self-service chair — completing a full checkup in 7–10 minutes.
+            </Typography>
+          </Box>
+        </Container>
+
+
+
+        <Container maxWidth="lg">
+          {/* STATS SECTION */}
+          <Box sx={{ display: "flex", flexWrap: "wrap", borderRadius: 3, overflow: "hidden", border: "1px solid #eee", bgcolor: "#fafbff", mt: 4 }}>
+            <Box sx={{ flex: { xs: "100%", sm: "33.33%" }, p: 3, textAlign: "center", borderRight: { sm: "1px solid #eee" }, borderBottom: { xs: "1px solid #eee", sm: "none" } }}>
+              <Typography sx={{ fontSize: { xs: 24, md: 28 }, fontWeight: 800, color: "#111" }}>20,563+</Typography>
+              <Typography sx={{ fontSize: 14, color: "#555", mt: 0.5 }}>EKG measurements</Typography>
+            </Box>
+            <Box sx={{ flex: { xs: "100%", sm: "33.33%" }, p: 3, textAlign: "center", borderRight: { sm: "1px solid #eee" }, borderBottom: { xs: "1px solid #eee", sm: "none" } }}>
+              <Typography sx={{ fontSize: { xs: 24, md: 28 }, fontWeight: 800, color: "#111" }}>365</Typography>
+              <Typography sx={{ fontSize: 14, color: "#555", mt: 0.5 }}>days measured</Typography>
+            </Box>
+            <Box sx={{ flex: { xs: "100%", sm: "33.33%" }, p: 3, textAlign: "center" }}>
+              <Typography sx={{ fontSize: { xs: 24, md: 28 }, fontWeight: 800, color: "#111" }}>20%</Typography>
+              <Typography sx={{ fontSize: 14, color: "#555", mt: 0.5 }}>of users detected an arrhythmia thanks to BluAI</Typography>
+            </Box>
+          </Box>
+        </Container>
+
+
+
+        {/* SECTION 2 (Mobile frame video + content lists) */}
+        <Box
+          sx={{
+            width: "100%",
+            py: { xs: 6, md: 10 },
+            background:
+              "radial-gradient(circle at 40% 15%, rgba(255, 255, 255, 0.89) 0%, transparent 45%), #ffffff",
+          }}
+        >
+          <Container maxWidth="lg">
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                gap: { xs: 4, md: 6 },
+                alignItems: "flex-start",
+              }}
+            >
+              {/* LEFT: Phone frame video */}
+              <Box
+                sx={{
+                  flex: 0.9,
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "flex-start" },
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: { xs: 260, sm: 400, md: 520 },
+                    height: { xs: 420, sm: 580, md: 620 },
+                  }}
+                >
+
+
+                  {/* Video inside phone */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      // top: { xs: "10.5%", sm: "5.5%", md: "25.5%" },
+                      left: { xs: "10.5%", sm: "10.5%", md: "1%" },
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <img
+                      src="/briefcase-use.png"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
                   </Box>
                 </Box>
-              ))}
-            </Box>
-
-            {/* Right: Image */}
-            <Box sx={{ flex: 1, position: 'relative', width: '100%' }}>
-              <Box sx={{ borderRadius: 4, overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.5)', border: '8px solid rgba(255,255,255,0.1)' }}>
-                <img src="/briefcase-use.png" alt="Vitals Briefcase" style={{ width: '100%', height: 'auto', display: 'block' }} />
               </Box>
 
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+              {/* RIGHT: Text Columns */}
+              <Box sx={{ flex: 1.2, width: "100%" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", lg: "row" },
+                    gap: { xs: 4, lg: 6 },
 
-      {/* 3. COMPARISON & TRUST (PREMIUM CARDS) */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#f8fafc' }}>
+                  }}
+                >
+                  {/* Column 1 */}
+                  <Box sx={{ flex: 1 }}>
+
+
+
+                    <Accordion defaultExpanded sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+                      <AccordionSummary expandIcon={<ArrowDown />}>
+                        <Typography sx={{ fontWeight: 600 }}>Smart Connectivity & Integration</Typography>
+                      </AccordionSummary>
+                      {[`Multi-Login Support: IC Card, QR Code Scanning, Fingerprint Recognition`, `Cloud-Ready: Fully compatible with BluAI Database and BluHealth™ Portal`, `Developer-Friendly: Complete API suite available for seamless third-party integration`]?.map((faq, i) => (
+                        <AccordionDetails key={i}>
+                          <Typography sx={{ color: "#555" }}>{faq}</Typography>
+                        </AccordionDetails>
+                      ))}
+                    </Accordion>
+
+
+                    <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+                      <AccordionSummary expandIcon={<ArrowDown />}>
+                        <Typography sx={{ fontWeight: 600 }}>Vital Signs & Basic Metrics</Typography>
+                      </AccordionSummary>
+                      {[
+                        "Blood Pressure, Temperature, Respiration, Heart Rate/Pulse, Oxygen Level (SpO2)",
+                        "Age, Weight, Height, BMI",
+                        "Glucose Monitoring (Manual)",
+                      ]?.map((faq, i) => (
+                        <AccordionDetails key={i}>
+                          <Typography sx={{ color: "#555" }}>{faq}</Typography>
+                        </AccordionDetails>
+                      ))}
+                    </Accordion>
+
+
+
+
+                    <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+                      <AccordionSummary expandIcon={<ArrowDown />}>
+                        <Typography sx={{ fontWeight: 600 }}>Physical Composition</Typography>
+                      </AccordionSummary>
+                      {[
+                        "Body Fat (%, Subcutaneous %, Visceral Fat 1-10)",
+                        "Muscle/Mass Metrics (Skeletal Muscle, Lean Mass, Bone Mass, Fat Free Weight kg/lb, Protein)",
+                        "BMR, Health Score",
+                      ]?.map((faq, i) => (
+                        <AccordionDetails key={i}>
+                          <Typography sx={{ color: "#555" }}>{faq}</Typography>
+                        </AccordionDetails>
+                      ))}
+                    </Accordion>
+
+
+
+                    <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+                      <AccordionSummary expandIcon={<ArrowDown />}>
+                        <Typography sx={{ fontWeight: 600 }}> Monitoring & Detection</Typography>
+                      </AccordionSummary>
+                      {["Body Posture, Emotional State", "Facial monitoring & treatment effectiveness", "ECG"]?.map((faq, i) => (
+                        <AccordionDetails key={i}>
+                          <Typography sx={{ color: "#555" }}>{faq}</Typography>
+                        </AccordionDetails>
+                      ))}
+                    </Accordion>
+
+
+
+                    <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+                      <AccordionSummary expandIcon={<ArrowDown />}>
+                        <Typography sx={{ fontWeight: 600 }}>Advanced Diagnostic Features</Typography>
+                      </AccordionSummary>
+                      {["Color Blindness Detection", "Eyesight Screening System", "High-Resolution Integrated Display for real-time data visualization"]?.map((faq, i) => (
+                        <AccordionDetails key={i}>
+                          <Typography sx={{ color: "#555" }}>{faq}</Typography>
+                        </AccordionDetails>
+                      ))}
+                    </Accordion>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
+      </CustomTabPanel>
+
+      <CustomTabPanel value={value} index={1}>
+
+        {/* REGULATORY & CERTIFICATIONS */}
         <Container maxWidth="lg">
-          <SectionTitle>Comparison with Alternatives</SectionTitle>
-          <SubHeading>The clear choice for modern healthcare infrastructure.</SubHeading>
+          {/* <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+            <AccordionSummary expandIcon={<ArrowDown />}>
+              <SectionTitle>Regulatory & Certifications</SectionTitle>
+            </AccordionSummary>
 
-          {/* Visual Comparison Cards */}
-          <Box sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-            gap: 4,
-            maxWidth: 1100,
-            mx: 'auto',
-            mb: 12
-          }}>
-            {/* Competitor A */}
-            <Paper elevation={0} sx={{ p: 4, borderRadius: 4, bgcolor: '#fff', border: '1px solid #e5e7eb', opacity: 0.6 }}>
-              <Typography sx={{ fontWeight: 800, fontSize: 16, color: '#9ca3af', mb: 3 }}>Competitor A</Typography>
-              <Stack spacing={2.5}>
-                {comparisonData.map((row, i) => (
-                  <Box key={i} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>{row.feature}</Typography>
-                    <Typography sx={{ fontSize: 14, color: '#9ca3af' }}>{row.competitor1}</Typography>
-                  </Box>
-                ))}
-              </Stack>
-            </Paper>
+            <AccordionDetails>
+              <TableContainer component={Paper} sx={{ boxShadow: "none", border: "1px solid #eee" }}>
+                <Table><TableHead><TableRow><TableCell className="w-[686px]"><b>Certification</b></TableCell><TableCell><b>Status</b></TableCell></TableRow></TableHead>
+                  <TableBody>{certifications?.map((row, i) => (<TableRow key={i}><TableCell>{row.certification}</TableCell><TableCell><Chip label={row.status} size="small" color={row.status.includes("Pending") ? "warning" : row.status === "Yes" ? "success" : "info"} /></TableCell></TableRow>))}</TableBody></Table>
+              </TableContainer>
+            </AccordionDetails>
+          </Accordion> */}
+        </Container>
 
-            {/* Competitor B */}
-            <Paper elevation={0} sx={{ p: 4, borderRadius: 4, bgcolor: '#fff', border: '1px solid #e5e7eb', opacity: 0.6 }}>
-              <Typography sx={{ fontWeight: 800, fontSize: 16, color: '#9ca3af', mb: 3 }}>Competitor B</Typography>
-              <Stack spacing={2.5}>
-                {comparisonData.map((row, i) => (
-                  <Box key={i} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography sx={{ fontSize: 14, fontWeight: 600, color: '#374151' }}>{row.feature}</Typography>
-                    <Typography sx={{ fontSize: 14, color: '#9ca3af' }}>{row.competitor2}</Typography>
-                  </Box>
-                ))}
-              </Stack>
-            </Paper>
-
-            {/* Vitals briefcase (Highlighted) */}
-            <Paper elevation={0} sx={{
-              p: 4, borderRadius: 4, bgcolor: '#0a1a3c', color: '#fff',
-              boxShadow: '0 25px 50px -12px rgba(10,26,60,0.5)',
-              border: '1px solid #4756d4', position: 'relative'
-            }}>
-              <Box sx={{ position: 'absolute', top: 16, right: 16, bgcolor: '#4756d4', px: 2, py: 0.5, borderRadius: 3, fontSize: 11, fontWeight: 900, letterSpacing: 1 }}>BEST</Box>
-              <Typography sx={{ fontWeight: 900, fontSize: 18, color: '#fff', mb: 3 }}>Vitals briefcase™</Typography>
-              <Stack spacing={2.5}>
-                {comparisonData.map((row, i) => (
-                  <Box key={i} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography sx={{ fontSize: 14, fontWeight: 500, color: '#cbd5e1' }}>{row.feature}</Typography>
-                    <Stack direction="row" alignItems="center" spacing={1}>
-                      <Typography sx={{ fontSize: 14, fontWeight: 800, color: '#4ade80' }}>{row.briefcase}</Typography>
-                      <CheckCircle2 size={18} color="#4ade80" />
-                    </Stack>
-                  </Box>
-                ))}
-              </Stack>
-            </Paper>
-          </Box>
-
-          {/* Trust & Compliance below */}
-          <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
-            <Divider sx={{ mb: 8 }} />
-            <SectionTitle>Trusted. Certified. Ready.</SectionTitle>
-
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6 }}>
-              <Box sx={{ flex: 1 }}>
-                <Typography sx={{ fontWeight: 800, fontSize: 14, color: '#111827', mb: 3, textTransform: 'uppercase', letterSpacing: 0.5 }}>Certifications</Typography>
-                <Stack spacing={1.5}>
-                  {certifications.map((cert, i) => (
-                    <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <BadgeCheck size={20} color="#10b981" />
-                      <Typography sx={{ fontSize: 15, color: '#374151', fontWeight: 600 }}>{cert.certification} <span style={{ color: '#9ca3af', fontWeight: 400 }}>({cert.status})</span></Typography>
-                    </Box>
-                  ))}
-                </Stack>
+        {/* USE CASES */}
+        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+          <SectionTitle> Use Cases</SectionTitle>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+            {useCases?.map((useCase, i) => (
+              <Box key={i} sx={{ width: { xs: "100%", md: "31%" } }}>
+                <PointItem text={useCase} />
               </Box>
-
-              <Box sx={{ flex: 1 }}>
-                <Typography sx={{ fontWeight: 800, fontSize: 14, color: '#111827', mb: 3, textTransform: 'uppercase', letterSpacing: 0.5 }}>Integration Standards</Typography>
-                <Stack spacing={1.5}>
-                  {integrationStandards.map((std, i) => (
-                    <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Fingerprint size={20} color="#4756d4" />
-                      <Typography sx={{ fontSize: 15, color: '#374151', fontWeight: 600 }}>{std.standard} <span style={{ color: '#9ca3af', fontWeight: 400 }}>({std.status})</span></Typography>
-                    </Box>
-                  ))}
-                </Stack>
-              </Box>
-
-              <Box sx={{ flex: 1 }}>
-                <Typography sx={{ fontWeight: 800, fontSize: 14, color: '#111827', mb: 3, textTransform: 'uppercase', letterSpacing: 0.5 }}>Use Cases</Typography>
-                <Stack spacing={1.5}>
-                  {useCases.map((use, i) => (
-                    <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <CheckCircle2 size={20} color="#4756d4" />
-                      <Typography sx={{ fontSize: 15, color: '#374151', fontWeight: 500 }}>{use}</Typography>
-                    </Box>
-                  ))}
-                </Stack>
-              </Box>
-            </Box>
+            ))}
           </Box>
         </Container>
-      </Box>
 
-      {/* 4. VIDEO CTA (CINEMATIC) */}
-      <Box sx={{ position: 'relative', py: { xs: 8, md: 10 }, display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'url(/briefcase-use.png) center/cover fixed', minHeight: { xs: 300, md: 400 } }}>
-        <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, bgcolor: 'rgba(10,26,60,0.85)', backdropFilter: 'blur(5px)' }} />
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2, textAlign: 'center', px: { xs: 3, md: 4 } }}>
-          <Button sx={{
-            width: { xs: 70, md: 100 }, height: { xs: 70, md: 100 }, borderRadius: '50%', bgcolor: '#fff', color: '#0a1a3c',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 4,
-            animation: 'pulseGlow 2s infinite', border: '8px solid rgba(255,255,255,0.2)'
-          }}>
-            <PlayCircle size={{ xs: 36, md: 50 }} />
-          </Button>
-          <Typography sx={{ fontWeight: 900, fontSize: { xs: 28, md: 48 }, color: '#fff', mb: 3 }}>See Vitals briefcase™ in Action</Typography>
-          <Typography sx={{ color: '#cbd5e1', fontSize: { xs: 15, md: 18 }, mb: 5, maxWidth: 550, mx: 'auto' }}>
-            Watch our AI-powered health assessment platform transform diagnostics in under 60 seconds.
-          </Typography>
-          <Button variant="contained" sx={{ bgcolor: '#fff', color: '#0a1a3c', fontWeight: 900, px: { xs: 5, md: 8 }, py: 2, borderRadius: 3, fontSize: { xs: 15, md: 16 } }}>Watch Full Demo</Button>
-        </Container>
-      </Box>
+        {/* COMPARISON TABLE */}
+        <Box sx={{ bgcolor: "#f7f9ff", py: { xs: 6, md: 8 } }}>
+          <Container maxWidth="lg">
+            <SectionTitle>Comparison vs Competing Systems</SectionTitle>
+            <TableContainer component={Paper} sx={{ overflowX: "auto", boxShadow: "none", border: "1px solid #eee" }}>
+              <Table size="small"><TableHead><TableRow><TableCell><b>Feature</b></TableCell><TableCell><b>Briefcase (BluAI)</b></TableCell><TableCell><b>COC Health Kiosk</b></TableCell><TableCell><b>Welch Allyn Connex VSM</b></TableCell></TableRow></TableHead>
+                <TableBody>
+                  {comparisonData?.map((row, i) => (<TableRow key={i}><TableCell>{row.feature}</TableCell><TableCell> {row.vitals === "Yes" || row.vitals === "Available" ? (
+                    <CheckCircleIcon className="!text-[#4caf50]" sx={{ fontSize: 15, color: "#4caf50" }} />
+                  ) : (
+                    <Chip label={row.vitals} size="small" color="success" />
+                  )}</TableCell><TableCell>{row.coc}</TableCell><TableCell>{row.welch}</TableCell></TableRow>))}
+                </TableBody></Table>
+            </TableContainer>
+          </Container>
+        </Box>
+      </CustomTabPanel>
 
-      {/* 5. FAQ (WORKING) */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#fff' }}>
-        <Container maxWidth="md">
-          <SectionTitle>Frequently Asked Questions</SectionTitle>
+      {/* 5. FAQ - TIGHT & WORKING */}
+      <Box sx={{ py: { xs: 6, md: 0 }, bgcolor: '#fff' }}>
 
-          <Paper sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, bgcolor: '#f8fafc', mb: 5, border: '1px solid #e5e7eb' }}>
-            <Typography sx={{ fontWeight: 800, fontSize: 20, color: '#111827', mb: 2 }}>Why Choose Vitals briefcase™?</Typography>
-            <Stack spacing={1.5}>
-              <Typography sx={{ color: '#6b7280', fontSize: 15, lineHeight: 1.6 }}>Efficient: One kiosk, multiple diagnostics—reducing patient wait time and resource load.</Typography>
-              <Typography sx={{ color: '#6b7280', fontSize: 15, lineHeight: 1.6 }}>Accurate: Built with clinical-grade components and tested to medical standards.</Typography>
-              <Typography sx={{ color: '#6b7280', fontSize: 15, lineHeight: 1.6 }}>Smart: AI-powered analytics for early health risk detection.</Typography>
-              <Typography sx={{ color: '#6b7280', fontSize: 15, lineHeight: 1.6 }}>Connected: Real-time sync to cloud platforms for continuous patient records.</Typography>
-              <Typography sx={{ color: '#6b7280', fontSize: 15, lineHeight: 1.6 }}>Scalable: Easily integrable into hospitals, diagnostics labs, corporate wellness programs, and telemedicine platforms.</Typography>
-            </Stack>
-          </Paper>
+        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+          <SectionTitle> Frequently Asked Questions</SectionTitle>
 
-          {faqs.map((faq, i) => (
-            <FAQItem key={i} question={faq.q} answer={faq.a} defaultOpen={i === 0} />
+
+          <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+
+            <AccordionSummary expandIcon={<ArrowDown />}>
+              <Typography sx={{ fontWeight: 600 }}>Why Choose Briefcase™ ?</Typography>
+            </AccordionSummary>
+            {[
+              "Efficient: One chair, multiple diagnostics—reducing patient wait time and resource load.",
+              "Accurate: Built with clinical-grade components and tested to medical standards.",
+              "Smart: AI-powered analytic for early health risk detection.",
+              "Connected: Real-time sync to cloud platforms for continuous patient records.",
+              "Scalable: Easily integrable into hospitals, diagnostics labs, corporate wellness programs, and telemedicine platforms.",
+            ]?.map((faq, i) => (
+              <AccordionDetails key={i}>
+                <Typography sx={{ color: "#555" }}>{faq}</Typography>
+              </AccordionDetails>
+            ))}
+          </Accordion>
+
+          {faqs?.map((faq, i) => (
+            <Accordion key={i} sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
+              <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
+              <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
+            </Accordion>
+
           ))}
+
+
+
         </Container>
       </Box>
+
 
     </Box>
   );

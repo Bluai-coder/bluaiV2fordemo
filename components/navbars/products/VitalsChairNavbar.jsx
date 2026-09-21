@@ -32,7 +32,7 @@ import RequestDemoModal from '../../../components/popups/RequestDemoModal'
 import Image from "next/image";
 import { productMenu } from "@/components/productMenu";
 
-export default function VitalsChairNavbar() {
+export default function VitalsChairNavbar({ logopath }) {
 
     const [productsAnchor, setProductsAnchor] = React.useState(null);
     const productsOpen = Boolean(productsAnchor);
@@ -85,7 +85,7 @@ export default function VitalsChairNavbar() {
                             onClick={() => handleNavigate("/")}
                         >
                             <Image
-                                src="/logos/vitals-chair-logo.png"
+                                src={logopath}
                                 alt="BluAI"
                                 width={118}
                                 height={118}
@@ -147,25 +147,29 @@ export default function VitalsChairNavbar() {
 
                             <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
 
+                            {logopath === "/logos/vitals-chair-logo.png"
+                                ? (<Button
+                                    variant="contained"
+                                    startIcon={<BusinessCenterOutlinedIcon />}
+                                    onClick={
+                                        () => router.push("/products/vitalschair-enquiry")
 
-                            <Button
-                                variant="contained"
-                                onClick={() => router.push("/products/vitalschair-enquiry")}
-                                startIcon={<BusinessCenterOutlinedIcon />}
-                                sx={{
-                                    textTransform: "none",
-                                    fontWeight: 700,
-                                    bgcolor: "#2f46ff",
-                                    borderRadius: 999,
-                                    px: 2.6,
-                                    py: 1.1,
-                                    boxShadow: "none",
-                                    "&:hover": { bgcolor: "#2237e8" },
-                                }}
+                                    }
+                                    sx={{
+                                        textTransform: "none",
+                                        fontWeight: 700,
+                                        bgcolor: "#2f46ff",
+                                        borderRadius: 999,
+                                        px: 2.6,
+                                        py: 1.1,
+                                        boxShadow: "none",
+                                        "&:hover": { bgcolor: "#2237e8" },
+                                    }}
 
-                            >
-                                Distributor Enquiry Form
-                            </Button>
+                                >
+                                    Distributor Enquiry Form
+                                </Button>) : undefined}
+
                         </Box>
 
                         {/* ================= MOBILE HAMBURGER ================= */}
@@ -367,7 +371,7 @@ export default function VitalsChairNavbar() {
                                 <ListItemText primary="VitalsPole™" />
                             </ListItemButton>
 
-                           <ListItemButton
+                            <ListItemButton
                                 component={Link}
                                 href="/products/vitals-briefcase"
                                 onClick={() => setMobileOpen(false)}

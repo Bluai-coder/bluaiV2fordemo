@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
 import SmartPoleNavbar from "../../../components/navbars/SmartPoleNavbar";
+import VitalsChairNavbar from "../../../components/navbars/products/VitalsChairNavbar";
 
  
 
@@ -20,15 +21,18 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SmartPoleNavbar/>
+    // <html lang="en" >
+      // <body
+      //   className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      // >
+      <div>
+        {/* <SmartPoleNavbar/> */}
+         <VitalsChairNavbar logopath = "/logos/vitals-pole.png"/>
         
         {children}
-        <Footer/>
-      </body>
-    </html>
+        </div>
+        // <Footer/>
+      // </body>
+    // </html>
   );
 }

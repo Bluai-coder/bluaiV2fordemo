@@ -587,7 +587,7 @@ export default function HeroSection() {
         sx={{
           position: "absolute",
           bottom: { xs: "20px", sm: "30px", md: "50px", lg: "5px", xl: "50px" },
-          right: { xs: "50%", sm: "30px", md: "60px", lg: "60px", xl: "60px" },
+          right: { xs: "50%", sm: "30px", md: "60px", lg: "60px", xl: "230px" },
           transform: { xs: "translateX(50%)", sm: "none" },
           zIndex: 10,
           display: "flex",
@@ -597,7 +597,7 @@ export default function HeroSection() {
         }}
       >
         <Stack direction="row" spacing={1} alignItems="center">
-          {products.map((_, index) => {
+          {products?.map((_, index) => {
             const isActive = currentIndex === index;
             return (
               <Box

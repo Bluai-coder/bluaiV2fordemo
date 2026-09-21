@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
 import VitalsChairNavbar from "../../../components/navbars/products/VitalsChairNavbar";
 
- 
+
 
 const geistSans = Geist({
   variable: "--font-inter",
@@ -20,15 +20,12 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <VitalsChairNavbar/>
-        
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    <div >
+
+      <VitalsChairNavbar logopath="/logos/vitals-chair-logo.png" />
+
+      {children}
+      <Footer />
+    </div>
   );
 }

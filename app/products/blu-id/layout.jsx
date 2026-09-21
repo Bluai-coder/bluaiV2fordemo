@@ -19,15 +19,20 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-     
-        <BluIdNavbar/>
+    <div>
+       <BluIdNavbar/>
         {children}
         <Footer/>
-      </body>
-    </html>
+    </div>
+    // <html lang="en" >
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+     
+    //     <BluIdNavbar/>
+    //     {children}
+    //     <Footer/>
+    //   </body>
+    // </html>
   );
 }

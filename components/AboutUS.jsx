@@ -119,7 +119,7 @@ export default function AboutPage() {
       </Box>
 
       {/* ================= MISSION / VISION ================= */}
-      <Box sx={{ py: { xs: 8, md: 0 }, bgcolor: "#FFFFFF", pt: 0 }}>
+      {/* <Box sx={{ py: { xs: 8, md: 0 }, bgcolor: "#FFFFFF", pt: 0 }}>
         <Container maxWidth="xl">
           <Box
             sx={{
@@ -209,7 +209,7 @@ export default function AboutPage() {
             </Paper>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

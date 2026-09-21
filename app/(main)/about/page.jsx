@@ -32,67 +32,16 @@ const team = [
   { id: 1, name: "Jay Nagi", role: "Founder and CEO", img: "/our-team/jay.png" },
   { id: 2, name: "Anurag Shrivastva", role: "Manager R&D", img: "/our-team/anurag.jpg" },
   { id: 3, name: "JaiPaul Nagi", role: "Executive sale office", img: "/our-team/jaipaul.png" },
-  { id: 4, name: "Kingston Joseph", role: "Engineer Data & AI", img: "/our-team/kingston.jpg" },
+  { id: 4, name: "Kingston Joseph", role: "Engineer Data & AI", img: "/our-team/kingston.webp" },
   { id: 5, name: "Akshay Saini", role: "Software Developer", img: "/our-team/akshay.jpeg" },
   { id: 6, name: "Krisma Nagi", role: "AI/ML", img: "/our-team/krisma.jpg" },
   { id: 7, name: "Nitin Saini", role: "Software Developer", img: "/our-team/nitin.jpg" },
   { id: 8, name: "Subham Rawat", role: "Software Developer", img: "/our-team/subham.jpg" },
-  { id: 9, name: "Himanshu", role: "Software Developer", img: "/our-team/himanshu.jpg" },
+  // { id: 9, name: "Himanshu", role: "Software Developer", img: "/our-team/himanshu.jpg" },
   { id: 10, name: "Shadab Rahman", role: "Software Developer", img: "/our-team/shadab.jpg" },
   { id: 11, name: "Sahil Ali", role: "Embedded Developer", img: "/our-team/sahil.jpg" },
   { id: 12, name: "Sankha Kundu", role: "Embedded Developer", img: "/our-team/sankha.jpg" },
   { id: 13, name: "Aditya Gurung", role: "Embedded Developer", img: "/our-team/aditya.jpg" },
-];
-
-const faqs = [
-  {
-    question: "What does BluAI specialize in?",
-    answer: (
-      <>
-        <b>BluAI</b> specializes in developing <b>AI-powered products and intelligent systems</b> across healthcare,
-        enterprise automation, and smart access technologies. Our solutions are designed to improve decision-making,
-        operational efficiency, and digital transformation outcomes.
-      </>
-    ),
-  },
-  {
-    question: "How does BluAI support the healthcare industry?",
-    answer: (
-      <>
-        Through platforms like <b>BluHealth</b>, <b>BluASHA</b>, and <b>VitalsChair</b>, BluAI enables
-        <b> real-time health monitoring, preventive diagnostics, remote care access, and data-driven clinical insights</b>,
-        helping healthcare providers deliver smarter and more efficient patient care.
-      </>
-    ),
-  },
-  {
-    question: "What enterprise solutions does BluAI offer?",
-    answer: (
-      <>
-        BluAI offers intelligent productivity and automation tools such as <b>BluMail</b> and <b>BluNotes</b>, which
-        streamline communication, documentation, and workflow management using advanced AI capabilities.
-      </>
-    ),
-  },
-  {
-    question: "Does BluAI provide identity and access management solutions?",
-    answer: (
-      <>
-        Yes. With products like <b>BluAccess</b> and <b>BluID</b>, BluAI delivers
-        <b> secure, AI-driven identity verification and smart access control systems</b> designed for modern
-        organizations and connected environments.
-      </>
-    ),
-  },
-  {
-    question: "Where is BluAI headquartered?",
-    answer: (
-      <>
-        BluAI is headquartered in the <b>United States</b> with a growing operational presence in <b>India</b>,
-        serving a global network of partners and clients.
-      </>
-    ),
-  },
 ];
 
 export default function About() {
@@ -102,7 +51,6 @@ export default function About() {
     () => getTheme(prefersDarkMode ? "dark" : "light"),
     [prefersDarkMode]
   );
-  const isDark = theme.palette.mode;
 
   function MetricCard({ icon, title, sub }) {
     return (
@@ -153,7 +101,7 @@ export default function About() {
   }
 
   return (
-    <Box sx={{ bgcolor: "#F8FAFC", minHeight: "100vh" }}>
+    <Box sx={{ bgcolor: "white", minHeight: "100vh" }}>
       {/* ================= HERO SECTION ================= */}
       <Box
         sx={{
@@ -162,7 +110,7 @@ export default function About() {
           pb: { xs: 6, md: 8 },
 
           background: "radial-gradient(circle at 70% 50%, #0F1E5C 0%, #060B20 45%, #040913 100%)",
-          color: "#fff",
+          color: "white",
         }}
       >
         {/* ================== SUBTLE GLOW ORBS ================== */}
@@ -330,7 +278,7 @@ export default function About() {
               flex: 1.1,
               px: { xs: 2.4, sm: 3.5, md: 5.5 },
               py: { xs: 4, md: 6 },
-              color: "#fff",
+              color: "white",
               position: "relative",
               overflow: "hidden",
             }}
@@ -386,7 +334,7 @@ export default function About() {
                 on cutting-edge product development and research, we tackle the tech industry's
                 toughest challenges.
                 <br />
-            
+
                 We've grown to offer comprehensive solutions and services, including generating
                 ideas for innovation, along with the digital transformation of your enterprise
                 through consulting, engineering excellence, and scalable execution.
@@ -430,7 +378,6 @@ export default function About() {
             py: { xs: 4, md: 6 },
             px: { xs: 2, md: 6 },
             borderRadius: 5,
-            boxShadow: "0 40px 100px rgba(15,23,42,0.15)",
             border: "1px solid rgba(79,123,255,0.12)",
             position: "relative",
             overflow: "hidden",
@@ -598,7 +545,7 @@ export default function About() {
       <OurTeamSlider team={team} />
 
       {/* ================= FAQ ================= */}
-      <Box
+      {/* <Box
         sx={{
           py: { xs: 8, md: 8 },
           background: "linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%)",
@@ -607,7 +554,6 @@ export default function About() {
 
         <Container maxWidth="xl">
           <Box>
-            {/* Badge */}
             <Box
               sx={{
                 display: "inline-flex",
@@ -712,7 +658,7 @@ export default function About() {
             </Stack>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

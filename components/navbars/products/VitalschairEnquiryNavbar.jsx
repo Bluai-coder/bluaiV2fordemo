@@ -76,7 +76,7 @@ export default function VitalschairEnquiryNavbar() {
                             onClick={() => handleNavigate("/")}
                         >
                             <Image
-                                src="/vitals-chair-enquiry/logo.png"
+                                src="/logos/vitals-chair-logo.png"
                                 alt="BluAI"
                                 width={118}
                                 height={118}

@@ -67,7 +67,7 @@ const RESOURCES = [
   { label: "Support", route: "/support/" },
   { label: "Privacy Policy", route: "/privacy-policy" },
   { label: "Terms & Conditions", route: "/terms-of-services" },
-  { label: "Gallery", route: "/gallery"  }
+  { label: "Gallery", route: "/gallery" }
 ];
 
 const LOCATIONS = [
@@ -497,6 +497,7 @@ export default function Footer() {
           </Box>
 
           {/* Contact Info */}
+          {/* Contact Info */}
           <Box>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <ContactPill
@@ -505,6 +506,7 @@ export default function Footer() {
               >
                 info@bluai.ai
               </ContactPill>
+
               <ContactPill
                 icon={<Phone sx={{ fontSize: 16 }} />}
                 href="tel:+911724568962"
@@ -515,6 +517,7 @@ export default function Footer() {
                   (India)
                 </Typography>
               </ContactPill>
+
               <ContactPill
                 icon={<Phone sx={{ fontSize: 16 }} />}
                 href="tel:+13022381512"
@@ -525,6 +528,7 @@ export default function Footer() {
                   (USA)
                 </Typography>
               </ContactPill>
+
               {/* Social */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
@@ -536,8 +540,8 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     sx={{
-                      width: {xs : 22 , md : 42 , lg : 42 , xl: 42},
-                      height: {xs : 22 , md : 42 , lg : 42 , xl: 42},
+                      width: { xs: 22, md: 42, lg: 42, xl: 42 },
+                      height: { xs: 22, md: 42, lg: 42, xl: 42 },
                       color: "#94A3B8",
                       border: "1px solid rgba(148,163,184,0.25)",
                       "&:hover": {
@@ -847,15 +851,19 @@ export default function Footer() {
                           }}
                         >
                           <Typography
-                            component="a"
-                            href={`tel:${loc.phone.replace(/\s+/g, "")}`}
-                            onClick={(e) => e.stopPropagation()}
+                            component="span"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                              window.location.href = `tel:${loc.phone.replace(/\s+/g, "")}`;
+                            }}
                             sx={{
                               fontSize: 12.5,
                               color: "#60A5FA",
                               lineHeight: 1.45,
                               textDecoration: "none",
                               fontWeight: 500,
+                              cursor: "pointer",
                               transition: "color 0.2s ease",
                               "&:hover": {
                                 color: "#93C5FD",

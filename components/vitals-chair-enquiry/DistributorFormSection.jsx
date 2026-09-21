@@ -15,7 +15,7 @@ export default function DistributorFormSection() {
                 overflow: "hidden",
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Box
                     sx={{
                         display: "flex",
@@ -51,8 +51,9 @@ export default function DistributorFormSection() {
                             }}
                         >
                             <Image
-                                src="/vitals-chair-enquiry/chairone.jpg" // replace
+                                src="/chair/2.webp" // replace
                                 alt="VitalsChair"
+                                // height = 320
                                 fill
                                 style={{ objectFit: "contain" }}
                             />
@@ -74,7 +75,7 @@ export default function DistributorFormSection() {
                             }}
                         >
                             <Image
-                                src="/vitals-chair-enquiry/chairtwo.jpg" // replace
+                                src="/hero-popup/chair.png" // replace
                                 alt="VitalsChair"
                                 fill
                                 style={{ objectFit: "contain" }}
@@ -93,7 +94,7 @@ export default function DistributorFormSection() {
                             sx={{
                                 fontSize: 14,
                                 fontWeight: 700,
-                                color: "#1B4DFF",
+                                color: "white",
                                 mb: 1,
                             }}
                         >

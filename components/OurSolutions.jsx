@@ -24,10 +24,10 @@ export default function OurSolutions() {
   const router = useRouter();
 
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#FFFFFF" }}>
+    <Box sx={{ py: { xs: 8, md: 0 }, bgcolor: "#FFFFFF" }}>
       <Container maxWidth="xl">
         {/* Header */}
-        <Box  mb={{ xs: 5, md: 7 }}>
+        <Box mb={{ xs: 5, md: 7 }}>
           <Typography
             sx={{
               fontWeight: 800,
@@ -80,7 +80,7 @@ export default function OurSolutions() {
             borderRadius: 4,
             overflow: "hidden",
             border: "1px solid #E8ECF5",
-                            background: "radial-gradient(circle at 70% 50%, #0F1E5C 0%, #060B20 45%, #040913 100%)",
+            background: "radial-gradient(circle at 70% 50%, #0F1E5C 0%, #060B20 45%, #040913 100%)",
 
           }}
         >
@@ -193,9 +193,15 @@ export default function OurSolutions() {
 
             {/* Trust Pills */}
             <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={1.3}
-              sx={{ width: "100%", mt: 1, flexWrap: "wrap" }}
+              direction={{ xs: "column", sm: "row", md: "row", lg: "row" }}
+              spacing={{ xs: 1, sm: 1.3, lg: 3 }}
+              sx={{
+                width: "100%",
+                mt: 1,
+                flexWrap: { xs: "nowrap", sm: "nowrap" },
+                justifyContent: { xs: "flex-start", sm: "flex-start", md: "flex-start" },
+                textAlign: { xs: "stretch", sm: "center", lg: "center" },
+              }}
             >
               <TrustPill text="HIPAA-Compliant workflows" />
               <TrustPill text="AI + Human oversight" />

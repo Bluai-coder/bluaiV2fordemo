@@ -392,7 +392,7 @@ export default function ContactSection() {
                   })}
                 />
 
-                <Box sx={{ pt: 1 }}>
+                <Box sx={{ pt: 1 ,  textAlign :"center", }}>
                   <Button
                     type="submit"
                     variant="contained"
@@ -406,6 +406,7 @@ export default function ContactSection() {
                       )
                     }
                     sx={{
+                     
                       px: 5,
                       py: 1.4,
                       borderRadius: 99,

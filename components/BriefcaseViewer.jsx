@@ -11,10 +11,7 @@ import {
   Html,
   useProgress,
 } from '@react-three/drei';
-import * as THREE from 'three';
-import { Box, IconButton } from '@mui/material';
-import FullscreenIcon from '@mui/icons-material/Fullscreen';
-import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import { Box } from '@mui/material';
 
 // ─── Loader ───────────────────────────────────────────────────────────────────
 function Loader() {

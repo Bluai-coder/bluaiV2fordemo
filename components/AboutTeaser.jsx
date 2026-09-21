@@ -117,7 +117,7 @@ const AboutTeaser = () => {
                         </Typography>
 
                         {/* CTA Button */}
-                        <Button
+                        {/* <Button
                             onClick={() => router.push("/about")}
                             endIcon={<ArrowForward sx={{ fontSize: 18 }} />}
                             sx={{
@@ -137,7 +137,7 @@ const AboutTeaser = () => {
                             }}
                         >
                             Explore More
-                        </Button>
+                        </Button> */}
                     </Box>
 
                 </Box>

@@ -96,7 +96,7 @@ export default function OurTeamSlider({ team: partners }) {
   /* ---------------- UI ---------------- */
 
   return (
-    <Box py={{ xs: 6, md: 5 }}  bgcolor="#fff">
+    <Box py={{ xs: 6, md: 5 }} bgcolor="#fff">
       <Container maxWidth="xl">
 
         {/* HEADER */}
@@ -153,7 +153,7 @@ export default function OurTeamSlider({ team: partners }) {
               transition: "transform 0.6s ease",
               transform: `translateX(-${index * 240}px)`,
               gap: 3,
-              p:3
+              p: 3
             }}
           >
             {[...partners, ...partners].map((item, i) => (
@@ -164,13 +164,16 @@ export default function OurTeamSlider({ team: partners }) {
                   borderRadius: 3,
                   flex: "0 0 220px",
                   textAlign: "center",
+                  height: 300,
+                  width : 250
+
                 }}
               >
                 <Avatar
                   src={item.img}
                   sx={{
-                    width: 80,
-                    height: 80,
+                    width: 180,
+                    height: 180,
                     mx: "auto",
                     mb: 2,
                   }}

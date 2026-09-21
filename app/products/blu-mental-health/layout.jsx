@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
 import BluMentalHealthNavbar from "../../../components/navbars/products/BluMentalHealthNavbar";
 
- 
+
 
 const geistSans = Geist({
   variable: "--font-inter",
@@ -20,15 +20,21 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <BluMentalHealthNavbar/>
-        
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    <div>
+      <BluMentalHealthNavbar />
+
+      {children}
+      <Footer />
+    </div>
+    // <html lang="en" >
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+    //     <BluMentalHealthNavbar/>
+
+    //     {children}
+    //     <Footer/>
+    //   </body>
+    // </html>
   );
 }

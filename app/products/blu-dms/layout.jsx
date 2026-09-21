@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
-import BluDMSNavbar from "../../../components/navbars/products/BluDMSNavbar"  
+import BluDMSNavbar from "../../../components/navbars/products/BluDMSNavbar"
 
 const geistSans = Geist({
   variable: "--font-inter",
@@ -18,14 +18,19 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <BluDMSNavbar/>
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    <div>
+      <BluDMSNavbar />
+      {children}
+      <Footer />
+    </div>
+    // <html lang="en" >
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+    //     <BluDMSNavbar/>
+    //     {children}
+    //     <Footer/>
+    //   </body>
+    // </html>
   );
 }
