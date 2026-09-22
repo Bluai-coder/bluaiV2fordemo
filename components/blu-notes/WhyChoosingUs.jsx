@@ -78,8 +78,8 @@ export default function WhyChoosingUs() {
   ];
 
   return (
-    <Box sx={{ py: { xs: 7, md: 11 }, bgcolor: "#fff" }}>
-      <Container maxWidth="lg">
+    <Box sx={{ py: { xs: 7, md: 7 }, bgcolor: "#fff" }}>
+      <Container maxWidth="xl">
         {/*  Heading */}
         <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>
           <Typography

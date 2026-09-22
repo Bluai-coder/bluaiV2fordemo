@@ -47,7 +47,7 @@ export default function CompleteAiSolutionPremium() {
   return (
     <Box
       sx={{
-        py: { xs: 7, md: 11 },
+        py: { xs: 7, md: 7 },
         position: "relative",
         bgcolor: "#fff",
         overflow: "hidden",
@@ -64,7 +64,7 @@ export default function CompleteAiSolutionPremium() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         {/*  Heading */}
 
          <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>

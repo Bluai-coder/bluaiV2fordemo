@@ -38,7 +38,7 @@ export default function BluNotesHero() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#fff",
+        bgcolor: "#F7F9FF",
         py: { xs: 7, md: 11 },
       }}
     >
@@ -47,18 +47,21 @@ export default function BluNotesHero() {
         sx={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(900px 540px at 20% 25%, rgba(27,77,255,0.13), transparent 60%), radial-gradient(700px 520px at 88% 15%, rgba(27,77,255,0.10), transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F7F9FF 100%)",
+          opacity: 0.35,
+          backgroundImage:
+            "radial-gradient(rgba(27,77,255,0.22) 0.6px, transparent 0.6px)",
+          backgroundSize: "20px 20px",
+          pointerEvents: "none",
         }}
       />
 
       {/*  floating circles */}
-      <FloatingOrb top="12%" left="56%" size={260} opacity={0.18} />
+      {/* <FloatingOrb top="12%" left="56%" size={260} opacity={0.18} />
       <FloatingOrb top="62%" left="72%" size={210} opacity={0.14} />
       <FloatingOrb top="22%" left="90%" size={190} opacity={0.14} />
-      <FloatingOrb top="78%" left="88%" size={170} opacity={0.12} />
+      <FloatingOrb top="78%" left="88%" size={170} opacity={0.12} /> */}
 
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={{ xs: 6, md: 7 }}
@@ -129,7 +132,7 @@ export default function BluNotesHero() {
               existing EMR/EHR systems.
             </Typography>
 
-         
+
           </Box>
 
           {/*  RIGHT MOCKUP AREA */}

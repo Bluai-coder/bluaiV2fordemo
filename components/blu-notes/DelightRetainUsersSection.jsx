@@ -71,7 +71,8 @@ export default function DelightRetainUsersSection() {
     <Box
       sx={{
         position: "relative",
-        py: { xs: 7, md: 10 },
+        py: { xs: 7, md: 0 },
+
         bgcolor: "#fff",
         overflow: "hidden",
       }}
@@ -86,37 +87,37 @@ export default function DelightRetainUsersSection() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         {/*  Section Title */}
-                     <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>
-                          <Typography
-                            sx={{
-                              fontSize: { xs: 24, sm: 30, md: 36 },
-                              fontWeight: 900,
-                              color: "#061534",
-                              letterSpacing: -0.5,
-                            }}
-                          >
-                              Delight and retain your users with AI
-                          </Typography>
-                
-                          {/* underline */}
-                          <Box sx={{ width: 220, height: 2, bgcolor: "rgba(7,18,44,0.12)", borderRadius: 99 }}>
-                            <Box
-                              sx={{
-                                width: 56,
-                                height: 2,
-                                bgcolor: "#1B4DFF",
-                                borderRadius: 99,
-                                mx: "auto",
-                              }}
-                            />
-                          </Box>
-                          
-                        </Stack>
+        <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: 24, sm: 30, md: 36 },
+              fontWeight: 900,
+              color: "#061534",
+              letterSpacing: -0.5,
+            }}
+          >
+            Delight and retain your users with AI
+          </Typography>
+
+          {/* underline */}
+          <Box sx={{ width: 220, height: 2, bgcolor: "rgba(7,18,44,0.12)", borderRadius: 99 }}>
+            <Box
+              sx={{
+                width: 56,
+                height: 2,
+                bgcolor: "#1B4DFF",
+                borderRadius: 99,
+                mx: "auto",
+              }}
+            />
+          </Box>
+
+        </Stack>
 
         {/*  Top 2 columns */}
-        <Box sx={{ mt: { xs: 5, md: 6 } }}>
+        <Box sx={{ mt: { xs: 5, md: 6 }}}>
           <Stack
             direction={{ xs: "column", md: "row" }}
             spacing={{ xs: 5, md: 6 }}
@@ -164,7 +165,7 @@ export default function DelightRetainUsersSection() {
                 BluNotes Platform allows you to augment your solutions with AI and voice.
               </Typography>
 
-              <LearnMoreLink />
+              {/* <LearnMoreLink /> */}
             </Paper>
 
             {/* RIGHT */}
@@ -199,13 +200,13 @@ export default function DelightRetainUsersSection() {
                 ))}
               </Stack>
 
-              <LearnMoreLink />
+              {/* <LearnMoreLink /> */}
             </Paper>
           </Stack>
         </Box>
 
         {/*  Bottom Cards */}
-        <Box sx={{ mt: { xs: 6, md: 7 } }}>
+        <Box sx={{ mt: { xs: 6, md: 7, } , mb:7 }}>
           <Box
             sx={{
               display: "grid",
@@ -276,7 +277,7 @@ export default function DelightRetainUsersSection() {
                 </Typography>
 
                 <Box sx={{ mt: 2.2 }}>
-                  <LearnMoreLink small />
+                  {/* <LearnMoreLink small /> */}
                 </Box>
               </Paper>
             ))}

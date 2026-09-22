@@ -71,27 +71,19 @@ export default function BluNotesDocumentationSection() {
     <Box
       sx={{
         position: "relative",
-        py: { xs: 7, md: 11 },
+        py: { xs: 7, md: 7 },
         bgcolor: "#fff",
         overflow: "hidden",
       }}
     >
-      {/*  Premium light background */}
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(800px 500px at 18% 25%, rgba(27,77,255,0.12), transparent 60%), radial-gradient(720px 520px at 80% 18%, rgba(27,77,255,0.10), transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F6F8FF 100%)",
-        }}
-      />
+  
 
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         {/*  TOP SECTION HEADING */}
         <Stack alignItems="center" textAlign="center" spacing={1.4} sx={{ mb: { xs: 5, md: 7 } }}>
           <Typography
             sx={{
-              fontSize: { xs: 22, sm: 28, md: 36 },
+              fontSize: { xs: 22, sm: 28, md: 38 },
               fontWeight: 900,
               color: "#061534",
               letterSpacing: -0.6,
@@ -127,15 +119,15 @@ export default function BluNotesDocumentationSection() {
             <Stack spacing={2.4}>
               <Typography
                 sx={{
-                  fontSize: { xs: 28, sm: 36, md: 48 },
+                  fontSize: { xs: 18, sm: 20, md: 24 },
                   fontWeight: 950,
                   lineHeight: 1.1,
                   color: "#061534",
-                  letterSpacing: -0.9,
+                  // letterSpacing: -0.9,
                 }}
               >
                 Complete Healthcare
-                <br />
+               
                 Documentation Solution
               </Typography>
 
@@ -152,7 +144,7 @@ export default function BluNotesDocumentationSection() {
 
               <Typography
                 sx={{
-                  fontSize: { xs: 24, sm: 30, md: 40 },
+                  fontSize: { xs: 18, sm: 20, md: 24 },
                   fontWeight: 950,
                   lineHeight: 1.15,
                   color: "#061534",
@@ -164,7 +156,7 @@ export default function BluNotesDocumentationSection() {
                   EHR Integration
                 </Box>{" "}
                 in
-                <br />
+              
                 the Industry
               </Typography>
 
@@ -182,23 +174,7 @@ export default function BluNotesDocumentationSection() {
                 Experience ultimate convenience and flexibility that no other vendor can match.
               </Typography>
 
-              <Box>
-                <Button
-                  variant="contained"
-                  sx={{
-                    textTransform: "none",
-                    fontWeight: 900,
-                    borderRadius: 2.2,
-                    px: 3.2,
-                    py: 1.2,
-                    bgcolor: "#1B4DFF",
-                    boxShadow: "0 16px 35px rgba(27,77,255,0.28)",
-                    "&:hover": { bgcolor: "#123DE1" },
-                  }}
-                >
-                  Learn More About Us
-                </Button>
-              </Box>
+       
             </Stack>
           </Box>
 

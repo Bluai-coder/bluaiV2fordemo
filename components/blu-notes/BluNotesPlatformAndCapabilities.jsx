@@ -23,8 +23,8 @@ import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRigh
 
 export default function BluNotesPlatformAndCapabilities() {
   return (
-    <Box sx={{ bgcolor: "#fff", py: { xs: 7, md: 10 } }}>
-      <Container maxWidth="lg">
+    <Box sx={{ bgcolor: "#fff", py: { xs: 7, md: 7 } }}>
+      <Container maxWidth="xl">
         <BluNotesPlatformTop />
         <Box sx={{ height: { xs: 28, md: 44 } }} />
         <CapabilitiesCarousel />

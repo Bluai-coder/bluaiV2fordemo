@@ -161,35 +161,35 @@ export default function OurServicesTabsSection() {
   const active = tabs.find((t) => t.key === activeKey) || tabs[0];
 
   return (
-    <Box sx={{ py: { xs: 7, md: 11 }, bgcolor: "#fff" }}>
-      <Container maxWidth="lg">
+    <Box sx={{ py: { xs: 7, md: 7 }, bgcolor: "#fff" }}>
+      <Container maxWidth="xl">
         {/*  Heading */}
 
-             <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 24, sm: 30, md: 36 },
-                      fontWeight: 900,
-                      color: "#061534",
-                      letterSpacing: -0.5,
-                    }}
-                  >
-                     Our Services
-                  </Typography>
-        
-                  {/* underline */}
-                  <Box sx={{ width: 220, height: 2, bgcolor: "rgba(7,18,44,0.12)", borderRadius: 99 }}>
-                    <Box
-                      sx={{
-                        width: 56,
-                        height: 2,
-                        bgcolor: "#1B4DFF",
-                        borderRadius: 99,
-                        mx: "auto",
-                      }}
-                    />
-                  </Box>
-                   <Typography
+        <Stack alignItems="center" textAlign="center" spacing={1.2} sx={{ mb: { xs: 5, md: 7 } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: 24, sm: 30, md: 36 },
+              fontWeight: 900,
+              color: "#061534",
+              letterSpacing: -0.5,
+            }}
+          >
+            Our Services
+          </Typography>
+
+          {/* underline */}
+          <Box sx={{ width: 220, height: 2, bgcolor: "rgba(7,18,44,0.12)", borderRadius: 99 }}>
+            <Box
+              sx={{
+                width: 56,
+                height: 2,
+                bgcolor: "#1B4DFF",
+                borderRadius: 99,
+                mx: "auto",
+              }}
+            />
+          </Box>
+          <Typography
             sx={{
               mt: 2,
               fontSize: 14.2,
@@ -198,7 +198,7 @@ export default function OurServicesTabsSection() {
           >
             Why Healthcare Leaders Choose BluNotes
           </Typography>
-                </Stack>
+        </Stack>
 
         {/*  Tabs */}
         <Paper
@@ -305,8 +305,8 @@ export default function OurServicesTabsSection() {
               </Box>
 
               {/* CTA */}
-              <Stack direction="row" spacing={1.6} sx={{ mt: 4 }}>
-                <Button
+              <Stack direction="row" spacing={1.6} sx={{ mt: 4, textAlign: "center" }}>
+                {/* <Button
                   variant="contained"
                   sx={{
                     textTransform: "none",
@@ -320,10 +320,14 @@ export default function OurServicesTabsSection() {
                   }}
                 >
                   Learn More
-                </Button>
+                </Button> */}
 
                 <Button
                   variant="outlined"
+                  component="a"
+
+                  href="https://blunotes.bluai.ai/"
+                  target="_blank"
                   sx={{
                     textTransform: "none",
                     fontWeight: 900,
@@ -366,7 +370,6 @@ export default function OurServicesTabsSection() {
         </Paper>
 
         {/*  (optional) spacing bottom like screenshot */}
-        <Box sx={{ height: { xs: 14, md: 20 } }} />
       </Container>
     </Box>
   );
