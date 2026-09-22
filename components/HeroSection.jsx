@@ -394,7 +394,7 @@ export default function HeroSection() {
                 "&:hover": { borderColor: "#fff", bgcolor: "rgba(255,255,255,0.1)" }
               }}
             >
-              Explore our products →
+              Explore our product →
             </Button>
           </Stack>
 

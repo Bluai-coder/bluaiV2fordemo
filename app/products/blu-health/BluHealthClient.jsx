@@ -692,15 +692,14 @@ export default function BluHealthClient() {
   return (
     <>
       {/* ============ HERO ============ */}
-      <Box
-        sx={{
-          position: "relative",
-          bgcolor: "#F7F9FF",
-          pt: { xs: 4, md: 5 },
-          pb: { xs: 6, md: 8 },
-          overflow: "hidden",
-        }}
-      >
+ <Box
+       sx={{
+         position: "relative",
+         overflow: "hidden",
+         bgcolor: "#F7F9FF",
+         py: { xs: 7, md: 11 },
+       }}
+     >
         <Box
           sx={{
             position: "absolute",
@@ -781,51 +780,29 @@ export default function BluHealthClient() {
                 ecosystem.
               </Typography>
 
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={2}
-                sx={{ mt: 4 }}
+              <Button
+                variant="contained"
+                endIcon={<ArrowForwardIcon />}
+                onClick={() => {
+                  document.getElementById("read-more-section")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                sx={{
+                  bgcolor: "#1B4DFF",
+                  borderRadius: 40,
+                  textTransform: "none",
+                  fontWeight: 700,
+                  px: 3,
+                  mt: 4,
+                  py: 1.3,
+                  boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
+                  "&:hover": { bgcolor: "#0a3ad0" },
+                }}
               >
-                <Button
-                  variant="contained"
-                  component="a"
-                  href="https://bluhealthdev.bluai.ai/"
-                  target="_blanck"
-                  
-                  endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    bgcolor: "#1B4DFF",
-                    borderRadius: 40,
-                    textTransform: "none",
-                    fontWeight: 700,
-                    px: 3,
-                    py: 1.3,
-                    boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
-                    "&:hover": { bgcolor: "#0a3ad0" },
-                  }}
-                >
-                  Live Demo
-                </Button>
-                {/* <Button
-                  variant="outlined"
-                  startIcon={<PlayCircleOutlineIcon />}
-                  sx={{
-                    borderRadius: 40,
-                    textTransform: "none",
-                    fontWeight: 700,
-                    px: 3,
-                    py: 1.3,
-                    color: "#07122C",
-                    borderColor: "rgba(27,77,255,0.3)",
-                    "&:hover": {
-                      borderColor: "#1B4DFF",
-                      bgcolor: "rgba(27,77,255,0.04)",
-                    },
-                  }}
-                >
-                  Watch Video
-                </Button> */}
-              </Stack>
+                Read More
+              </Button>
             </Box>
 
             {/* RIGHT — mock dashboard with background image */}
@@ -1133,7 +1110,7 @@ export default function BluHealthClient() {
                     {screen.tag}
                   </Box>
 
-                 
+
                 </Box>
 
                 {/* ─── Body ─── */}
@@ -1289,7 +1266,7 @@ export default function BluHealthClient() {
       </Box> */}
 
       {/* ============ KEY HIGHLIGHTS ============ */}
-      <Box sx={{ py: { xs: 7, md: 10 }, bgcolor: "#fff" }}>
+      <Box id="read-more-section" sx={{ py: { xs: 7, md: 10 }, bgcolor: "#fff" }}>
         <Container maxWidth="xl">
           <Box textAlign="center" mb={{ xs: 4, md: 6 }}>
             <Typography

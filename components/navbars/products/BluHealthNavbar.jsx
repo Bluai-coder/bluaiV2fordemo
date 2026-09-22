@@ -90,10 +90,10 @@ export default function BluHealthNavbar() {
                             <Image
                                 src="/logos/BluHealth-logo.png"
                                 alt="BluAccess"
-                                width={95}
+                                width={100}
                                 height={95}
                                 priority
-                                style={{ width: "auto", height: "auto", maxHeight: 58 }}
+                                style={{ width: "auto", height: "auto", maxHeight: 65 }}
                             />
                         </Box>
 
