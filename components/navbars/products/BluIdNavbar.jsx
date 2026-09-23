@@ -73,7 +73,7 @@ export default function BluIdNavbar() {
                             alignItems: "center",
                             justifyContent: "space-between",
                             minHeight: { xs: 64, md: 76 },
-                            px: { xs: 1, sm: 2 },
+                            // px: { xs: 1, sm: 2 },
                             gap: 2,
                         }}
                     >
@@ -93,7 +93,7 @@ export default function BluIdNavbar() {
                                 width={95}
                                 height={95}
                                 priority
-                                style={{ width: "auto", height: "auto", maxHeight: 58 }}
+                                style={{ width: "auto", height: "auto", maxHeight: 70 }}
                             />
                         </Box>
 

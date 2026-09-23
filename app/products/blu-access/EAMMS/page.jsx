@@ -523,7 +523,7 @@ export default function EAMMSPagePremium() {
           }}
         />
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+        <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
           <Box
             sx={{
               display: "flex",
@@ -711,7 +711,7 @@ export default function EAMMSPagePremium() {
 
       {/* ================= ABOUT ================= */}
       <PremiumSection sx={{ bgcolor: "#fff" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead title={about.leftTitle} />
 
           <Box
@@ -757,7 +757,7 @@ export default function EAMMSPagePremium() {
             "linear-gradient(180deg, #ffffff 0%, #f6f9ff 55%, #ffffff 100%)",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead
             title="Key Modules"
             subtitle="Explore the core modules that streamline employee management, enhance productivity, and simplify organizational workflows."
@@ -833,7 +833,7 @@ export default function EAMMSPagePremium() {
 
       {/* ================= ADMIN FEATURES ================= */}
       <PremiumSection sx={{ bgcolor: "#fff" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead
             title="Admin Features"
             subtitle="Empower your organization with complete control over users, roles, and settings — from a single, easy-to-manage admin dashboard."
@@ -883,7 +883,7 @@ export default function EAMMSPagePremium() {
             "linear-gradient(180deg, #ffffff 0%, #f6f9ff 55%, #ffffff 100%)",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead title={benefits.title} subtitle={benefits.caption} />
 
           <Box
@@ -954,7 +954,7 @@ export default function EAMMSPagePremium() {
 
       {/* ================= GALLERY ================= */}
       <PremiumSection sx={{ bgcolor: "#fff" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead
             title="Gallery"
             subtitle="Take a look at our gallery to see how we bring ideas to life through creativity, technology, and dedication."
@@ -971,7 +971,7 @@ export default function EAMMSPagePremium() {
             "linear-gradient(180deg, #ffffff 0%, #f6f9ff 55%, #ffffff 100%)",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionHead title="Frequently Asked Questions" />
           <Grid
             container

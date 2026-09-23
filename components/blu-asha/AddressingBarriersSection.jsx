@@ -78,10 +78,10 @@ export default function AddressingBarriersSection() {
         <Box
             sx={{
                 py: { xs: 6, md: 10 },
-                bgcolor: "#F6F8FF",
+                bgcolor: "#fff",
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 {/* Title */}
                 <Stack spacing={1.2} textAlign="center" alignItems="center" mb={6}>
                     <Typography

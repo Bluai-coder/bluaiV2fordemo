@@ -212,7 +212,7 @@ export default function SAMMSPage() {
 
                 {/* Hero Content */}
                 <Container
-                    maxWidth="lg"
+                    maxWidth="xl"
                     sx={{
                         position: "relative",
                         zIndex: 2,
@@ -263,7 +263,7 @@ export default function SAMMSPage() {
             </Box>
 
             {/* ================= OVERLAP CARDS (4 cards row) ================= */}
-            <Container maxWidth="lg" sx={{ mt: { xs: -6, md: -7 }, position: "relative", zIndex: 5 }}>
+            <Container maxWidth="xl" sx={{ mt: { xs: -6, md: -7 }, position: "relative", zIndex: 5 }}>
 
                 <Box>
                     <Typography
@@ -328,7 +328,7 @@ export default function SAMMSPage() {
 
             {/* ================= GET STARTED STRIP (same style) ================= */}
             <Box sx={{ mt: 4, bgcolor: "#EEF2F7", py: 2.2 }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <Box
                         sx={{
                             display: "flex",
@@ -368,7 +368,7 @@ export default function SAMMSPage() {
 
             {/* ================= ABOUT SECTION ================= */}
             <Box sx={{ py: { xs: 6, md: 9 } }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <Box
                         sx={{
                             display: "flex",
@@ -436,7 +436,7 @@ export default function SAMMSPage() {
 
             {/* ================= KEY HIGHLIGHTS (same layout) ================= */}
             <Box sx={{ py: { xs: 6, md: 9 }, bgcolor: "#fff" }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <Typography
                         sx={{
                             textAlign: "center",
@@ -544,7 +544,7 @@ export default function SAMMSPage() {
 
             {/* ================= Students Life + Benefits ================= */}
             <Box sx={{ py: { xs: 7, md: 10 }, bgcolor: "#fff" }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <Typography
                         sx={{
                             textAlign: "center",
@@ -662,7 +662,7 @@ export default function SAMMSPage() {
 
             {/* ================= Coming Soon ================= */}
             <Box sx={{ py: { xs: 7, md: 10 }, bgcolor: "#fff" }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <Typography
                         sx={{
                             textAlign: "center",

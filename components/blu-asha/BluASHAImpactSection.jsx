@@ -39,7 +39,7 @@ export default function BluASHAImpactSection() {
                 bgcolor: "#F4F7FC",
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 {/* ---------- TOP TEXT ---------- */}
                 <Stack spacing={1} textAlign="center" alignItems="center" mb={5}>
                     <Typography

@@ -40,7 +40,7 @@ const services = [
 export default function InnovationServicesSection() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, bgcolor: "#fff" }}>
-      <Container maxWidth="lg">
+      <Container id="read-more-section" maxWidth="xl">
         {/* Top Title */}
         <Stack spacing={1.4} alignItems="center" textAlign="center">
           <Typography
@@ -168,7 +168,7 @@ export default function InnovationServicesSection() {
         </Box>
 
         {/* Button */}
-        <Box sx={{ mt: { xs: 5, md: 6 }, textAlign: "center" }}>
+        {/* <Box sx={{ mt: { xs: 5, md: 6 }, textAlign: "center" }}>
           <Button
             variant="contained"
             sx={{
@@ -187,7 +187,7 @@ export default function InnovationServicesSection() {
           >
             More Services
           </Button>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

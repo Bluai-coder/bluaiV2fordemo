@@ -61,7 +61,7 @@ export default function SmartPoleNavbar() {
                             alignItems: "center",
                             justifyContent: "space-between",
                             minHeight: { xs: 64, md: 76 },
-                            px: { xs: 1, sm: 2 },
+                            // px: { xs: 1, sm: 2 },
                             gap: 2,
                         }}
                     >

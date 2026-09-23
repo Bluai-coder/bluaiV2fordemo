@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import {
   Box,
+  Button,
   Container,
   IconButton,
   Modal,
@@ -15,6 +16,8 @@ import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
 
 export default function BluNotesHero() {
   const [open, setOpen] = useState(false);
@@ -102,7 +105,7 @@ export default function BluNotesHero() {
               sx={{
                 fontWeight: 950,
                 color: "#07122C",
-                fontSize: { xs: "2rem", sm: "2.3rem", md: "3.0rem" },
+                fontSize: { xs: "2rem", sm: "2.3rem", md: "3.2rem" },
                 lineHeight: 1.1,
                 letterSpacing: -0.6,
               }}
@@ -132,8 +135,38 @@ export default function BluNotesHero() {
               existing EMR/EHR systems.
             </Typography>
 
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              sx={{ mt: 4 }}
+            >
 
+              <Button
+                variant="contained"
+                endIcon={<ArrowForwardIcon />}
+                onClick={() => {
+                  document.getElementById("read-more-section")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                sx={{
+                  bgcolor: "#1B4DFF",
+                  borderRadius: 40,
+                  textTransform: "none",
+                  fontWeight: 700,
+                  px: 3,
+                  mt: 4,
+                  py: 1.3,
+                  boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
+                  "&:hover": { bgcolor: "#0a3ad0" },
+                }}
+              >
+                Read More
+              </Button>
+            </Stack>
           </Box>
+
 
           {/*  RIGHT MOCKUP AREA */}
           <Box
@@ -258,6 +291,8 @@ export default function BluNotesHero() {
                   Accuracy Rate
                 </Typography>
               </Paper>
+              {/* CTAs */}
+
             </Box>
           </Box>
         </Stack>
@@ -332,21 +367,4 @@ export default function BluNotesHero() {
   );
 }
 
-/* ---------------- Small Background Orb ---------------- */
-function FloatingOrb({ top, left, size = 220, opacity = 0.14 }) {
-  return (
-    <Box
-      sx={{
-        position: "absolute",
-        top,
-        left,
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        bgcolor: `rgba(27,77,255,${opacity})`,
-        transform: "translate(-50%, -50%)",
-        pointerEvents: "none",
-      }}
-    />
-  );
-}
+

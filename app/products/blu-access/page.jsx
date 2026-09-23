@@ -21,7 +21,7 @@ export default function Page() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
     />
 
-    <BluAccessClient />;
+    <BluAccessClient />
 
   </>)
 
