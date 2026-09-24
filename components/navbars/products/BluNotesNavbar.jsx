@@ -144,7 +144,7 @@ export default function BluNotesNavbar() {
                                 Request Demo
                             </Button>
 
-                                <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
+                            <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} />
 
 
                         </Box>
@@ -329,23 +329,23 @@ export default function BluNotesNavbar() {
 
 
 
-                            {/* NeoNatal */}
-                            {/* <ListItemButton
+                            {/* VitalsPole™ */}
+                            <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-pole/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="NeoNatal™" />
-                            </ListItemButton> */}
+                                <ListItemText primary="VitalsPole™" />
+                            </ListItemButton>
 
-                            {/* SmartBed */}
-                            {/* <ListItemButton
+                            {/* VitalsBriefcase™ */}
+                            <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-briefcase/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="SmartBed™ (Upcoming)" />
-                            </ListItemButton> */}
+                                <ListItemText primary="VitalsBriefcase™" />
+                            </ListItemButton>
                             {/* <ListItemButton
                                 component={Link}
                                 href="#"

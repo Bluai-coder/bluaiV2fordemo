@@ -28,7 +28,7 @@ const products = [
     title: "VitalsChair™",
     image: "/hero-popup/chair.png",
     category: "Clinical Solutions",
-    description: `Introducing <strong> VitalsChair™ </strong>, a groundbreaking innovation in patient health assessments—designed to deliver a complete set of vital measurements in a single, effortless sitting. Built with <strong>precision </strong>, powered by <strong>AI</strong>, and seamlessly <strong>integrated </strong> with the BluHealth™ Portal, VitalsChair™ redefines the way healthcare professionals collect, analyze, and monitor patient health data.`,
+    description: `VitalsChair™ is an AI-powered smart health assessment kiosk that measures multiple vital signs in a single seated session, delivering fast, accurate results with seamless EMR/EHR integration.`,
     slug: "products/vitals-chair",
     gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
     glow: "rgba(102,166,255, 0.55)",

@@ -77,7 +77,7 @@ export default function BluMailVideoShowcase() {
                         }}
                     >
                         <video
-                            src="/blu-mail/demo-screen.mp4"
+                            src="/blu-mail/blu-mai-demo-screen.mp4"
                             autoPlay
                             muted
                             loop

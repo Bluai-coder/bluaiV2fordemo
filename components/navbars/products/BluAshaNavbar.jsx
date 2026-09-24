@@ -327,45 +327,23 @@ export default function BluAshaNavbar() {
                             >
                                 <ListItemText primary="VitalsChair™" />
                             </ListItemButton>
-                            {/* NeoNatal */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="/products/blu-neonatal"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="NeoNatal™" />
-                            </ListItemButton> */}
-
-                            {/* SmartBed */}
+                           
+                            {/* VitalsPole™ */}
                             <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-pole/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="SmartBed™" />
-                            </ListItemButton>
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartPole™" />
+                                <ListItemText primary="VitalsPole™" />
                             </ListItemButton>
 
+                            {/* VitalsBriefcase™ */}
                             <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-briefcase/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="BluGlucose™" />
-                            </ListItemButton>
-
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluECG™ (Wireless ECG)" />
+                                <ListItemText primary="VitalsBriefcase™" />
                             </ListItemButton>
                            
 

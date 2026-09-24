@@ -293,7 +293,7 @@ export default function AboutPage() {
                   component="span"
                   sx={{
                     background:
-                      "linear-gradient(90deg, #1B4DFF 0%, #00A3FF 100%)",
+                      "#1B4DFF",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}

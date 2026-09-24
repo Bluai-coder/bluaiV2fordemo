@@ -333,47 +333,23 @@ export default function BluHealthNavbar() {
 
                          
 
-                            {/* NeoNatal */}
-                            {/* <ListItemButton
+                            {/* VitalsPole™ */}
+                            <ListItemButton
                                 component={Link}
-                                href="/products/blu-neonatal"
+                                href="/products/vitals-pole/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="NeoNatal™" />
-                            </ListItemButton> */}
+                                <ListItemText primary="VitalsPole™" />
+                            </ListItemButton>
 
-                            {/* SmartBed */}
-                            {/* <ListItemButton
+                            {/* VitalsBriefcase™ */}
+                            <ListItemButton
                                 component={Link}
-                                href="#"
+                                href="/products/vitals-briefcase/"
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary="SmartBed™ (Upcoming)" />
-                            </ListItemButton> */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartPole™ (Upcoming)" />
-                            </ListItemButton> */}
-
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluGlucose™ (Upcoming)" />
-                            </ListItemButton> */}
-
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluECG™ (Wireless ECG)(Upcoming)" />
-                            </ListItemButton> */}
-
+                                <ListItemText primary="VitalsBriefcase™" />
+                            </ListItemButton>
 
                                {/* BluHealth Accordion */}
                             <ListItemButton onClick={() => setMobileBluHealthOpen((p) => !p)}>

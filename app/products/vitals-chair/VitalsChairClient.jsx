@@ -307,7 +307,7 @@ export default function VitalsChairLanding() {
   ];
 
   const comparisonData = [
-    { feature: "Form factor", vitals: "Chair", coc: "Standing kiosk", welch: "Wheeled monitor" },
+    { feature: "Form factor", vitals: "Chair", coc: "-", welch: "-" },
     { feature: "Parameters", vitals: "55+", coc: "60+", welch: "~10" },
     { feature: "Gel-free 12-lead ECG", vitals: "Yes", coc: "Not specified", welch: "No" },
     { feature: "Body composition (BIA)", vitals: "Yes", coc: "Yes", welch: "No" },
@@ -675,7 +675,7 @@ export default function VitalsChairLanding() {
 
             <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
               <AccordionSummary expandIcon={<ArrowDown />}>
-                <SectionTitle> AI Capabilities</SectionTitle>
+                <span> AI Capabilities</span>
               </AccordionSummary>
               {aiCapabilities?.map((faq, i) => (
                 <AccordionDetails key={i} >
@@ -692,7 +692,7 @@ export default function VitalsChairLanding() {
         <Container maxWidth="lg" >
           <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
             <AccordionSummary expandIcon={<ArrowDown />}>
-              <SectionTitle>BluHealth Portal</SectionTitle>
+              <span>BluHealth Portal</span>
             </AccordionSummary>
             {portalFeatures?.map((faq, i) => (
               <AccordionDetails key={i}>
@@ -709,7 +709,7 @@ export default function VitalsChairLanding() {
           <Container maxWidth="lg">
             <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
               <AccordionSummary expandIcon={<ArrowDown />}>
-                <SectionTitle>EMR / EHR / HMS / HIS Integration</SectionTitle>
+                <span>EMR / EHR / HMS / HIS Integration</span>
               </AccordionSummary>
               <AccordionDetails >
 
@@ -768,7 +768,7 @@ export default function VitalsChairLanding() {
         <Container maxWidth="lg">
           <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
             <AccordionSummary expandIcon={<ArrowDown />}>
-              <SectionTitle>Regulatory & Certifications</SectionTitle>
+              <span>Regulatory & Certifications</span>
             </AccordionSummary>
 
             <AccordionDetails>
@@ -797,13 +797,13 @@ export default function VitalsChairLanding() {
           <Container maxWidth="lg">
             <SectionTitle>Comparison vs Competing Systems</SectionTitle>
             <TableContainer component={Paper} sx={{ overflowX: "auto", boxShadow: "none", border: "1px solid #eee" }}>
-              <Table size="small"><TableHead><TableRow><TableCell><b>Feature</b></TableCell><TableCell><b>VitalsChair (BluAI)</b></TableCell><TableCell><b>COC Health Kiosk</b></TableCell><TableCell><b>Welch Allyn Connex VSM</b></TableCell></TableRow></TableHead>
+              <Table size="small"><TableHead><TableRow><TableCell><b>Feature</b></TableCell><TableCell><b>VitalsChair</b></TableCell><TableCell><b>Other Devices</b></TableCell></TableRow></TableHead>
                 <TableBody>
                   {comparisonData.map((row, i) => (<TableRow key={i}><TableCell>{row.feature}</TableCell><TableCell> {row.vitals === "Yes" || row.vitals === "Available" ? (
                     <CheckCircleIcon className="!text-[#4caf50]" sx={{ fontSize: 15, color: "#4caf50" }} />
                   ) : (
                     <Chip label={row.vitals} size="small" color="success" />
-                  )}</TableCell><TableCell>{row.coc}</TableCell><TableCell>{row.welch}</TableCell></TableRow>))}
+                  )}</TableCell><TableCell>{row.welch}</TableCell></TableRow>))}
                 </TableBody></Table>
             </TableContainer>
           </Container>

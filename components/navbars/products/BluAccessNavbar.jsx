@@ -331,9 +331,28 @@ export default function BluAccessNavbar() {
                                 <ListItemText primary="VitalsChair™" />
                             </ListItemButton>
 
+
+                            {/* VitalsPole™ */}
+                            <ListItemButton
+                                component={Link}
+                                href="/products/vitals-pole/"
+                                onClick={() => setMobileOpen(false)}
+                            >
+                                <ListItemText primary="VitalsPole™" />
+                            </ListItemButton>
+
+                            {/* VitalsBriefcase™ */}
+                            <ListItemButton
+                                component={Link}
+                                href="/products/vitals-briefcase/"
+                                onClick={() => setMobileOpen(false)}
+                            >
+                                <ListItemText primary="VitalsBriefcase™" />
+                            </ListItemButton>
+
                             {/* BluHealth Accordion */}
                             <ListItemButton onClick={() => setMobileBluHealthOpen((p) => !p)}>
-                               <ListItemText primary="Medical Softwares" />
+                                <ListItemText primary="Medical Softwares" />
                                 <KeyboardArrowDownIcon
                                     sx={{
                                         transform: mobileBluHealthOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -341,59 +360,20 @@ export default function BluAccessNavbar() {
                                     }}
                                 />
                             </ListItemButton>
-                            {/* NeoNatal */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="/products/blu-neonatal"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="NeoNatal™" />
-                            </ListItemButton> */}
 
-                            {/* SmartBed */}
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartBed™" />
-                            </ListItemButton>
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartPole™" />
-                            </ListItemButton>
-
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluGlucose™" />
-                            </ListItemButton>
-
-                            <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluECG™ (Wireless ECG)" />
-                            </ListItemButton>
 
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
                                     {productMenu[3]?.children?.map((c) => (
-                                            <ListItemButton
-                                                key={c.label}
-                                                component={Link}
-                                                href={c.route}
-                                                onClick={() => setMobileOpen(false)}
-                                            >
-                                                <ListItemText primary={c.label} />
-                                            </ListItemButton>
-                                        ))}
+                                        <ListItemButton
+                                            key={c.label}
+                                            component={Link}
+                                            href={c.route}
+                                            onClick={() => setMobileOpen(false)}
+                                        >
+                                            <ListItemText primary={c.label} />
+                                        </ListItemButton>
+                                    ))}
                                 </Box>
                             </Collapse>
 

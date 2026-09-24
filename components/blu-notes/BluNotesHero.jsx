@@ -17,6 +17,9 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { CheckCircleIcon, VerifiedIcon } from "lucide-react";
+import SecurityIcon from "@mui/icons-material/Security";
+
 
 
 export default function BluNotesHero() {
@@ -134,6 +137,45 @@ export default function BluNotesHero() {
               real-time, and automatically generates clinical documentation that integrates with
               existing EMR/EHR systems.
             </Typography>
+            {/* Small trust row */}
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ mt: 4, flexWrap: "wrap", gap: 1.5 }}
+            >
+              {[
+                { icon: <VerifiedIcon />, label: "HIPAA-Aligned" },
+                { icon: <SecurityIcon />, label: "Privacy-by-Design" },
+                { icon: <CheckCircleIcon />, label: "FDA CDS Guidance" },
+              ].map((item) => (
+                <Stack
+                  key={item.label}
+                  direction="row"
+                  alignItems="center"
+                  spacing={0.8}
+                >
+                  <Box
+                    sx={{
+                      color: "#2563eb",
+                      display: "flex",
+                      "& svg": { fontSize: 16 },
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontSize: 12.5,
+                      fontWeight: 700,
+                      color: "rgba(15,23,42,0.65)",
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Stack>
+              ))}
+            </Stack>
 
             <Stack
               direction={{ xs: "column", sm: "row" }}

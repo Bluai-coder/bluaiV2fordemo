@@ -1,196 +1,4 @@
-// "use client";
 
-// import React, { useMemo, useState } from "react";
-// import { Box, Button, Container, Stack, Typography, IconButton } from "@mui/material";
-// import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-// import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-// import Image from "next/image";
-
-// const slides = [
-//   {
-//     id: 1,
-//     badge: "Welcome To BluASHA™",
-//     title: "Empowering Rural Health, One Step at a Time",
-//     subtitle:
-//       "Enabling Communities with Technology-Driven Care and Dedicated Health Workers...",
-//     image: "/blu-asha/hero-asha-2.png",
-//   },
-//   {
-//     id: 2,
-//     badge: "Welcome To BluASHA™",
-//     title: "Digital Health Management Portal",
-//     subtitle:
-//       "Empowering ASHA Workers, Transforming Rural Healthcare, Building Healthier Communities...",
-//     image: "/blu-asha/hero-asha-1.png",
-//   },
-
-// ];
-
-
-// export default function BluASHAHero() {
-//   const [index, setIndex] = useState(0);
-
-//   const active = useMemo(() => slides[index], [index]);
-
-//   const handlePrev = () => {
-//     setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-//   };
-
-//   const handleNext = () => {
-//     setIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         width: "100%",
-//         bgcolor: "#2F4AA0", //  main hero blue like screenshot
-//         position: "relative",
-//         overflow: "hidden",
-//         py: { xs: 7, md: 10 },
-//       }}
-//     >
-//       {/*  subtle premium overlay */}
-//       <Box
-//         sx={{
-//           position: "absolute",
-//           inset: 0,
-//           background:
-//             "radial-gradient(900px 520px at 15% 40%, rgba(255,255,255,0.10), transparent 60%), radial-gradient(900px 520px at 85% 30%, rgba(0,0,0,0.12), transparent 60%)",
-//           pointerEvents: "none",
-//         }}
-//       />
-
-//       <Container maxWidth="xl" sx={{ position: "relative" }}>
-//         <Stack
-//           direction={{ xs: "column", md: "row" }}
-//           spacing={{ xs: 6, md: 8 }}
-//           alignItems="center"
-//           justifyContent="space-between"
-//         >
-//           {/*  LEFT IMAGE */}
-//           <Box
-//             sx={{
-//               flex: 1,
-//               width: "100%",
-//               display: "flex",
-//               justifyContent: { xs: "center", md: "flex-start" },
-//             }}
-//           >
-//             <Box
-//               sx={{
-//                 width: "100%",
-//                 maxWidth: 520,
-//                 position: "relative",
-//               }}
-//             >
-//               <Image
-//                 src={active.image}
-//                 alt="BluASHA Hero"
-//                 width={520}
-//                 height={420}
-//                 style={{
-//                   width: "100%",
-//                   height: "auto",
-//                   display: "block",
-//                 }}
-//                 priority
-//               />
-//             </Box>
-//           </Box>
-
-//           {/*  RIGHT CONTENT */}
-//           <Box
-//             sx={{
-//               flex: 1.15,
-//               width: "100%",
-//               textAlign: { xs: "center", md: "right" },
-//             }}
-//           >
-//             <Typography
-//               sx={{
-//                 fontSize: { xs: 14, md: 18 },
-//                 fontWeight: 800,
-//                 color: "rgba(255,255,255,0.92)",
-//                 letterSpacing: 0.3,
-//                 mb: 1.2,
-//               }}
-//             >
-//               {active.badge}
-//             </Typography>
-
-//             <Typography
-//               sx={{
-//                 fontWeight: 950,
-//                 color: "#fff",
-//                 fontSize: { xs: "2.0rem", sm: "2.7rem", md: "3.8rem" },
-//                 lineHeight: 1.1,
-//                 letterSpacing: -0.8,
-//                 maxWidth: 650,
-//                 ml: "auto",
-//               }}
-//             >
-//               {active.title}
-//             </Typography>
-
-//             <Typography
-//               sx={{
-//                 mt: 2.2,
-//                 fontSize: { xs: 13.5, md: 15.5 },
-//                 lineHeight: 1.85,
-//                 color: "rgba(255,255,255,0.85)",
-//                 maxWidth: 600,
-//                 ml: "auto",
-//               }}
-//             >
-//               {active.subtitle}
-//             </Typography>
-
-//             {/*  Bottom arrow buttons like screenshot */}
-//             <Stack
-//               direction="row"
-//               spacing={2}
-//               sx={{
-//                 mt: { xs: 4, md: 5 },
-//                 justifyContent: { xs: "center", md: "flex-end" },
-//               }}
-//             >
-//               <CircleArrowButton onClick={handlePrev} icon={<ArrowBackRoundedIcon />} />
-//               <CircleArrowButton onClick={handleNext} icon={<ArrowForwardRoundedIcon />} />
-//             </Stack>
-//           </Box>
-//         </Stack>
-//       </Container>
-//     </Box>
-//   );
-// }
-
-// /* -------------------- Small Component -------------------- */
-
-// function CircleArrowButton({ onClick, icon }) {
-//   return (
-//     <IconButton
-//       onClick={onClick}
-//       sx={{
-//         width: 54,
-//         height: 54,
-//         borderRadius: "50%",
-//         bgcolor: "rgba(255,255,255,0.95)",
-//         color: "#2F4AA0",
-//         border: "1px solid rgba(255,255,255,0.22)",
-//         boxShadow: "0 18px 45px rgba(0,0,0,0.22)",
-//         transition: "all .25s ease",
-//         "&:hover": {
-//           bgcolor: "#fff",
-//           transform: "translateY(-2px)",
-//           boxShadow: "0 25px 65px rgba(0,0,0,0.30)",
-//         },
-//       }}
-//     >
-//       {icon}
-//     </IconButton>
-//   );
-// }
 
 "use client";
 
@@ -207,6 +15,8 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
+import { CheckCircleIcon, VerifiedIcon } from "lucide-react";
+import SecurityIcon from "@mui/icons-material/Security";
 
 const slides = [
   {
@@ -353,46 +163,122 @@ export default function BluASHAHero() {
             >
               {active.subtitle}
             </Typography>
+            {/* Small trust row */}
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent={{ xs: "center", sm: "flex-start" }}
+              useFlexGap
+              sx={{
+                mt: { xs: 0, md: 4 },
+                flexWrap: "wrap",
+                gap: { xs: 0.4, sm: 1, md: 1.5 },
+                rowGap: { xs: 0, md: 1 },
+                width: { xs: "auto", sm: "auto" },
+                maxWidth: "100%",
+              }}
+            >
+              {[
+                { icon: <VerifiedIcon />, label: "HIPAA-Aligned" },
+                { icon: <SecurityIcon />, label: "Privacy-by-Design" },
+                { icon: <CheckCircleIcon />, label: "FDA CDS Guidance" },
+              ].map((item) => (
+                <Stack
+                  key={item.label}
+                  direction="row"
+                  alignItems="center"
+                  useFlexGap
+                  sx={{
+                    gap: { xs: 0.4, sm: 0.6, md: 0.8 },
+                    flexShrink: 0,
+                    minWidth: 0,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      color: "#2563eb",
+                      display: "flex",
+                      flexShrink: 0,
+                      "& svg": {
+                        fontSize: "clamp(13px, 0.6vw + 8px, 16px)",
+                      },
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontSize: "clamp(10.5px, 0.6vw + 8px, 12.5px)",
+                      fontWeight: 700,
+                      color: "rgba(15,23,42,0.65)",
+                      lineHeight: 1.2,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Stack>
+              ))}
+            </Stack>
 
             {/* CTA + Arrows row */}
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={{ xs: 1, sm: 3 }}
               alignItems="center"
-              justifyContent={{ xs: "center", md: "flex-start" }}
-              sx={{ mt: { xs: 1.5, md: 5 } }}
+              justifyContent={{ xs: "center", sm: "space-between", md: "flex-start" }}
+              useFlexGap
+              sx={{
+                mt: { xs: 1.5, md: 5 },
+                width: "100%",
+                maxWidth: "100%",
+                gap: { xs: 1.5, sm: 2, md: 3 },
+                flexWrap: "wrap",
+                rowGap: { xs: 1.5, md: 2 },
+              }}
             >
-              <Button
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                onClick={() => {
-                  document
-                    .getElementById("read-more-section")
-                    ?.scrollIntoView({
+              {/* Read More button wrapper */}
+              <Stack
+                direction="row"
+                display={{ xs: "none", md: "flex" }}
+                justifyContent="center"
+                sx={{ flexShrink: 0 }}
+              >
+                <Button
+                  variant="contained"
+                  endIcon={<ArrowForwardIcon />}
+                  onClick={() => {
+                    document.getElementById("read-more-section")?.scrollIntoView({
                       behavior: "smooth",
                       block: "start",
                     });
-                }}
-                sx={{
-                  bgcolor: "#1B4DFF",
-                  borderRadius: 40,
-                  textTransform: "none",
-                  fontWeight: 800,
-                  px: 3.2,
-                  py: 1.3,
-                  boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
-                  "&:hover": {
-                    bgcolor: "#0a3ad0",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 14px 30px rgba(27,77,255,0.35)",
-                  },
-                }}
-              >
-                Read More
-              </Button>
+                  }}
+                  sx={{
+                    bgcolor: "#1B4DFF",
+                    borderRadius: 40,
+                    textTransform: "none",
+                    fontWeight: 700,
+                    px: { xs: 2.5, md: 3 },
+                    py: { xs: 1.1, md: 1.3 },
+                    fontSize: { xs: 13, md: 14 },
+                    whiteSpace: "nowrap",
+                    boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
+                    "&:hover": { bgcolor: "#0a3ad0" },
+                  }}
+                >
+                  Read More
+                </Button>
+              </Stack>
 
               {/* Arrows */}
-              <Stack direction="row" spacing={1.5}>
+              <Stack
+                direction="row"
+                spacing={{ xs: 1, sm: 1.5 }}
+                justifyContent="center"
+                sx={{
+                  width: { xs: "100%", sm: "auto" },
+                  flexShrink: 0,
+                }}
+              >
                 <CircleArrowButton
                   onClick={handlePrev}
                   icon={<ArrowBackRoundedIcon />}
@@ -402,37 +288,39 @@ export default function BluASHAHero() {
                   icon={<ArrowForwardRoundedIcon />}
                 />
               </Stack>
+
+              {/* Dots indicator */}
+              <Stack
+                direction="row"
+                display={{ xs: "none", md: "flex" }}
+                alignItems="center"
+                spacing={1}
+                sx={{
+                  flexShrink: 0,
+                  justifyContent: { xs: "center", md: "flex-start" },
+                }}
+              >
+                {slides.map((s, i) => (
+                  <Box
+                    key={s.id}
+                    onClick={() => setIndex(i)}
+                    sx={{
+                      width: i === index ? 28 : 10,
+                      height: 6,
+                      borderRadius: 999,
+                      bgcolor: i === index ? "#1B4DFF" : "rgba(27,77,255,0.25)",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        bgcolor: i === index ? "#1B4DFF" : "rgba(27,77,255,0.45)",
+                      },
+                    }}
+                  />
+                ))}
+              </Stack>
             </Stack>
 
-            {/* Slide indicator */}
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                mt: 4,
-                justifyContent: { xs: "center", md: "flex-start" },
-              }}
-            >
-              {slides.map((s, i) => (
-                <Box
-                  key={s.id}
-                  onClick={() => setIndex(i)}
-                  sx={{
-                    width: i === index ? 28 : 10,
-                    height: 6,
-                    borderRadius: 999,
-                    bgcolor:
-                      i === index ? "#1B4DFF" : "rgba(27,77,255,0.25)",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      bgcolor:
-                        i === index ? "#1B4DFF" : "rgba(27,77,255,0.45)",
-                    },
-                  }}
-                />
-              ))}
-            </Stack>
+
           </Box>
 
           {/* ─── RIGHT: Image ─── */}

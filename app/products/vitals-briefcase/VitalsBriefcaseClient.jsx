@@ -209,7 +209,7 @@ export default function VitalsBriefcaseClient() {
   ];
 
   const comparisonData = [
-    { feature: "Form factor", vitals: "Briefcase", coc: "Standing kiosk", welch: "Wheeled monitor" },
+    { feature: "Form factor", vitals: "Briefcase", coc: "-", welch: "-" },
     { feature: "Parameters", vitals: "55+", coc: "60+", welch: "~10" },
     { feature: "Gel-free 12-lead ECG", vitals: "Yes", coc: "Not specified", welch: "No" },
     { feature: "Body composition (BIA)", vitals: "Yes", coc: "Yes", welch: "No" },
@@ -227,11 +227,11 @@ export default function VitalsBriefcaseClient() {
     // { q: "Is it GeM listed?", a: "Coming soon. Contact us for procurement." },
   ];
 
-    const [value, setValue] = useState(0);
-    
-      const handleChange = (event, newValue) => {
-        setValue(newValue);
-      }
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  }
 
   return (
     <Box sx={{ width: "100%", backgroundColor: "#fff" }}>
@@ -525,13 +525,13 @@ export default function VitalsBriefcaseClient() {
           <Container maxWidth="lg">
             <SectionTitle>Comparison vs Competing Systems</SectionTitle>
             <TableContainer component={Paper} sx={{ overflowX: "auto", boxShadow: "none", border: "1px solid #eee" }}>
-              <Table size="small"><TableHead><TableRow><TableCell><b>Feature</b></TableCell><TableCell><b>Briefcase (BluAI)</b></TableCell><TableCell><b>COC Health Kiosk</b></TableCell><TableCell><b>Welch Allyn Connex VSM</b></TableCell></TableRow></TableHead>
+              <Table size="small"><TableHead><TableRow><TableCell><b>Feature</b></TableCell><TableCell><b>Briefcase</b></TableCell><TableCell><b>Other Devices</b></TableCell></TableRow></TableHead>
                 <TableBody>
                   {comparisonData?.map((row, i) => (<TableRow key={i}><TableCell>{row.feature}</TableCell><TableCell> {row.vitals === "Yes" || row.vitals === "Available" ? (
                     <CheckCircleIcon className="!text-[#4caf50]" sx={{ fontSize: 15, color: "#4caf50" }} />
                   ) : (
                     <Chip label={row.vitals} size="small" color="success" />
-                  )}</TableCell><TableCell>{row.coc}</TableCell><TableCell>{row.welch}</TableCell></TableRow>))}
+                  )}</TableCell><TableCell>{row.welch}</TableCell></TableRow>))}
                 </TableBody></Table>
             </TableContainer>
           </Container>

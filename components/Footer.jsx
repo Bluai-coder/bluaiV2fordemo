@@ -555,6 +555,26 @@ export default function Footer() {
                   </IconButton>
                 ))}
               </Box>
+              {/* playstore */}
+              <Box sx={{ display: "flex", gap: 0 }}>
+                <Typography fontFamily={"fangsong"}>
+                  Download Over App
+                </Typography></Box>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Link
+                  href="https://play.google.com/store/apps/details?id=com.bluai.blu_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    alt="Download on Google Play"
+                    src="/play.jpg"
+                    height={80}
+                    width={180}
+                    style={{ cursor: "pointer" }}
+                  />
+                </Link>
+              </Box>
             </Box>
           </Box>
         </Box>

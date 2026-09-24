@@ -334,7 +334,7 @@ export default function VitalsChairEnquiryNavbar() {
 
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
-                                    {productMenu[6]?.children?.map((c) => (
+                                    {productMenu[3]?.children?.map((c) => (
                                             <ListItemButton
                                                 key={c.label}
                                                 component={Link}
@@ -348,13 +348,13 @@ export default function VitalsChairEnquiryNavbar() {
                             </Collapse>
 
                             {/* NeoNatal */}
-                            <ListItemButton
+                            {/* <ListItemButton
                                 component={Link}
                                 href="/products/blu-neonatal"
                                 onClick={() => setMobileOpen(false)}
                             >
                                 <ListItemText primary="NeoNatal" />
-                            </ListItemButton>
+                            </ListItemButton> */}
 
                             {/* SmartBed */}
                             {/* <ListItemButton

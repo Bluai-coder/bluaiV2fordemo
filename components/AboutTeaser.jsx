@@ -41,7 +41,7 @@ const AboutTeaser = () => {
                         >
                             <Box
                                 component="img"
-                                src="/about-teaser.png"
+                                src="/about-teaser.webp"
                                 alt="About BluAI"
                                 sx={{
                                     width: "100%",
