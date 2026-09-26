@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../components/Footer";
-import BlubillingNav from "../../components/navbars/BlubillingNav";
+import VitalsChairNavbar from "../../components/navbars/products/VitalsChairNavbar"
 
 
 const geistSans = Geist({
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <BlubillingNav/>
+        <VitalsChairNavbar logopath = "/logos/BluBilling-logo.png"/>
         {children}
         <Footer/>
       </body>

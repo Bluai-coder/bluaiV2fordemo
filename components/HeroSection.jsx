@@ -192,6 +192,16 @@ export default function HeroSection() {
   const totalCards = products.length;
 
 
+  // Open demo popup once after 4 minutes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpenDemo(true);
+    }, 1 * 60 * 1000); // 1 minutes
+    // 3 minutes: 3 * 60 * 1000
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       setCurrentIndex((prev) => (prev + 1) % totalCards);
