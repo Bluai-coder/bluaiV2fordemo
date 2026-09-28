@@ -675,7 +675,7 @@ export default function BluDMSClient() {
                         <Box
                             sx={{
                                 display: "flex",
-                                justifyContent: { xs: "center", md: "flex-end" },
+                                justifyContent: { xs: "center", md: "center" },
                                 alignItems: "center",
                                 width: "100%",
                                 minWidth: 0,

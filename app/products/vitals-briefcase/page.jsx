@@ -19,7 +19,7 @@ const productSchema = {
 export default function Page() {
   return (
     <>
-      {/* ✅ JSON-LD Schema */}
+      {/*JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}

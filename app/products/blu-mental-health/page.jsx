@@ -22,9 +22,7 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import LockIcon from "@mui/icons-material/Lock";
 
-/* =========================================================
-   FEATURE CARD
-========================================================= */
+
 const FeatureCard = ({ icon, title, subtitle, accent = "#2563eb" }) => (
     <Paper
         elevation={0}
@@ -96,9 +94,7 @@ const FeatureCard = ({ icon, title, subtitle, accent = "#2563eb" }) => (
     </Paper>
 );
 
-/* =========================================================
-   MAIN PAGE
-========================================================= */
+
 export default function MentalHealthModulePage() {
     return (
         <Box sx={{ minHeight: "100vh", bgcolor: "#ffffff" }}>

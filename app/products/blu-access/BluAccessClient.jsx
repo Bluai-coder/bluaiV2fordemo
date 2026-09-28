@@ -11,12 +11,10 @@ import {
   Stack,
 } from "@mui/material";
 import Image from "next/image";
-
 import BusinessIcon from "@mui/icons-material/Business";
 import FactoryIcon from "@mui/icons-material/Factory";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import SchoolIcon from "@mui/icons-material/School";
-
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import HubIcon from "@mui/icons-material/Hub";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";

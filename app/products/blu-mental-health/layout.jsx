@@ -22,19 +22,8 @@ export default function RootLayout({
   return (
     <div>
       <BluMentalHealthNavbar />
-
       {children}
       <Footer />
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     <BluMentalHealthNavbar/>
-
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

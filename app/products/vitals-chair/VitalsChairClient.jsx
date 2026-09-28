@@ -19,12 +19,10 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Button,
   Tabs,
   Tab
 } from "@mui/material";
-import ProductFlow from "@/components/ProductFlow";
-import { ArrowDown, ArrowRight, CheckCircleIcon, ChevronLeft, ChevronRight, Rotate3d } from "lucide-react";
+import { ArrowDown, CheckCircleIcon, ChevronLeft, ChevronRight, Rotate3d } from "lucide-react";
 import { useRef, useState } from "react";
 import VitalsChair3D from "../../../components/VitalsChair3D";
 
@@ -68,7 +66,6 @@ function PointItem({ text }) {
     </Box>
   );
 }
-
 function SectionTitle({ children }) {
   return (
     <Typography sx={{ fontWeight: 900, fontSize: { xs: 22, md: 28 }, color: "#0b1c3d", mb: 3, textAlign: "center" }}>
@@ -76,7 +73,6 @@ function SectionTitle({ children }) {
     </Typography>
   );
 }
-
 function SubSectionTitle({ children }) {
   return (
     <Typography sx={{ fontWeight: 800, fontSize: { xs: 18, md: 20 }, color: "#0b1c3d", mb: 2, mt: 3 }}>
@@ -84,7 +80,6 @@ function SubSectionTitle({ children }) {
     </Typography>
   );
 }
-
 
 // --- 360 Viewer ---
 const ProductGallery = () => {
@@ -461,8 +456,6 @@ export default function VitalsChairLanding() {
                     height: { xs: 420, sm: 580, md: 620 },
                   }}
                 >
-
-
                   {/* Video inside phone */}
                   <Box
                     sx={{
@@ -498,9 +491,6 @@ export default function VitalsChairLanding() {
                 >
                   {/* Column 1 */}
                   <Box sx={{ flex: 1 }}>
-
-
-
                     <Accordion defaultExpanded sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Smart Connectivity & Integration</Typography>
@@ -511,8 +501,6 @@ export default function VitalsChairLanding() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
                     <SectionTitle> Core Measurement Capabilities</SectionTitle>
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
@@ -528,10 +516,6 @@ export default function VitalsChairLanding() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Physical Composition</Typography>
@@ -546,9 +530,6 @@ export default function VitalsChairLanding() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}> Monitoring & Detection</Typography>
@@ -559,9 +540,6 @@ export default function VitalsChairLanding() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Advanced Diagnostic Features</Typography>
@@ -581,8 +559,6 @@ export default function VitalsChairLanding() {
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-
-
         {/* KEY HIGHLIGHTS & PARAMETERS MEASURED SECTION */}
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 0 } }}>
           <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 6 }}>
@@ -663,11 +639,6 @@ export default function VitalsChairLanding() {
             </Box>
           </Box>
         </Container>
-
-
-
-
-
 
         {/* AI CAPABILITIES SECTION */}
         <Box >
@@ -760,8 +731,6 @@ export default function VitalsChairLanding() {
               </AccordionDetails>
             </Accordion>
           </Container>
-
-
         </Box>
 
         {/* REGULATORY & CERTIFICATIONS */}
@@ -812,10 +781,7 @@ export default function VitalsChairLanding() {
       {/* FAQ SECTION */}
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
         <SectionTitle> Frequently Asked Questions</SectionTitle>
-
-
         <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
-
           <AccordionSummary expandIcon={<ArrowDown />}>
             <Typography sx={{ fontWeight: 600 }}>Why Choose VitalsChair™ ?</Typography>
           </AccordionSummary>
@@ -837,13 +803,8 @@ export default function VitalsChairLanding() {
             <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
             <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
           </Accordion>
-
         ))}
-
-
-
       </Container>
-      {/* <ProductFlow /> */}
     </Box>
   )
 }

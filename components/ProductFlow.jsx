@@ -1,7 +1,4 @@
 
-
-
-
 "use client";
 
 import { Box, Typography, Container, Paper } from "@mui/material";
@@ -214,11 +211,6 @@ function StepBox({ step, text, position, handleClickOpen }) {
             position: "absolute",
             cursor: "pointer",
             zIndex: 10,
-            // transition: "all 0.3s ease",
-            // '&:hover': {
-            //     transform: "scale(1.05)",
-            //     boxShadow: "0 15px 40px rgba(37,99,235,0.5)"
-            // }
         };
 
         switch (position) {
@@ -498,14 +490,8 @@ export default function CircularProcessDiagram() {
                             strokeWidth="1.5"
                             strokeDasharray="6 6"
                         />
-
-                        {/* Arrows connecting steps in a circle */}
-                     
-                        {/* Arrow from Step 4 to Step 1 */}
-                    
                     </svg>
 
-                    {/* Step Boxes positioned around the circle */}
                     {/* Step 1 - Top */}
                     <Box
                         sx={{

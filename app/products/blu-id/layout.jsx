@@ -24,15 +24,5 @@ export default function RootLayout({
         {children}
         <Footer/>
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-     
-    //     <BluIdNavbar/>
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

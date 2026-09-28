@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { Shield, Mail } from 'lucide-react';
+import { useEffect } from 'react';
+import { Shield } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   useEffect(() => {
     document.title = 'Privacy Policy - BluAI';
-    
+
     let metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', 'Learn how BluAI protects your privacy and handles your personal and medical data securely.');
     }
-    
+
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       canonical.setAttribute('href', 'https://bluai.ai/privacy-policy');

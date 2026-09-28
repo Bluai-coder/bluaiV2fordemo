@@ -102,7 +102,7 @@ const medicalPartners = [
     des: "",
     category: ""
   }
-   ,
+  ,
   {
     id: 6,
     name: "Athenahealth",
@@ -379,36 +379,6 @@ export default function PartnerSlider() {
                   maxWidth: "80%",
                 }}
               />
-
-              {/* Partner name on hover */}
-              {/* <Typography
-                className="partner-name"
-                sx={{
-                  fontSize: 12,
-                  fontWeight: 700,
-                  color: "#0a1628",
-                  letterSpacing: "0.03em",
-                  lineHeight: 1.2,
-                  mt: 0.5,
-                }}
-              >
-                {item.name}
-              </Typography> */}
-
-              {/* Partner description */}
-              {/* <Typography
-                className="partner-des"
-                sx={{
-                  fontSize: 10,
-                  fontWeight: 500,
-                  color: "#4a6a8a",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                  lineHeight: 1,
-                }}
-              >
-                {item.des}
-              </Typography> */}
             </Box>
           ))}
         </Box>

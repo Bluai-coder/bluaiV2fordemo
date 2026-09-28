@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Stack,
-  Button,
-} from "@mui/material";
+import { Box, Container, Typography, Stack, Button, } from "@mui/material";
 import { useRouter } from "next/navigation";
 import RequestDemoModal from "./popups/RequestDemoModal";
 import { useState } from "react";
@@ -49,7 +43,6 @@ export default function VitalsChairSection() {
           </Typography>
         </Stack>
 
-        {/* CTA Buttons — place immediately below the main headline */}
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={2}

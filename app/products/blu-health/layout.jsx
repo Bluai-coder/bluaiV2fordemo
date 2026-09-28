@@ -20,20 +20,10 @@ export default function RootLayout({
 }
 ) {
   return (
-
     <div>
       <BluHealthNavbar />
       {children}
       <Footer />
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     <BluHealthNavbar/>
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

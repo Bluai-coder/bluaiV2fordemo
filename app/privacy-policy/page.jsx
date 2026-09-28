@@ -14,7 +14,6 @@ function Page() {
     
   return <>
   <PrivacyPolicy/>
-  
   </>;
 }
 

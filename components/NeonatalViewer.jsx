@@ -61,7 +61,6 @@ function ModelInner({ modelPath, autoRotate, isInteracting, onModelReady }) {
   const { scene } = useGLTF(modelPath);
   const clonedScene = useMemo(() => scene.clone(true), [scene]);
   const groupRef = useRef();
-  const isReadyRef = useRef(false);
   const hasSetDefaultRotation = useRef(false);
 
   const lastLoggedPositionRef = useRef(null);
@@ -69,11 +68,9 @@ function ModelInner({ modelPath, autoRotate, isInteracting, onModelReady }) {
   const logCounterRef = useRef(0);
 
   // Auto-rotation oscillation settings
-  const timeRef = useRef(0);
   const DEFAULT_ROTATION_Y_DEGREES = 0;
   const DEFAULT_ROTATION_Y_RADIANS = (DEFAULT_ROTATION_Y_DEGREES * Math.PI) / 180;
-  const OSCILLATION_ANGLE = 0.5; // Maximum rotation angle in radians (about 28.6 degrees)
-  const OSCILLATION_SPEED = 0.8; // Speed of oscillation
+
 
   useEffect(() => {
     return () => {
@@ -112,18 +109,7 @@ function ModelInner({ modelPath, autoRotate, isInteracting, onModelReady }) {
         }
       }
 
-      // Auto-rotate with oscillation (back and forth)
-      // if (autoRotate && !isInteracting) {
-      //   // Update time
-      //   timeRef.current += delta * OSCILLATION_SPEED;
 
-      //   // Calculate oscillation using sine wave
-      //   // This creates a smooth back-and-forth motion
-      //   const oscillationValue = Math.sin(timeRef.current) * OSCILLATION_ANGLE;
-
-      //   // Apply rotation - start from default and oscillate
-      //   groupRef.current.rotation.y = DEFAULT_ROTATION_Y_RADIANS + oscillationValue;
-      // }
 
       if (isInteracting) {
         const position = groupRef.current.position;
@@ -339,7 +325,6 @@ export default function NeonatalViewer({ modelPath }) {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 10, 7]} intensity={1.5} />
-        {/* <directionalLight position={[-5, 0, 5]} intensity={0.5} color="#4488ff" /> */}
         <hemisphereLight skyColor="#4488ff" groundColor="#e2e2e2" intensity={0.3} />
 
         <Suspense fallback={<Loader />}>

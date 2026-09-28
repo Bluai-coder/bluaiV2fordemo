@@ -19,7 +19,7 @@ import { Box } from '@mui/material';
 function Loader() {
   const { progress } = useProgress();
   return (
-    <Html  center>
+    <Html center>
       <div className="flex flex-col items-center">
         <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
         <p className="text-white mt-4 text-lg">{Math.round(progress)}% loaded</p>
@@ -59,19 +59,16 @@ function ModelInner({ modelPath, autoRotate, isInteracting, onModelReady }) {
   const { scene } = useGLTF(modelPath);
   const clonedScene = useMemo(() => scene.clone(true), [scene]);
   const groupRef = useRef();
-  const isReadyRef = useRef(false);
   const hasSetDefaultRotation = useRef(false);
 
   const lastLoggedPositionRef = useRef(null);
   const lastLoggedRotationRef = useRef(null);
   const logCounterRef = useRef(0);
 
-  // Auto-rotation oscillation settings
-  const timeRef = useRef(0);
+
   const DEFAULT_ROTATION_Y_DEGREES = 0;
   const DEFAULT_ROTATION_Y_RADIANS = (DEFAULT_ROTATION_Y_DEGREES * Math.PI) / 180;
-  const OSCILLATION_ANGLE = 0.5; // Maximum rotation angle in radians (about 28.6 degrees)
-  const OSCILLATION_SPEED = 0.8; // Speed of oscillation
+
 
   useEffect(() => {
     return () => {
@@ -188,7 +185,7 @@ export default function PoleViewer({ modelPath }) {
   const controlsRef = useRef(null);
   const interactionCountRef = useRef(0);
 
- const DEFAULT_CAMERA_POSITION = [0, 0.5, 5];
+  const DEFAULT_CAMERA_POSITION = [0, 0.5, 5];
 
   useEffect(() => {
     setIsMounted(true);
@@ -225,19 +222,7 @@ export default function PoleViewer({ modelPath }) {
     }, 800);
   };
 
-  const toggleFullscreen = () => {
-    const container = containerRef.current;
-    if (!container) return;
-    if (!document.fullscreenElement) {
-      container.requestFullscreen?.().catch((err) =>
-        console.warn('Fullscreen error:', err)
-      );
-    } else {
-      document.exitFullscreen?.().catch((err) =>
-        console.warn('Exit fullscreen error:', err)
-      );
-    }
-  };
+
 
   const resetCamera = () => {
     if (!controlsRef.current) return;
@@ -294,7 +279,7 @@ export default function PoleViewer({ modelPath }) {
       ref={containerRef}
       sx={{
         position: 'relative',
-       width: isFullscreen ? '100vw' :  "100%",
+        width: isFullscreen ? '100vw' : "100%",
         height: isFullscreen ? '100vh' : { xs: 280, sm: 550, md: 760 },
         borderRadius: isFullscreen ? 0 : 4,
         bgcolor: 'white',

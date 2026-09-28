@@ -1,4 +1,3 @@
-import React from 'react'
 import VitalsChairDistributorHero from '../../../components/vitals-chair-enquiry/VitalsChairDistributorHero'
 import PartnershipBenefitsSection from '../../../components/vitals-chair-enquiry/PartnershipBenefitsSection'
 import DistributorFormSection from '../../../components/vitals-chair-enquiry/DistributorFormSection'
@@ -9,7 +8,6 @@ function page() {
             <VitalsChairDistributorHero />
             <PartnershipBenefitsSection />
             <DistributorFormSection />
-
         </div>
     )
 }

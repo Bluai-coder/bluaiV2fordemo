@@ -6,9 +6,6 @@ import {
   Container,
   Typography,
   Stack,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@mui/material";
 import Image from "next/image";
 import OurValues from "../../../components/OurValues";
@@ -18,10 +15,6 @@ import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import GroupsIcon from "@mui/icons-material/Groups";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import { cloneElement } from "react";
-import { useMediaQuery } from "@mui/material";
-import { useMemo } from "react";
-import { getTheme } from "../../../theme";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import ScienceIcon from "@mui/icons-material/Science";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -37,7 +30,6 @@ const team = [
   { id: 6, name: "Krisma Nagi", role: "AI/ML", img: "/our-team/krisma.jpg" },
   { id: 7, name: "Nitin Saini", role: "Software Developer", img: "/our-team/nitin.jpg" },
   { id: 8, name: "Subham Rawat", role: "Software Developer", img: "/our-team/subham.jpg" },
-  // { id: 9, name: "Himanshu", role: "Software Developer", img: "/our-team/himanshu.jpg" },
   { id: 10, name: "Shadab Rahman", role: "Software Developer", img: "/our-team/shadab.jpg" },
   { id: 11, name: "Sahil Ali", role: "Embedded Developer", img: "/our-team/sahil.jpg" },
   { id: 12, name: "Sankha Kundu", role: "Embedded Developer", img: "/our-team/sankha.jpg" },
@@ -45,12 +37,6 @@ const team = [
 ];
 
 export default function About() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
-  const theme = useMemo(
-    () => getTheme(prefersDarkMode ? "dark" : "light"),
-    [prefersDarkMode]
-  );
 
   function MetricCard({ icon, title, sub }) {
     return (
@@ -149,7 +135,6 @@ export default function About() {
             pointerEvents: "none",
           }}
         />
-
 
         <Box
           sx={{
@@ -543,122 +528,6 @@ export default function About() {
 
       {/* ================= TEAM ================= */}
       <OurTeamSlider team={team} />
-
-      {/* ================= FAQ ================= */}
-      {/* <Box
-        sx={{
-          py: { xs: 8, md: 8 },
-          background: "linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%)",
-        }}
-      >
-
-        <Container maxWidth="xl">
-          <Box>
-            <Box
-              sx={{
-                display: "inline-flex",
-                alignItems : "center",
-                gap: 1,
-                px: 2,
-                py: 0.9,
-                borderRadius: 99,
-                bgcolor: "rgba(27,77,255,0.10)",
-                border: "1px solid rgba(27,77,255,0.18)",
-                mb: 2,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontWeight: 900,
-                  fontSize: 12,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "#1B4DFF",
-                }}
-              >
-                FAQ
-              </Typography>
-            </Box>
-
-            <Typography
-              variant="h4"
-              fontWeight={950}
-              mb={4}
-              sx={{
-                color: "#07122C",
-
-                fontSize: { xs: "1.6rem", md: "2rem" },
-                letterSpacing: -0.5,
-              }}
-            >
-              Frequently Asked Questions
-            </Typography>
-
-            <Stack spacing={2}>
-              {faqs?.map((item, index) => (
-                <Accordion
-                  key={index}
-                  elevation={0}
-                  sx={{
-                    borderRadius: "16px !important",
-                    border: "1px solid rgba(227,232,255,0.95)",
-                    bgcolor: "rgba(255,255,255,0.85)",
-                    backdropFilter: "blur(10px)",
-                    boxShadow: "0 8px 24px rgba(15,23,42,0.04)",
-                    overflow: "hidden",
-                    transition: "all 0.3s ease",
-                    "&:before": { display: "none" },
-                    "&:hover": {
-                      boxShadow: "0 12px 32px rgba(27,77,255,0.08)",
-                      borderColor: "rgba(27,77,255,0.25)",
-                    },
-                    "&.Mui-expanded": {
-                      boxShadow: "0 16px 40px rgba(27,77,255,0.12)",
-                      borderColor: "rgba(27,77,255,0.30)",
-                    },
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={
-                      <ExpandMoreIcon sx={{ color: "#1B4DFF", fontSize: 22 }} />
-                    }
-                    sx={{
-                      px: 2.5,
-                      py: 1,
-                      "& .MuiAccordionSummary-content": {
-                        my: 1.2,
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontWeight: 800,
-                        fontSize: 15,
-                        color: "#07122C",
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      {item.question}
-                    </Typography>
-                  </AccordionSummary>
-
-                  <AccordionDetails sx={{ px: 2.5, pb: 2.5, pt: 0 }}>
-                    <Typography
-                      sx={{
-                        fontSize: 14.5,
-                        color: "rgba(7,18,44,0.65)",
-                        lineHeight: 1.8,
-                      }}
-                    >
-                      {item.answer}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              ))}
-            </Stack>
-          </Box>
-        </Container>
-      </Box> */}
     </Box>
   );
 }

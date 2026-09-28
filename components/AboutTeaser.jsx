@@ -115,29 +115,6 @@ const AboutTeaser = () => {
                         >
                             At BluAI, we craft complex embedded systems by integrating hardware, user interfaces, and advanced software. Our expertise extends to connectivity and proximity technologies, ensuring your products are always connected and responsive.
                         </Typography>
-
-                        {/* CTA Button */}
-                        {/* <Button
-                            onClick={() => router.push("/about")}
-                            endIcon={<ArrowForward sx={{ fontSize: 18 }} />}
-                            sx={{
-                                background: "#1b4dff",
-                                color: "#fff",
-                                textTransform: "none",
-                                fontWeight: 700,
-                                fontSize: 15,
-                                px: 3.5,
-                                py: 1.4,
-                                borderRadius: 50,
-                                boxShadow: "0 8px 24px rgba(109,94,248,0.35)",
-                                "&:hover": {
-                                    background: "#5B4DE0",
-                                    boxShadow: "0 10px 28px rgba(109,94,248,0.5)",
-                                },
-                            }}
-                        >
-                            Explore More
-                        </Button> */}
                     </Box>
 
                 </Box>

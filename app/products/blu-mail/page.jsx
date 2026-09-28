@@ -20,13 +20,9 @@ const productSchema = {
 function page() {
   return (
     <>
-      <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-            />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <BluMailIntroSection/>
     <BluMailVideoShowcase/>
-      
     </>
   )
 }

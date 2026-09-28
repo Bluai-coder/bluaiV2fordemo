@@ -1,18 +1,7 @@
 
 "use client";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  Chip,
-  Avatar,
-  Stack,
-  Button,
-  keyframes,
-} from "@mui/material";
+import { Box, Container, Typography, Card, CardContent, Chip, Avatar, Stack, Button, keyframes, } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
@@ -62,7 +51,6 @@ export default function RecentPosts() {
         bgcolor: "#fafbfd",
         position: "relative",
         overflow: "hidden",
-
       }}
     >
       {/* Background accent */}
@@ -89,10 +77,7 @@ export default function RecentPosts() {
           alignItems="center"
           textAlign="center"
           mb={{ xs: 4.5, sm: 5.5, md: 7 }}
-
         >
-
-
           <Typography
             sx={{
               fontWeight: 800,
@@ -152,7 +137,6 @@ export default function RecentPosts() {
                 maxWidth: { xs: "100%", sm: 480 },
                 display: "flex",
                 flexDirection: "column",
-                // borderRadius: 3.5,
                 borderRadius: { xs: "21px", md: "21px" },
                 overflow: "hidden",
                 cursor: "pointer",

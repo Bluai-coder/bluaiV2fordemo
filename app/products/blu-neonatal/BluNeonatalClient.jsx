@@ -87,7 +87,6 @@ const specs = [
     },
 ];
 
-
 // --- 360 Viewer ---
 const ProductGallery = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -199,8 +198,6 @@ export default function BluNeonatalClient() {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     return (
         <Box sx={{ width: "100%", backgroundColor: "#fff" }}>
-
-            {/* 1. HERO - PERFECT & UNTOUCHED */}
             <Container maxWidth="lg" sx={{ textAlign: "center", }}>
                 <ProductGallery />
             </Container>
@@ -209,11 +206,11 @@ export default function BluNeonatalClient() {
                 <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'center' }, width: '100%' }}>
 
 
-          <Typography sx={{ fontWeight: 900, fontSize: { xs: 38, sm: 48, md: 34 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
+                    <Typography sx={{ fontWeight: 900, fontSize: { xs: 38, sm: 48, md: 34 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
                         BluNeonatal™ by BluAI
                     </Typography>
 
-          <Typography sx={{ fontWeight: 900, fontSize: { xs: 20, sm: 24, md: 16 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
+                    <Typography sx={{ fontWeight: 900, fontSize: { xs: 20, sm: 24, md: 16 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
                         Manage. My Health. My Way.™
                     </Typography>
                     <Typography
@@ -222,13 +219,9 @@ export default function BluNeonatalClient() {
                             fontSize: { xs: 30, sm: 38, md: 40 },
                             lineHeight: 1.15,
                             color: "#111827",
-                            // fontFamily: "Georgia, serif",
-                        }}
-                    >
+                        }}>
                         AI-Powered
-
                         Autonomous Neonatal
-
                         Monitoring System
                     </Typography>
                     <Typography
@@ -256,30 +249,8 @@ export default function BluNeonatalClient() {
                     >
                         Patent Pending • Medical-Grade • AI-Enabled
                     </Typography>
-
-                    {/* <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }} sx={{ mb: 5 }}>
-                            <Button variant="contained" endIcon={<ArrowRight />} sx={{
-                              bgcolor: '#0a1a3c', color: '#fff', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-                              textTransform: 'none', fontSize: 16, boxShadow: '0 15px 30px rgba(10,26,60,0.3)', width: { xs: '100%', sm: 'auto' },
-                              '&:hover': { bgcolor: '#1e3a8a', transform: 'translateY(-2px)', boxShadow: '0 20px 40px rgba(10,26,60,0.4)' }
-                            }}>
-                              Request Demo
-                            </Button>
-                            <Button variant="outlined" startIcon={<PlayCircle size={20} />} sx={{
-                              borderColor: '#cbd5e1', color: '#0a1a3c', fontWeight: 800, px: 5, py: 2, borderRadius: 3,
-                              textTransform: 'none', fontSize: 16, bgcolor: 'rgba(255,255,255,0.8)', width: { xs: '100%', sm: 'auto' },
-                              '&:hover': { borderColor: '#4756d4', color: '#4756d4', bgcolor: '#fff' }
-                            }}>
-                              Watch Demo
-                            </Button>
-                          </Stack> */}
-
-
-
                 </Box>
                 <Box>
-
-                    {/* METRICS STRIP — FLEX */}
                     <Typography
                         sx={{
                             mt: 5,
@@ -288,11 +259,8 @@ export default function BluNeonatalClient() {
                             fontSize: { xs: "2rem", md: "1.2rem" },
                             color: "#0f172a",
                             textAlign: "center",
-                        }}
-                    >
+                        }}>
                         Product Overview
-
-
                     </Typography>
 
                     <Box

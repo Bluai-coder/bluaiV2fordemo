@@ -1,15 +1,7 @@
 
-
-
-
 "use client";
-
-import React from "react";
 import { Box, Container, Paper, Stack, Typography, Button } from "@mui/material";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
-import DomainIcon from "@mui/icons-material/Domain";
 import PersonIcon from "@mui/icons-material/Person";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import HealingIcon from "@mui/icons-material/Healing";
@@ -22,59 +14,16 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import GroupsIcon from "@mui/icons-material/Groups";
 import DescriptionIcon from "@mui/icons-material/Description";
-import ScienceIcon from "@mui/icons-material/Science";
 import LocalPharmacyIcon from "@mui/icons-material/LocalPharmacy";
 import LockIcon from "@mui/icons-material/Lock";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import BiotechIcon from "@mui/icons-material/Biotech";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { CheckCircleIcon, VerifiedIcon } from "lucide-react";
 import SecurityIcon from "@mui/icons-material/Security";
-
 import Image from "next/image";
 
-/* ============================================================
-   DATA
-   ============================================================ */
-
-const leftPoints = [
-  `By incorporating proprietary technologies like BluID™ for secure biometric authentication, BluVitals™ for continuous physiological monitoring, and BluNotes™ for automated clinical documentation with natural language processing capabilities, BluHealth™ dramatically reduces clinician cognitive load while enhancing diagnostic precision and treatment efficacy.`,
-  `The platform's interoperability framework establishes friction less communication between traditionally siloed healthcare entities—enabling real-time synchronization across pharmacy systems, pathology laboratories, advanced imaging modalities, and diagnostic services. This comprehensive integration occurs within a zero-trust security architecture that places patients at the nexus of their health information ecosystem, empowering them with granular consent management while maintaining HIPAA and international regulatory compliance.`,
-  `BluHealth™ represents the culmination of medical informatics evolution—where sophisticated algorithms augment clinical decision-making without replacing provider intuition, where longitudinal patient data becomes actionable intelligence, and where healthcare delivery achieves true patient-provider collaborative governance.`,
-];
-
-const rightPoints = [
-  `Our patented BluID™ authentication system employs multi-factor biometric verification combined with blockchain-secured credentialing to ensure unprecedented security while maintaining frictionless access across care settings. The BluVitals™ monitoring infrastructure provides continuous physiological telemetry with real-time anomaly detection, enabling preemptive clinical intervention before symptomatic manifestation—transforming reactive care models into proactive health management paradigms.`,
-  `The BluNotes™ natural language processing engine automatically generates structured clinical documentation from provider-patient interactions, eliminating redundant data entry while ensuring comprehensive capture of meaningful clinical insights. Concurrently, BluImaging™ leverages advanced computer vision algorithms to enhance radiological interpretation, providing quantitative analysis that augments diagnostic precision while seamlessly integrating with existing PACS and RIS infrastructures.`,
-  `Healthcare interoperability achieves unprecedented sophistication through our FHIR-compliant integration framework, which establishes bidirectional communication channels between pharmacies, laboratories, imaging centers, and ancillary services. This comprehensive integration occurs within a zero-trust security architecture that maintains full HIPAA, GDPR, and international regulatory compliance while enabling granular patient control over health information exchange.`,
-  `The MedChat™ interface provides context-aware clinical decision support at the point of care, synthesizing evidence-based guidelines with patient-specific data to generate personalized therapeutic recommendations. This cognitive augmentation dramatically reduces diagnostic latency while optimizing pharmacological selection and dosing parameters.`,
-  `BluHealth™ Portal embodies the quintessential nexus of medical science and information technology—where advanced algorithms augment clinical acumen, where longitudinal patient data transforms into actionable intelligence, and where healthcare delivery achieves unprecedented efficiency without sacrificing the fundamental humanity of the patient-provider relationship.`,
-];
-
-const topCards = [
-  {
-    title: "AI powered Clinical Module",
-    subtitle: "BluNotes™ Clinical Decision Support Clinician's Order Management",
-    icon: <LocalHospitalIcon />,
-  },
-  {
-    title: "AI powered Diagnostics Module",
-    subtitle: "BluImaging™ Laboratory Results Pathology Integration",
-    icon: <FavoriteBorderIcon />,
-  },
-  {
-    title: "AI powered Patient Module",
-    subtitle: "BluVitals™ Health Timeline Consent Management",
-    icon: <AssuredWorkloadIcon />,
-  },
-  {
-    title: "AI powered Administrative Module",
-    subtitle: "BluAccess™ Billing and Claims Resource Management",
-    icon: <DomainIcon />,
-  },
-];
 
 const featureStrip = [
   {
@@ -750,138 +699,6 @@ export default function BluHealthClient() {
         </Container>
       </Box>
 
-      {/* ============ ABOUT ============ */}
-      {/* <Box sx={{ py: { xs: 7, md: 11 }, bgcolor: "#fff" }}>
-        <Container maxWidth="xl">
-          <Box textAlign="center" mb={{ xs: 4, md: 6 }}>
-            <Typography
-              sx={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                color: "#1B4DFF",
-                textTransform: "uppercase",
-                mb: 1,
-              }}
-            >
-              About BluHealth
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: { xs: "1.8rem", md: "2.2rem" },
-                fontWeight: 950,
-                color: "#07122C",
-                lineHeight: 1.1,
-              }}
-            >
-              About Us
-            </Typography>
-            <Typography
-              sx={{
-                fontWeight: 400,
-                fontSize: 14,
-                color: "#948e8e",
-                mt: 1,
-              }}
-            >
-              BluHealth™ Portal: Redefining Healthcare Informatics
-            </Typography>
-          </Box>
-
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={{ xs: 4.5, md: 7 }}
-            alignItems="flex-start"
-          >
-            <Box sx={{ flex: 1, minWidth: 0 }}>
-              <Typography
-                sx={{
-                  fontWeight: 900,
-                  fontSize: { xs: "1.15rem", md: "1.3rem" },
-                  color: "#0B2FD6",
-                  mb: 1.2,
-                }}
-              >
-                BluHealth™ Portal: Redefining Healthcare Informatics
-              </Typography>
-
-              <Typography
-                sx={{
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  color: "rgba(7,18,44,0.70)",
-                  mb: 2.6,
-                }}
-              >
-                The BluHealth™ Portal represents a paradigm shift in clinical
-                informatics—transcending traditional electronic medical record
-                systems through sophisticated integration of artificial
-                intelligence and patient-centric architecture. This
-                next-generation EMR/EHR/HIS ecosystem leverages advanced large
-                language models and agentic AI infrastructure to create a
-                seamless healthcare delivery platform that operates with
-                unprecedented reliability and efficiency.
-              </Typography>
-
-              <Stack spacing={2.2}>
-                {leftPoints.map((text, idx) => (
-                  <PointItem key={idx} text={text} />
-                ))}
-              </Stack>
-            </Box>
-
-            <Box sx={{ flex: 1, minWidth: 0 }}>
-              <Typography
-                sx={{
-                  fontWeight: 900,
-                  fontSize: { xs: "1.15rem", md: "1.3rem" },
-                  color: "#0B2FD6",
-                  mb: 1.2,
-                }}
-              >
-                BluHealth™: Revolutionizing Healthcare Informatics
-              </Typography>
-
-              <Typography
-                sx={{
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  color: "rgba(7,18,44,0.70)",
-                  mb: 2.6,
-                }}
-              >
-                BluHealth™ Portal represents the quintessential evolution in
-                healthcare information systems—a sophisticated convergence of
-                advanced artificial intelligence, clinical expertise, and
-                patient empowerment. This revolutionary platform transcends
-                traditional EMR/EHR/HIS architectures by seamlessly integrating
-                proprietary machine learning algorithms with agentic AI
-                workflows, creating a synergistic ecosystem that eliminates
-                operational inefficiencies while dramatically enhancing clinical
-                outcomes.
-              </Typography>
-
-              <Stack spacing={2.2}>
-                {rightPoints.map((text, idx) => (
-                  <PointItem key={idx} text={text} />
-                ))}
-              </Stack>
-            </Box>
-          </Stack>
-
-          <Box textAlign="center" mt={6}>
-            <Typography
-              sx={{
-                fontWeight: 900,
-                fontSize: { xs: "1.15rem", md: "1.3rem" },
-                color: "#0B2FD6",
-              }}
-            >
-              Manage. My Health. My Way.™
-            </Typography>
-          </Box>
-        </Container>
-      </Box> */}
 
       {/* ============ KEY HIGHLIGHTS ============ */}
       <Box id="read-more-section" sx={{ py: { xs: 7, md: 10 }, bgcolor: "#fff" }}>
@@ -968,92 +785,6 @@ export default function BluHealthClient() {
           </Box>
         </Container>
       </Box>
-
-      {/* ============ CTA ============ */}
-      {/* <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#F7F9FF" }}>
-        <Container maxWidth="xl">
-          <Paper
-            elevation={0}
-            sx={{
-              borderRadius: 5,
-              p: { xs: 3.5, md: 6 },
-              background: "linear-gradient(135deg,#EEF2FF 0%,#E0E7FF 100%)",
-              border: "1px solid rgba(27,77,255,0.1)",
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: { md: "center" },
-              justifyContent: "space-between",
-              gap: 3,
-              textAlign: { xs: "center", md: "left" },
-            }}
-          >
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: { xs: "1.4rem", md: "1.8rem" },
-                  fontWeight: 900,
-                  color: "#07122C",
-                  mb: 0.7,
-                }}
-              >
-                Let's Build a Healthier Tomorrow, Together.
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: { xs: 14, md: 15 },
-                  color: "rgba(7,18,44,0.65)",
-                  maxWidth: 560,
-                }}
-              >
-                Join healthcare organisations that trust BluHealth for better
-                care, improved efficiency, and healthier communities.
-              </Typography>
-            </Box>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              sx={{ flexShrink: 0 }}
-            >
-              <Button
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                sx={{
-                  bgcolor: "#1B4DFF",
-                  borderRadius: 40,
-                  textTransform: "none",
-                  fontWeight: 700,
-                  px: 3,
-                  py: 1.3,
-                  boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
-                  "&:hover": { bgcolor: "#0a3ad0" },
-                }}
-              >
-                Request a Demo
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: 40,
-                  textTransform: "none",
-                  fontWeight: 700,
-                  px: 3,
-                  py: 1.3,
-                  color: "#07122C",
-                  borderColor: "rgba(27,77,255,0.3)",
-                  "&:hover": {
-                    borderColor: "#1B4DFF",
-                    bgcolor: "rgba(27,77,255,0.04)",
-                  },
-                }}
-              >
-                Contact Sales
-              </Button>
-            </Stack>
-          </Paper>
-        </Container>
-      </Box> */}
-
-
     </>
   );
 }
@@ -1149,24 +880,6 @@ function PortalCard({ icon, title, description, rows, imageSrc }) {
         >
           {description}
         </Typography>
-
-        {/* <Box
-          sx={{
-            width: 34,
-            height: 34,
-            borderRadius: "50%",
-            bgcolor: "#1B4DFF",
-            color: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            transition: "0.2s ease",
-            "&:hover": { bgcolor: "#0a3ad0", transform: "translateX(4px)" },
-          }}
-        >
-          <ArrowForwardIcon sx={{ fontSize: 18 }} />
-        </Box> */}
       </Box>
     </Paper>
   );

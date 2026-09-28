@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import {
   Box,
   Dialog,
@@ -12,15 +11,12 @@ import {
   Button,
   Stack,
   Divider,
-  Checkbox,
-  FormControlLabel,
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import { Verified } from "@mui/icons-material";
 
 export default function BluNotesRequestDemoModal({ open, onClose }) {
-  const [verified, setVerified] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -130,29 +126,6 @@ export default function BluNotesRequestDemoModal({ open, onClose }) {
                 Send Verification Code
               </Button>
 
-              {/* Verified */}
-              {/* <FormControlLabel
-                sx={{
-                  m: 0,
-                  flexShrink: 0,
-                  "& .MuiTypography-root": {
-                    fontSize: 13,
-                    color: "#111827",
-                  },
-                }}
-                control={
-                  <Checkbox
-                    checked={verified}
-                    onChange={(e) => setVerified(e.target.checked)}
-                    size="small"
-                    sx={{
-                      color: "#9ca3af",
-                      "&.Mui-checked": { color: "#16a34a" },
-                    }}
-                  />
-                }
-                label="Verified"
-              /> */}
               <Box className="">
 
               <Verified/> Verified

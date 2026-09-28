@@ -4,14 +4,13 @@
 import { useRef, useState } from "react";
 ;
 import {
-  ChevronDown, Rotate3d, ChevronLeft, ChevronRight, Plus, Minus, CheckCircleIcon, ArrowDown
+   Rotate3d, ChevronLeft, ChevronRight, CheckCircleIcon, ArrowDown
 } from "lucide-react";
 
 import {
   Box,
   Container,
   Typography,
-  Stack,
   Table,
   TableBody,
   TableCell,
@@ -21,10 +20,8 @@ import {
   Paper,
   Chip,
   Accordion,
-  Divider,
   AccordionSummary,
   AccordionDetails,
-  Button,
   Tabs,
   Tab
 } from "@mui/material";
@@ -62,14 +59,6 @@ function CustomTabPanel(props) {
     >
       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
-  );
-}
-
-function SubSectionTitle({ children }) {
-  return (
-    <Typography sx={{ fontWeight: 800, fontSize: { xs: 18, md: 20 }, color: "#0b1c3d", mb: 2, mt: 3 }}>
-      {children}
-    </Typography>
   );
 }
 
@@ -560,11 +549,7 @@ export default function SmartPoleClient() {
               <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
               <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
             </Accordion>
-
           ))}
-
-
-
         </Container>
       </Box>
 

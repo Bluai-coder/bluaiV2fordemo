@@ -2,16 +2,12 @@
 'use client';
 
 import { useRef, useState } from "react";
-;
-import {
-  ChevronDown, Rotate3d, ChevronLeft, ChevronRight, Plus, Minus, CheckCircleIcon, ArrowDown
-} from "lucide-react";
+import { Rotate3d, ChevronLeft, ChevronRight, CheckCircleIcon, ArrowDown } from "lucide-react";
 
 import {
   Box,
   Container,
   Typography,
-  Stack,
   Table,
   TableBody,
   TableCell,
@@ -21,16 +17,13 @@ import {
   Paper,
   Chip,
   Accordion,
-  Divider,
   AccordionSummary,
   AccordionDetails,
-  Button,
   Tabs,
   Tab
 } from "@mui/material";
 
 import VitalsBriefcase3D from "../../../components/VitalsBriefcase3D";
-import RequestDemoModal from "../../../components/popups/RequestDemoModal"
 
 
 // --- Typography Helper ---
@@ -149,17 +142,12 @@ const ProductGallery = () => {
             }}
           />
         )}
-
-
-
         <Box sx={{ position: 'absolute', top: '50%', left: 16, transform: 'translateY(-50%)', width: 48, height: 48, borderRadius: 2, bgcolor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 5, '&:hover': { bgcolor: 'rgba(0,0,0,0.1)' } }} onClick={handlePrev}>
           <ChevronLeft size={28} color="#111827" />
         </Box>
         <Box sx={{ position: 'absolute', top: '50%', right: 16, transform: 'translateY(-50%)', width: 48, height: 48, borderRadius: 2, bgcolor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 5, '&:hover': { bgcolor: 'rgba(0,0,0,0.1)' } }} onClick={handleNext}>
           <ChevronRight size={28} color="#111827" />
         </Box>
-
-
       </Box>
 
       <Box sx={{ mt: 8, pb: 2, gap: 4, display: "flex", flexDirection: { xs: 'row', sm: 'row', md: 'column' }, overflow: { xs: "auto", sm: 'auto', md: 'hidden' } }}>
@@ -195,9 +183,6 @@ const ProductGallery = () => {
 };
 
 export default function VitalsBriefcaseClient() {
-  const [openDemo, setOpenDemo] = useState(false);
-
-
 
   const useCases = [
     "Hospitals & Clinics — OPD triage",
@@ -221,10 +206,7 @@ export default function VitalsBriefcaseClient() {
 
   const faqs = [
     { q: "How long does a screening take?", a: "A full screening takes 5–7 minutes." },
-    // { q: "Does it require staff to operate?", a: "Designed for self-service with voice guidance." },
     { q: "Can it work offline?", a: "Yes, with local storage and auto-sync." },
-    // { q: "Which EMR systems are supported?", a: "Epic, Cerner, Bahmni, and more via FHIR." },
-    // { q: "Is it GeM listed?", a: "Coming soon. Contact us for procurement." },
   ];
 
   const [value, setValue] = useState(0);
@@ -286,15 +268,11 @@ export default function VitalsBriefcaseClient() {
       </Container>
 
       <CustomTabPanel value={value} index={0}>
-
         <Container maxWidth="lg" sx={{ textAlign: "center", mt: { xs: 4, sm: 0, md: 0 }, mb: { xs: 4, sm: 6, md: 6 } }}>
           <Box >
-
-
             <Typography sx={{ fontWeight: 900, textAlign: "center", fontSize: { xs: 38, sm: 48, md: 48 }, color: '#0a1a3c', letterSpacing: '-0.04em', lineHeight: 0.95, mb: 0 }}>
               Briefcase™  by BluAI
             </Typography>
-
             <Typography sx={{ fontWeight: 900, textAlign: "center", fontSize: { xs: 20, sm: 24, md: 18 }, background: 'linear-gradient(90deg, #1b4dff, #1852ad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 3 }}>
               Manage. My Health. My Way.™
             </Typography>
@@ -313,8 +291,6 @@ export default function VitalsBriefcaseClient() {
           </Box>
         </Container>
 
-
-
         <Container maxWidth="lg">
           {/* STATS SECTION */}
           <Box sx={{ display: "flex", flexWrap: "wrap", borderRadius: 3, overflow: "hidden", border: "1px solid #eee", bgcolor: "#fafbff", mt: 4 }}>
@@ -332,7 +308,6 @@ export default function VitalsBriefcaseClient() {
             </Box>
           </Box>
         </Container>
-
 
 
         {/* SECTION 2 (Mobile frame video + content lists) */}
@@ -368,13 +343,10 @@ export default function VitalsBriefcaseClient() {
                     height: { xs: 420, sm: 580, md: 620 },
                   }}
                 >
-
-
                   {/* Video inside phone */}
                   <Box
                     sx={{
                       position: "absolute",
-                      // top: { xs: "10.5%", sm: "5.5%", md: "25.5%" },
                       left: { xs: "10.5%", sm: "10.5%", md: "1%" },
                       width: "100%",
                       height: "100%",
@@ -409,9 +381,6 @@ export default function VitalsBriefcaseClient() {
                 >
                   {/* Column 1 */}
                   <Box sx={{ flex: 1 }}>
-
-
-
                     <Accordion defaultExpanded sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Smart Connectivity & Integration</Typography>
@@ -422,8 +391,6 @@ export default function VitalsBriefcaseClient() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Vital Signs & Basic Metrics</Typography>
@@ -438,10 +405,6 @@ export default function VitalsBriefcaseClient() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Physical Composition</Typography>
@@ -456,9 +419,6 @@ export default function VitalsBriefcaseClient() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}> Monitoring & Detection</Typography>
@@ -469,9 +429,6 @@ export default function VitalsBriefcaseClient() {
                         </AccordionDetails>
                       ))}
                     </Accordion>
-
-
-
                     <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
                       <AccordionSummary expandIcon={<ArrowDown />}>
                         <Typography sx={{ fontWeight: 600 }}>Advanced Diagnostic Features</Typography>
@@ -491,23 +448,6 @@ export default function VitalsBriefcaseClient() {
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-
-        {/* REGULATORY & CERTIFICATIONS */}
-        <Container maxWidth="lg">
-          {/* <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
-            <AccordionSummary expandIcon={<ArrowDown />}>
-              <SectionTitle>Regulatory & Certifications</SectionTitle>
-            </AccordionSummary>
-
-            <AccordionDetails>
-              <TableContainer component={Paper} sx={{ boxShadow: "none", border: "1px solid #eee" }}>
-                <Table><TableHead><TableRow><TableCell className="w-[686px]"><b>Certification</b></TableCell><TableCell><b>Status</b></TableCell></TableRow></TableHead>
-                  <TableBody>{certifications?.map((row, i) => (<TableRow key={i}><TableCell>{row.certification}</TableCell><TableCell><Chip label={row.status} size="small" color={row.status.includes("Pending") ? "warning" : row.status === "Yes" ? "success" : "info"} /></TableCell></TableRow>))}</TableBody></Table>
-              </TableContainer>
-            </AccordionDetails>
-          </Accordion> */}
-        </Container>
-
         {/* USE CASES */}
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <SectionTitle> Use Cases</SectionTitle>
@@ -540,13 +480,9 @@ export default function VitalsBriefcaseClient() {
 
       {/* 5. FAQ - TIGHT & WORKING */}
       <Box sx={{ py: { xs: 6, md: 0 }, bgcolor: '#fff' }}>
-
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <SectionTitle> Frequently Asked Questions</SectionTitle>
-
-
           <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
-
             <AccordionSummary expandIcon={<ArrowDown />}>
               <Typography sx={{ fontWeight: 600 }}>Why Choose Briefcase™ ?</Typography>
             </AccordionSummary>
@@ -568,15 +504,9 @@ export default function VitalsBriefcaseClient() {
               <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
               <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
             </Accordion>
-
           ))}
-
-
-
         </Container>
       </Box>
-
-
     </Box>
   );
 }

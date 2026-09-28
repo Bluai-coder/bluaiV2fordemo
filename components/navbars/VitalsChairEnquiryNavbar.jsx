@@ -45,7 +45,7 @@ export default function VitalsChairEnquiryNavbar() {
     const handleOpenProducts = (e) => setProductsAnchor(e.currentTarget);
     const handleCloseProducts = () => setProductsAnchor(null);
 
-  
+
 
     const router = useRouter()
 
@@ -71,29 +71,28 @@ export default function VitalsChairEnquiryNavbar() {
                             alignItems: "center",
                             justifyContent: "space-between",
                             minHeight: { xs: 64, md: 76 },
-                            // px: { xs: 1, sm: 2 },
                             gap: 2,
                         }}
                     >
                         {/* ================= LEFT LOGO ================= */}
-                           <Box
-                                   sx={{
-                                     display: "flex",
-                                     alignItems: "center",
-                                     cursor: "pointer",
-                                     flexShrink: 0,
-                                   }}
-                                   onClick={() => handleNavigate("/")}
-                                 >
-                                   <Image
-                                     src="/logos/BluAccess-logo.png"
-                                     alt="BluAccess"
-                                     width={95}
-                                     height={95}
-                                     priority
-                                     style={{ width: "auto", height: "auto", maxHeight: 58 }}
-                                   />
-                                 </Box>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                cursor: "pointer",
+                                flexShrink: 0,
+                            }}
+                            onClick={() => handleNavigate("/")}
+                        >
+                            <Image
+                                src="/logos/BluAccess-logo.png"
+                                alt="BluAccess"
+                                width={95}
+                                height={95}
+                                priority
+                                style={{ width: "auto", height: "auto", maxHeight: 58 }}
+                            />
+                        </Box>
 
                         {/* ================= DESKTOP MENU ================= */}
                         <Box
@@ -103,7 +102,7 @@ export default function VitalsChairEnquiryNavbar() {
                                 gap: 3,
                             }}
                         >
-                            
+
 
                             <Button
                                 onClick={handleOpenProducts}
@@ -145,9 +144,6 @@ export default function VitalsChairEnquiryNavbar() {
                             >
                                 Request Demo
                             </Button>
-
-                            {/* <RequestDemoModal open={openDemo} onClose={() => setOpenDemo(false)} /> */}
-
 
                         </Box>
 
@@ -193,9 +189,9 @@ export default function VitalsChairEnquiryNavbar() {
                     >
                         {/* Left Column */}
                         <Box sx={{ width: 260, borderRight: "1px solid #eef0f6" }}>
-                        
+
                             {productMenu?.map((p) => (
-                                
+
                                 <MenuItem
                                     key={p.label}
                                     component={p.children ? "div" : Link}
@@ -211,7 +207,7 @@ export default function VitalsChairEnquiryNavbar() {
                                     }}
                                 >
                                     {p.label}
-                                  
+
                                 </MenuItem>
                             ))}
                         </Box>
@@ -229,21 +225,21 @@ export default function VitalsChairEnquiryNavbar() {
                                 Medical Softwares
                             </Typography>
 
-                             {productMenu[3]?.children?.map((c) => (
-                                    <MenuItem
-                                        key={c.label}
-                                        component={Link}
-                                        href={c.route}
-                                        onClick={handleCloseProducts}
-                                        sx={{
-                                            borderRadius: 2,
-                                            py: 1.3,
-                                            "&:hover": { bgcolor: "#f5f7ff" },
-                                        }}
-                                    >
-                                        {c.label}
-                                    </MenuItem>
-                                ))}
+                            {productMenu[3]?.children?.map((c) => (
+                                <MenuItem
+                                    key={c.label}
+                                    component={Link}
+                                    href={c.route}
+                                    onClick={handleCloseProducts}
+                                    sx={{
+                                        borderRadius: 2,
+                                        py: 1.3,
+                                        "&:hover": { bgcolor: "#f5f7ff" },
+                                    }}
+                                >
+                                    {c.label}
+                                </MenuItem>
+                            ))}
                         </Box>
                     </Box>
                 </Menu>
@@ -271,24 +267,24 @@ export default function VitalsChairEnquiryNavbar() {
                         mb: 2,
                     }}
                 >
-                      <Box
-                                   sx={{
-                                     display: "flex",
-                                     alignItems: "center",
-                                     cursor: "pointer",
-                                     flexShrink: 0,
-                                   }}
-                                   onClick={() => handleNavigate("/")}
-                                 >
-                                   <Image
-                                     src="/logos/BluAccess-logo.png"
-                                     alt="BluAccess"
-                                     width={95}
-                                     height={95}
-                                     priority
-                                     style={{ width: "auto", height: "auto", maxHeight: 58 }}
-                                   />
-                                 </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            cursor: "pointer",
+                            flexShrink: 0,
+                        }}
+                        onClick={() => handleNavigate("/")}
+                    >
+                        <Image
+                            src="/logos/BluAccess-logo.png"
+                            alt="BluAccess"
+                            width={95}
+                            height={95}
+                            priority
+                            style={{ width: "auto", height: "auto", maxHeight: 58 }}
+                        />
+                    </Box>
 
                     <IconButton onClick={() => setMobileOpen(false)}>
                         <CloseIcon />
@@ -298,7 +294,7 @@ export default function VitalsChairEnquiryNavbar() {
                 <Divider sx={{ mb: 2 }} />
 
                 <List disablePadding>
-              
+
 
                     <ListItemButton onClick={() => setMobileProductsOpen((p) => !p)}>
                         <ListItemText primary="Our Products" />
@@ -323,7 +319,7 @@ export default function VitalsChairEnquiryNavbar() {
 
                             {/* BluHealth Accordion */}
                             <ListItemButton onClick={() => setMobileBluHealthOpen((p) => !p)}>
-                               <ListItemText primary="Medical Softwares" />
+                                <ListItemText primary="Medical Softwares" />
                                 <KeyboardArrowDownIcon
                                     sx={{
                                         transform: mobileBluHealthOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -335,58 +331,17 @@ export default function VitalsChairEnquiryNavbar() {
                             <Collapse in={mobileBluHealthOpen} timeout="auto" unmountOnExit>
                                 <Box sx={{ pl: 2 }}>
                                     {productMenu[3]?.children?.map((c) => (
-                                            <ListItemButton
-                                                key={c.label}
-                                                component={Link}
-                                                href={c.route}
-                                                onClick={() => setMobileOpen(false)}
-                                            >
-                                                <ListItemText primary={c.label} />
-                                            </ListItemButton>
-                                        ))}
+                                        <ListItemButton
+                                            key={c.label}
+                                            component={Link}
+                                            href={c.route}
+                                            onClick={() => setMobileOpen(false)}
+                                        >
+                                            <ListItemText primary={c.label} />
+                                        </ListItemButton>
+                                    ))}
                                 </Box>
                             </Collapse>
-
-                            {/* NeoNatal */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="/products/blu-neonatal"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="NeoNatal" />
-                            </ListItemButton> */}
-
-                            {/* SmartBed */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartBed (Upcoming)" />
-                            </ListItemButton> */}
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="SmartPole (Upcoming)" />
-                            </ListItemButton> */}
-
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluGlucose (Upcoming)" />
-                            </ListItemButton> */}
-
-                            {/* <ListItemButton
-                                component={Link}
-                                href="#"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                <ListItemText primary="BluECG (Wireless ECG)(Upcoming)" />
-                            </ListItemButton> */}
                         </Box>
                     </Collapse>
                 </List>

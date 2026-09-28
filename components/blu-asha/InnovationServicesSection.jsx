@@ -167,27 +167,6 @@ export default function InnovationServicesSection() {
           ))}
         </Box>
 
-        {/* Button */}
-        {/* <Box sx={{ mt: { xs: 5, md: 6 }, textAlign: "center" }}>
-          <Button
-            variant="contained"
-            sx={{
-              textTransform: "none",
-              fontWeight: 800,
-              borderRadius: 999,
-              px: 5,
-              py: 1.3,
-              bgcolor: "#0B2FD6",
-              boxShadow: "0 18px 50px rgba(11,47,214,0.20)",
-              "&:hover": {
-                bgcolor: "#1B4DFF",
-                boxShadow: "0 22px 60px rgba(27,77,255,0.28)",
-              },
-            }}
-          >
-            More Services
-          </Button>
-        </Box> */}
       </Container>
     </Box>
   );

@@ -22,19 +22,8 @@ export default function RootLayout({
   return (
     <div>
        <BluNeoNatalNavbar/>
-        
         {children}
         <Footer/>
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     <BluNeoNatalNavbar/>
-        
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

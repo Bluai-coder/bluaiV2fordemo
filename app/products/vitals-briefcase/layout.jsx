@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
-import VitalsBriefcaseNavbar from "../../../components/navbars/VitalsBriefcaseNavbar";
 import VitalsChairNavbar from "../../../components/navbars/products/VitalsChairNavbar";
 
 
@@ -23,20 +22,8 @@ export default function RootLayout({
   return (
     <div>
       <VitalsChairNavbar logopath="/logos/vitals-briefcase.png" />
-
       {children}
       <Footer />
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     {/* <VitalsBriefcaseNavbar/> */}
-    //     <VitalsChairNavbar logopath = "/logos/vitals-briefcase.png"/>
-
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

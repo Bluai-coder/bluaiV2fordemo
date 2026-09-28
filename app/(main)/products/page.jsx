@@ -1,20 +1,16 @@
 // components/AllProducts.jsx
 "use client";
 
-import * as React from "react";
 import {
     Box,
     Container,
     Typography,
     Grid,
     Card,
-    CardMedia,
     CardContent,
     Chip,
     Button,
     Divider,
-    Paper,
-    useMediaQuery,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -147,7 +143,7 @@ const products = [
         gradient: "linear-gradient(135deg, #1b4dff, #66a6ff)",
         glow: "rgba(102,166,255, 0.55)",
         textColor: "#fa709a",
-        features: [ "Data Control", "Secure Access"],
+        features: ["Data Control", "Secure Access"],
     },
     {
         id: 6,
@@ -181,9 +177,6 @@ const products = [
 
 export default function AllProducts() {
     const router = useRouter();
-    const isMobile = useMediaQuery("(max-width:600px)");
-    const isTablet = useMediaQuery("(max-width:900px)");
-
     const handleNavigate = (slug) => {
         router.push(`/${slug}`);
     };
@@ -372,7 +365,7 @@ export default function AllProducts() {
     };
 
     const SectionHeader = ({ title, icon, count, color }) => (
-        <Box sx={{ mb: 4  , mt :  5}}>
+        <Box sx={{ mb: 4, mt: 5 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
                 <Typography
                     variant="h4"
@@ -412,10 +405,8 @@ export default function AllProducts() {
             }}
         >
             <Container maxWidth="xl">
-        
-
                 {/* Products Section */}
-                {productsList.length > 0 && (
+                {productsList?.length > 0 && (
                     <Box sx={{ mb: 6 }}>
                         <SectionHeader
                             title="Products"
@@ -434,7 +425,7 @@ export default function AllProducts() {
                 )}
 
                 {/* Software Section */}
-                {softwareList.length > 0 && (
+                {softwareList?.length > 0 && (
                     <Box>
                         <SectionHeader
                             title="Software"

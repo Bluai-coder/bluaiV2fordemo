@@ -581,21 +581,6 @@ function OurStoryPage() {
                 >
                     {/* Left Column */}
                     <Box sx={{ flex: { xs: "1 1 auto", md: "0 0 41.666%" }, maxWidth: { md: "41.666%" } }}>
-                        {/* <Box
-                            sx={{
-                                width: 100,
-                                height: 100,
-                                borderRadius: "50%",
-                                background: COLORS.gradientBlue,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                mb: 3,
-                                boxShadow: "0 8px 30px rgba(25,118,210,0.25)",
-                            }}
-                        >
-                            <LocalHospitalIcon sx={{ fontSize: 44, color: COLORS.white }} />
-                        </Box> */}
                         <Typography
                             variant="h4"
                             sx={{

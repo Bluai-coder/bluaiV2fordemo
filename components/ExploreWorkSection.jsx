@@ -201,11 +201,6 @@ export default function PortfolioShowcase() {
           </Box>
         </Container>
       </Box>
-
-      {/* ===== PRODUCT CARDS ===== */}
-      <Box sx={{ bgcolor: "#F8FAFC", py: { xs: 6, md: 8 } }}>
-
-      </Box>
     </Box>
   );
 }

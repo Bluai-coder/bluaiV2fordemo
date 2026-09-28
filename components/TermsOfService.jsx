@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { FileText, Mail } from 'lucide-react';
+import { useEffect } from 'react';
+import { FileText } from 'lucide-react';
 
 export default function TermsOfService() {
   useEffect(() => {
     document.title = 'Terms of Service - BluAI';
-    
+
     let metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', 'Read the terms and conditions for using BluAI services.');
     }
-    
+
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       canonical.setAttribute('href', 'https://bluai.ai/terms-of-service');

@@ -1,18 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "../../../components/Footer";
 import VitalschairEnquiryNavbar from "../../../components/navbars/products/VitalschairEnquiryNavbar";
 
-
-
-const geistSans = Geist({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 
 
@@ -22,19 +10,8 @@ export default function RootLayout({
   return (
     <div>
       <VitalschairEnquiryNavbar />
-
       {children}
       <Footer />
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     <VitalschairEnquiryNavbar/>
-
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
   );
 }

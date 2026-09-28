@@ -24,14 +24,6 @@ export default function RootLayout({
       {children}
       <Footer />
     </div>
-    // <html lang="en" >
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     <BluAshaNavbar/>
-    //     {children}
-    //     <Footer/>
-    //   </body>
-    // </html>
+    
   );
 }

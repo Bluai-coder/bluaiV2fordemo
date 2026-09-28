@@ -1,39 +1,8 @@
 // components/Support.jsx
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import {
-    MessageCircle,
-    Mail,
-    Phone,
-    Clock,
-    Send,
-    X,
-    HelpCircle,
-    FileText,
-    AlertCircle,
-    CheckCircle,
-    Loader2,
-    ChevronDown,
-    ChevronUp,
-    ExternalLink,
-    Download,
-    User,
-    Building,
-    Tag,
-    Paperclip,
-    Mic,
-    Globe,
-    Shield,
-    Zap,
-    Headphones,
-    BookOpen,
-    Video,
-    ThumbsUp,
-    ThumbsDown,
-    Search
-} from 'lucide-react';
-import ContactSection from './ContactSection';
+import { useState, useEffect } from 'react';
+import { MessageCircle, Mail, Phone, Clock, HelpCircle, ChevronDown, ChevronUp, ExternalLink, Headphones, BookOpen, Video, ThumbsUp, ThumbsDown, Search } from 'lucide-react';
 import ReactCountryFlag from 'react-country-flag';
 
 // FAQ Data
@@ -96,62 +65,19 @@ const FAQS = [
     }
 ];
 
-// Support Categories
-const SUPPORT_CATEGORIES = [
-    { id: 'technical', name: 'Technical Issue', icon: AlertCircle },
-    { id: 'billing', name: 'Billing Question', icon: Tag },
-    { id: 'feature', name: 'Feature Request', icon: Zap },
-    { id: 'general', name: 'General Inquiry', icon: HelpCircle },
-    { id: 'integration', name: 'Integration Help', icon: Globe }
-];
 
 // Resources
 const RESOURCES = [
     { name: 'Documentation', icon: BookOpen, url: '#', description: 'Comprehensive guides and API reference' },
     { name: 'Video Tutorials', icon: Video, url: 'https://www.youtube.com/@BluAIPrivateLtd', description: 'Step-by-step video guides' },
-    // { name: 'API Reference', icon: FileText, url: '/api-docs', description: 'Developer documentation' },
-    // { name: 'Release Notes', icon: Zap, url: '/releases', description: 'What\'s new in each version' }
 ];
 
 export default function Support() {
     const [activeTab, setActiveTab] = useState('faq'); // contact, faq, tickets
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        category: '',
-        subject: '',
-        message: '',
-        priority: 'normal',
-        attachment: null
-    });
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState('');
     const [expandedFaq, setExpandedFaq] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [feedback, setFeedback] = useState({});
-    const [tickets, setTickets] = useState([]);
-    const [showNewTicketForm, setShowNewTicketForm] = useState(false);
-    const fileInputRef = useRef(null);
-
-    // Handle form input changes
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    // Handle file attachment
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file && file.size <= 5 * 1024 * 1024) { // 5MB limit
-            setFormData(prev => ({ ...prev, attachment: file }));
-        } else {
-            setError('File size must be less than 5MB');
-        }
-    };
-
-
 
 
     useEffect(() => {
@@ -267,12 +193,6 @@ export default function Support() {
                 {/* Contact Support Tab */}
                 {activeTab === 'contact' && (
                     <div className="mt-8 1grid grid-cols-2 lg:grid-cols-2 gap-8">
-                        {/* Contact Form */}
-                        <div className="lg:col-span-2">
-
-                            {/* <ContactSection/> */}
-                        </div>
-
                         {/* Contact Info Sidebar */}
                         <div className="space-y-6">
                             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
@@ -480,13 +400,6 @@ export default function Support() {
                     </div>
                 )}
             </div>
-
-            {/* Floating Chat Button */}
-            {/* <div className="fixed bottom-6 right-6">
-        <button className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg flex items-center justify-center transition-all hover:scale-110">
-          <MessageCircle className="w-6 h-6" />
-        </button>
-      </div> */}
         </div>
     );
 }

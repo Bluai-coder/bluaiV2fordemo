@@ -103,17 +103,9 @@ const featureStrip = [
         title: "One Identity",
         subtitle: "14-digit universal medical ID",
     },
-    // {
-    //     icon: <ShieldIcon />,
-    //     title: "Secure by Design",
-    //     subtitle: "Encryption & consent management",
-    // },
-
 ];
 
-/* ============================================================
-   MAIN COMPONENT
-   ============================================================ */
+
 
 export default function BluIDClient() {
     return (
@@ -219,45 +211,45 @@ export default function BluIDClient() {
                                 empowering you with unprecedented control over your health
                                 data across the entire healthcare ecosystem.
                             </Typography>
-                             {/* Small trust row */}
-                                        <Stack
-                                          direction="row"
-                                          alignItems="center"
-                                          spacing={2}
-                                          sx={{ mt: 4, flexWrap: "wrap", gap: 1.5 }}
+                            {/* Small trust row */}
+                            <Stack
+                                direction="row"
+                                alignItems="center"
+                                spacing={2}
+                                sx={{ mt: 4, flexWrap: "wrap", gap: 1.5 }}
+                            >
+                                {[
+                                    { icon: <VerifiedIcon />, label: "HIPAA-Aligned" },
+                                    { icon: <SecurityIcon />, label: "Privacy-by-Design" },
+                                    { icon: <CheckCircleIcon />, label: "FDA CDS Guidance" },
+                                ].map((item) => (
+                                    <Stack
+                                        key={item.label}
+                                        direction="row"
+                                        alignItems="center"
+                                        spacing={0.8}
+                                    >
+                                        <Box
+                                            sx={{
+                                                color: "#2563eb",
+                                                display: "flex",
+                                                "& svg": { fontSize: 16 },
+                                            }}
                                         >
-                                          {[
-                                            { icon: <VerifiedIcon />, label: "HIPAA-Aligned" },
-                                            { icon: <SecurityIcon />, label: "Privacy-by-Design" },
-                                            { icon: <CheckCircleIcon />, label: "FDA CDS Guidance" },
-                                          ].map((item) => (
-                                            <Stack
-                                              key={item.label}
-                                              direction="row"
-                                              alignItems="center"
-                                              spacing={0.8}
-                                            >
-                                              <Box
-                                                sx={{
-                                                  color: "#2563eb",
-                                                  display: "flex",
-                                                  "& svg": { fontSize: 16 },
-                                                }}
-                                              >
-                                                {item.icon}
-                                              </Box>
-                                              <Typography
-                                                sx={{
-                                                  fontSize: 12.5,
-                                                  fontWeight: 700,
-                                                  color: "rgba(15,23,42,0.65)",
-                                                }}
-                                              >
-                                                {item.label}
-                                              </Typography>
-                                            </Stack>
-                                          ))}
-                                        </Stack>
+                                            {item.icon}
+                                        </Box>
+                                        <Typography
+                                            sx={{
+                                                fontSize: 12.5,
+                                                fontWeight: 700,
+                                                color: "rgba(15,23,42,0.65)",
+                                            }}
+                                        >
+                                            {item.label}
+                                        </Typography>
+                                    </Stack>
+                                ))}
+                            </Stack>
 
                             <Stack
                                 direction={{ xs: "column", sm: "row" }}
@@ -310,69 +302,69 @@ export default function BluIDClient() {
                                     mx: "auto",
                                 }}
                             >
-                       
-                                    {/* Inner white card */}
+
+                                {/* Inner white card */}
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        width: "100%",
+                                        height: "100%",
+                                        borderRadius: "calc(20px - 1.5px)",
+                                        overflow: "hidden",
+                                        background:
+                                            "linear-gradient(180deg, #FFFFFF 0%, #F7FAFF 100%)",
+                                    }}
+                                >
+                                    <Image
+                                        src="/bluid.png"
+                                        alt="BluID — Unified Medical Identity"
+                                        fill
+                                        sizes="(max-width: 600px) 90vw, (max-width: 900px) 460px, (max-width: 1200px) 560px, 680px"
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                        }}
+                                        priority
+                                    />
+
+                                    {/* Soft bottom fade for optional caption overlay */}
                                     <Box
                                         sx={{
-                                            position: "relative",
-                                            width: "100%",
-                                            height: "100%",
-                                            borderRadius: "calc(20px - 1.5px)",
-                                            overflow: "hidden",
+                                            position: "absolute",
+                                            left: 0,
+                                            right: 0,
+                                            bottom: 0,
+                                            height: "35%",
                                             background:
-                                                "linear-gradient(180deg, #FFFFFF 0%, #F7FAFF 100%)",
+                                                "linear-gradient(180deg, rgba(11,28,61,0) 0%, rgba(11,28,61,0.35) 100%)",
+                                            pointerEvents: "none",
+                                        }}
+                                    />
+
+                                    {/* Optional caption */}
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            left: { xs: 14, md: 20 },
+                                            bottom: { xs: 14, md: 20 },
+                                            right: { xs: 14, md: 20 },
                                         }}
                                     >
-                                        <Image
-                                            src="/bluid.png"
-                                            alt="BluID — Unified Medical Identity"
-                                            fill
-                                            sizes="(max-width: 600px) 90vw, (max-width: 900px) 460px, (max-width: 1200px) 560px, 680px"
-                                            style={{
-                                                objectFit: "cover",
-                                                objectPosition: "center",
-                                            }}
-                                            priority
-                                        />
 
-                                        {/* Soft bottom fade for optional caption overlay */}
-                                        <Box
+                                        <Typography
                                             sx={{
-                                                position: "absolute",
-                                                left: 0,
-                                                right: 0,
-                                                bottom: 0,
-                                                height: "35%",
-                                                background:
-                                                    "linear-gradient(180deg, rgba(11,28,61,0) 0%, rgba(11,28,61,0.35) 100%)",
-                                                pointerEvents: "none",
-                                            }}
-                                        />
-
-                                        {/* Optional caption */}
-                                        <Box
-                                            sx={{
-                                                position: "absolute",
-                                                left: { xs: 14, md: 20 },
-                                                bottom: { xs: 14, md: 20 },
-                                                right: { xs: 14, md: 20 },
+                                                fontWeight: 900,
+                                                fontSize: { xs: 16, md: 20 },
+                                                color: "#fff",
+                                                lineHeight: 1.2,
+                                                mt: 0.3,
                                             }}
                                         >
-                                           
-                                            <Typography
-                                                sx={{
-                                                    fontWeight: 900,
-                                                    fontSize: { xs: 16, md: 20 },
-                                                    color: "#fff",
-                                                    lineHeight: 1.2,
-                                                    mt: 0.3,
-                                                }}
-                                            >
-                                                Your Unified Medical Identity
-                                            </Typography>
-                                        </Box>
+                                            Your Unified Medical Identity
+                                        </Typography>
                                     </Box>
-                              
+                                </Box>
+
                             </Box>
                         </Box>
                     </Box>
@@ -402,9 +394,6 @@ export default function BluIDClient() {
                                     gap: 1.5,
                                     p: 2,
                                     borderRadius: 3,
-                                    //   bgcolor: "#fff",
-                                    //   border: "1px solid rgba(27,77,255,0.08)",
-                                    //   boxShadow: "0 4px 12px rgba(15,23,42,0.03)",
                                 }}
                             >
                                 <Box
@@ -645,90 +634,6 @@ export default function BluIDClient() {
                     </Box>
                 </Container>
             </Box>
-
-            {/* ============ CTA ============ */}
-            {/* <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#fff" }}>
-        <Container maxWidth="xl">
-          <Paper
-            elevation={0}
-            sx={{
-              borderRadius: 5,
-              p: { xs: 3.5, md: 6 },
-              background: "linear-gradient(135deg,#EEF2FF 0%,#E0E7FF 100%)",
-              border: "1px solid rgba(27,77,255,0.1)",
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: { md: "center" },
-              justifyContent: "space-between",
-              gap: 3,
-              textAlign: { xs: "center", md: "left" },
-            }}
-          >
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: { xs: "1.4rem", md: "1.8rem" },
-                  fontWeight: 900,
-                  color: "#07122C",
-                  mb: 0.7,
-                }}
-              >
-                Ready to unify your medical identity?
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: { xs: 14, md: 15 },
-                  color: "rgba(7,18,44,0.65)",
-                  maxWidth: 560,
-                }}
-              >
-                Join healthcare organisations and patients adopting BluID™
-                for a simpler, safer, and smarter healthcare experience.
-              </Typography>
-            </Box>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              sx={{ flexShrink: 0 }}
-            >
-              <Button
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                sx={{
-                  bgcolor: "#1B4DFF",
-                  borderRadius: 40,
-                  textTransform: "none",
-                  fontWeight: 700,
-                  px: 3,
-                  py: 1.3,
-                  boxShadow: "0 10px 25px rgba(27,77,255,0.25)",
-                  "&:hover": { bgcolor: "#0a3ad0" },
-                }}
-              >
-                Request a Demo
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: 40,
-                  textTransform: "none",
-                  fontWeight: 700,
-                  px: 3,
-                  py: 1.3,
-                  color: "#07122C",
-                  borderColor: "rgba(27,77,255,0.3)",
-                  "&:hover": {
-                    borderColor: "#1B4DFF",
-                    bgcolor: "rgba(27,77,255,0.04)",
-                  },
-                }}
-              >
-                Contact Sales
-              </Button>
-            </Stack>
-          </Paper>
-        </Container>
-      </Box> */}
         </>
     );
 }

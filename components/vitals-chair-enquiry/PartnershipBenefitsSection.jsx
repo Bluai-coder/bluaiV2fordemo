@@ -124,77 +124,77 @@ export default function PartnershipBenefitsSection() {
                     </Box>
 
                     <Box
-  sx={{
-    flex: 1,
-    maxWidth: 820,            // wider container for 2 columns
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 3,
-    justifyContent: "flex-end", // keeps block aligned right
-  }}
->
-  {benefits?.map((b) => (
-    <Paper
-      key={b.title}
-      elevation={0}
-      sx={{
-        width: {
-          xs: "100%",
-          sm: "calc(50% - 12px)", // perfect 2-column balance
-        },
-        p: 3,
-        borderRadius: 3,
-        backgroundColor: "#ffffff",
-        boxShadow: "0 14px 40px rgba(15,23,42,0.08)",
-        transition: "all 0.25s ease",
-        "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: "0 22px 50px rgba(15,23,42,0.14)",
-        },
-      }}
-    >
-      {/* Icon */}
-      <Box
-        sx={{
-          width: 40,
-          height: 40,
-          borderRadius: 2,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#4F6BFF",
-          color: "#fff",
-          mb: 2,
-        }}
-      >
-        {b.icon}
-      </Box>
+                        sx={{
+                            flex: 1,
+                            maxWidth: 820,            // wider container for 2 columns
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 3,
+                            justifyContent: "flex-end", // keeps block aligned right
+                        }}
+                    >
+                        {benefits?.map((b) => (
+                            <Paper
+                                key={b.title}
+                                elevation={0}
+                                sx={{
+                                    width: {
+                                        xs: "100%",
+                                        sm: "calc(50% - 12px)", // perfect 2-column balance
+                                    },
+                                    p: 3,
+                                    borderRadius: 3,
+                                    backgroundColor: "#ffffff",
+                                    boxShadow: "0 14px 40px rgba(15,23,42,0.08)",
+                                    transition: "all 0.25s ease",
+                                    "&:hover": {
+                                        transform: "translateY(-4px)",
+                                        boxShadow: "0 22px 50px rgba(15,23,42,0.14)",
+                                    },
+                                }}
+                            >
+                                {/* Icon */}
+                                <Box
+                                    sx={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 2,
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        backgroundColor: "#4F6BFF",
+                                        color: "#fff",
+                                        mb: 2,
+                                    }}
+                                >
+                                    {b.icon}
+                                </Box>
 
-      {/* Title */}
-      <Typography
-        sx={{
-          fontWeight: 800,
-          fontSize: 15,
-          color: "#07122C",
-          mb: 0.6,
-        }}
-      >
-        {b.title}
-      </Typography>
+                                {/* Title */}
+                                <Typography
+                                    sx={{
+                                        fontWeight: 800,
+                                        fontSize: 15,
+                                        color: "#07122C",
+                                        mb: 0.6,
+                                    }}
+                                >
+                                    {b.title}
+                                </Typography>
 
-      {/* Description */}
-      <Typography
-        sx={{
-          fontSize: 13,
-          lineHeight: 1.6,
-          color: "rgba(7,18,44,0.65)",
-        }}
-      >
-        {b.desc}
-      </Typography>
-    </Paper>
-  ))}
-</Box>
+                                {/* Description */}
+                                <Typography
+                                    sx={{
+                                        fontSize: 13,
+                                        lineHeight: 1.6,
+                                        color: "rgba(7,18,44,0.65)",
+                                    }}
+                                >
+                                    {b.desc}
+                                </Typography>
+                            </Paper>
+                        ))}
+                    </Box>
 
                 </Box>
             </Container>
