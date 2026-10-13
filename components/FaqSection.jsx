@@ -1,157 +1,132 @@
-"use client";
-
 import {
-    Box,
-    Container,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Grid,
-    Stack,
+  Box,
+  Container,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Stack,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
+// ============================================================
+// FAQ DATA — Optimized for AEO
+// ============================================================
 const faqs = [
-    {
-        q: "What is Embedded System Development, and how can it benefit my business?",
-        a: "Embedded System Development involves creating specialized computing systems that are integrated into larger devices to perform specific functions. Our service offers a comprehensive approach, from initial concept through to final product delivery and support. By partnering with us, clients can leverage our expertise in creating robust, efficient, and tailored embedded solutions that enhance the functionality and performance of their products.",
-    },
-    {
-        q: "What are PCB simulations, and why are they important?",
-        a: "PCB simulations involve using software tools to model and analyze the performance of a printed circuit board before physical production. These simulations help identify potential issues, optimize the design, and ensure the board functions correctly under various conditions.",
-    },
-    {
-        q: "How do you ensure the quality and reliability of your embedded systems?",
-        a: "Quality and reliability are paramount in our development process. We utilize rigorous testing protocols and quality assurance measures at each stage of development. Our team follows industry best practices and standards to deliver robust and reliable embedded systems that meet the highest quality benchmarks.",
-    },
-    {
-        q: "Can BluAI help with PCB design and layout?",
-        a: "Yes, BluAI offers comprehensive PCB design and layout services. We create detailed schematics and layouts for printed circuit boards, ensuring optimal performance and reliability for your electronic systems.",
-    },
-    {
-        q: "Can you provide support and maintenance for existing embedded systems?",
-        a: "Yes, we offer comprehensive maintenance and support services for both newly developed and existing embedded systems. Our support includes troubleshooting, system monitoring, updates, and enhancements to ensure your system remains efficient and effective throughout its lifecycle.",
-    },
-    {
-        q: "How do you tailor your embedded system solutions to specific client needs?",
-        a: "We begin each project with a detailed discovery phase where we gather information about your specific needs, challenges, and objectives. This allows us to design and develop a customized solution that precisely fits your requirements, ensuring optimal performance and value.",
-    },
+  {
+    q: "What is BluAI?",
+    a: "BluAI is an AI-powered healthcare technology company. We build medical-grade embedded systems and smart monitoring products. Our solutions help hospitals and clinics turn complex clinical data into actionable insights faster.",
+  },
+  {
+    q: "What is VitalsChair™?",
+    a: "VitalsChair™ is an AI-powered health assessment kiosk. It measures 6+ vital signs in under 60 seconds per seated session. The system syncs results to EMR and EHR platforms via HL7 and FHIR standards.",
+  },
+  {
+    q: "Is BluAI HIPAA compliant?",
+    a: "Yes. BluAI maintains HIPAA-compliant workflows and enterprise-grade security. We also hold compliance with ABDM, ISO13485, ISO-27001, CE, and FHIR standards.",
+  },
+  {
+    q: "Does BluAI integrate with EMR, EHR, and HIS systems?",
+    a: "Yes. BluAI supports seamless EMR, EHR, and HIS integration. Our cloud platforms enable real-time monitoring, diagnostics, and streamlined clinical workflows for healthcare providers.",
+  },
+  {
+    q: "How can I contact BluAI?",
+    a: "Email info@bluai.ai or call +91 172 456 8962 (India) or +1 302 238 1512 (USA). You can also schedule a demo directly through the BluAI website.",
+  },
 ];
 
+// ============================================================
+// FAQPage SCHEMA — Auto-generated
+// ============================================================
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.bluai.ai/#faq",
+  mainEntity: faqs.map((item, index) => ({
+    "@type": "Question",
+    "@id": `https://www.bluai.ai/#faq-${index + 1}`,
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function FaqSection() {
-    return (
-        <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: "#fff" }}>
-            <Container maxWidth="xl">
+  return (
+    <Box
+      component="section"
+      id="faq"
+      sx={{ py: { xs: 6, md: 0 }, bgcolor: "#fff" }}
+      aria-labelledby="faq-heading"
+    >
+      {/* FAQPage schema — server-rendered, matches visible content */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-                <Stack spacing={2} alignItems="center" textAlign="center" mb={{ xs: 4, md: 6 }}>
+      <Container maxWidth="xl" sx={{ py: { xs: 2, md: 4 } }}>
+        <Stack
+          spacing={1.5}
+          alignItems="center"
+          textAlign="center"
+          mb={{ xs: 5, sm: 6, md: 8 }}
+        >
+          {/* Question-based H2 for AEO */}
+          <Typography
+            id="faq-heading"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              fontSize: { xs: 24, sm: 28, md: "2.8rem" },
+              lineHeight: 1.2,
+              color: "#0a1628",
+              maxWidth: 780,
+              px: { xs: 1, sm: 0 },
+            }}
+          >
+            Frequently Asked Questions
+          </Typography>
 
-                    <Box
-                        sx={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 1,
-                            px: 2,
-                            py: 0.9,
-                            borderRadius: 99,
-                            bgcolor: "rgba(27,77,255,0.10)",
-                            border: "1px solid rgba(27,77,255,0.18)",
-                        }}
-                    >
-                        {/* <VerifiedIcon sx={{ fontSize: 18, color: "#1B4DFF" }} /> */}
-                        <Typography
-                            sx={{
-                                fontWeight: 900,
-                                fontSize: 12,
-                                letterSpacing: "0.12em",
-                                textTransform: "uppercase",
-                                color: "#1B4DFF",
-                            }}
-                        >
-                            F.A.Q
-                        </Typography>
-                    </Box>
-                    <Typography
-                        variant="h4"
-                        mb={1}
-                        sx={{
-                            textAlign: "center",
-                            fontWeight: 800,
-                            fontSize: { xs: 24, sm: 28, md: 32 },
-                            color: "#0f172a",
-                            mb: { xs: 4, md: 5 },
-                        }}
-                    >
-                        <Box component="span" className="!text-[#1b4dff]" color="primary.main">
-                            Frequently {" "}
-                        </Box>
-                        <Box component="span" className="!text-[#1f2a56]" color="text.primary">
+          <Typography
+            sx={{
+              color: "#555",
+              fontSize: { xs: 14, md: 16 },
+              maxWidth: 640,
+              lineHeight: 1.6,
+            }}
+          >
+            Quick answers about BluAI, VitalsChair™, compliance, and integrations.
+          </Typography>
+        </Stack>
 
-                            Asked Questions
-                        </Box>
-                    </Typography>
-
-                    <Typography
-                        variant="body1"
-                        color="text.secondary"
-                    >
-                        Find quick answers to common questions about our services and support.
-                    </Typography>
-                </Stack>
-
-
-
-
-                {/* FAQ GRID */}
-                <Grid
-                    container
-                    spacing={4}
-                    justifyContent="center"
-                >
-                    {faqs.map((item, index) => (
-                        <Grid
-                            item
-                            xs={12}
-                            md={6}
-                            key={index}
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                            }}
-                        >
-                            <Accordion
-                                elevation={0}
-                                sx={{
-                                    width: "100%",          //  SAME WIDTH
-                                    maxWidth: 520,          //  CONTROLLED COLUMN WIDTH
-                                    borderBottom: "1px solid #e5e7eb",
-                                    "&:before": { display: "none" },
-                                }}
-                            >
-                                <AccordionSummary
-                                    expandIcon={
-                                        <ExpandMoreIcon sx={{ color: "#1b4dff" }} />
-                                    }
-                                >
-                                    <Typography fontWeight={600} color="#0b1b5c">
-                                        {item.q}
-                                    </Typography>
-                                </AccordionSummary>
-
-                                <AccordionDetails>
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                    >
-                                        {item.a}
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-                        </Grid>
-                    ))}
-                </Grid>
-
-            </Container>
-        </Box>
-    );
+        {faqs.map((faq, i) => (
+          <Accordion
+            key={i}
+            sx={{
+              mb: 2,
+              boxShadow: "none",
+              border: "1px solid #eee",
+              borderRadius: 2,
+              "&:before": { display: "none" },
+            }}
+          >
+            <AccordionSummary expandIcon={<ArrowDownwardIcon />}>
+              {/* Question as H3 for AEO */}
+              <Typography component="h3" sx={{ fontWeight: 600 }}>
+                {faq.q}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ color: "#555", lineHeight: 1.7 }}>
+                {faq.a}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Container>
+    </Box>
+  );
 }

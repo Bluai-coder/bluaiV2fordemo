@@ -4,12 +4,12 @@
 import Image from "next/image";
 import { keyframes } from "@mui/system";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useSwipeable } from "react-swipeable";
 import RequestDemoModal from "./popups/RequestDemoModal";
-import { Box, Container, Typography, IconButton, useTheme, useMediaQuery, Button, Stack, Chip } from "@mui/material";
+import { Box, Container, Typography, IconButton, Button, Stack, Chip } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 
@@ -65,7 +65,7 @@ const products = [
     id: 11,
     icon: "/logos/white/briefcase.png",
     title: "VitalsBriefcase™",
-    image: "/hero-popup/box.png",
+    image: "/hero-popup/box.webp",
     category: "Clinical Solutions",
     description: `Smart patient monitoring Briefcase for instant, multi-vital health tracking`,
     slug: "products/vitals-briefcase",
@@ -80,7 +80,7 @@ const products = [
     id: 4,
     icon: "/logos/white/BluHealth-logo.png",
     title: "BluHealth™",
-    image: "/hero-popup/bluhealth.png",
+    image: "/hero-popup/bluhealth.webp",
     category: "Digital Health Platform",
     description: `The BluHealth™ Portal represents a paradigm shift in clinical informatics—transcending traditional electronic medical record systems through sophisticated integration of artificial intelligence and patient-centric architecture. This next-generation EMR/EHR/HIS ecosystem leverages advanced large language models and agentic AI infrastructure to create a seamless healthcare delivery platform that operates with unprecedented reliability and efficiency.`,
     slug: "products/blu-health",
@@ -93,7 +93,7 @@ const products = [
     id: 2,
     icon: "/logos/white/BluNotes-logo.png",
     title: "BluNotes™",
-    image: "/hero-popup/blunotes.png",
+    image: "/hero-popup/blunotes.webp",
     category: "Community Health",
     description: `BluNotes is an innovative medical conversation capture and documentation system that seamlessly connects mobile devices and computers to transform patient-provider conversations into structured medical documentation.`,
     slug: "products/blu-notes",
@@ -106,7 +106,7 @@ const products = [
     id: 6,
     icon: "/logos/white/BluMental-logo.png",
     title: "BluMental™",
-    image: "/hero-popup/blumental.png",
+    image: "/hero-popup/blumental.webp",
     category: "Mental Wellness",
     description: `The BluHealth Mental Health module delivers real-time, AI-driven assessments that help clinicians evaluate, interpret, and act on patient mental health data with confidence. Using clinically validated screening tools enhanced by explainable AI, the platform instantly analyzes patient responses to generate structured insights, severity scoring, and care guidance—right at the point of care.`,
     slug: "products/blu-mental-health",
@@ -119,7 +119,7 @@ const products = [
   {
     id: 3,
     icon: "/logos/white/BluAccess-logo.png",
-    image: "/hero-popup/face.png",
+    image: "/hero-popup/face.webp",
     title: "BluAccess™",
     category: "Access & Security",
     description: `BluAccess™ delivers unparalleled operational intelligence through its comprehensive suite of features, including customizable access zones, multi-factor authentication protocols, and dynamic permissions management—all while maintaining detailed audit trails for regulatory compliance`,
@@ -134,7 +134,7 @@ const products = [
     id: 8,
     icon: "/logos/white/BluAsha-logo.png",
     title: "BluASHA™",
-    image: "/hero-popup/asha.png",
+    image: "/hero-popup/asha.webp",
     category: "AI Clinical Documentation",
     description: `ASHA workers spend 40% of their time on manual record-keeping and reporting, reducing time available for actual healthcare delivery. Critical health data gets lost, delayed, or becomes illegible.Rural areas lack reliable internet connectivity, making digital health systems unusable when workers need them most. Existing solutions fail when connectivity is poor or absent.`,
     slug: "products/blu-asha",
@@ -151,7 +151,7 @@ const products = [
     id: 5,
     icon: "/logos/white/BluId-logo.png",
     title: "BluID™",
-    image: "/hero-popup/bluid.png",
+    image: "/hero-popup/bluid.webp",
     category: "Digital Identity",
     description: `BluID™ is a revolutionary 14-digit unique bio-medical identifier that transforms healthcare management by centralizing your complete medical profile in one secure digital location. This unified medical identity system empowers patients with unprecedented control over their health data while streamlining healthcare delivery across the entire ecosystem of providers, laboratories, and insurers.`,
     slug: "products/blu-id",
@@ -167,7 +167,7 @@ const products = [
     id: 7,
     icon: "/logos/white/BluDms-logo.png",
     title: "BluDMS™",
-    image: "/hero-popup/bludms.png",
+    image: "/hero-popup/bludms.webp",
     category: "Secure Communication",
     description: `BluDMS™ represents the pinnacle of clinical document architecture innovation—a sophisticated medical document ecosystem that transcends traditional information management paradigms through the seamless integration of artificial intelligence and advanced natural language processing. This revolutionary platform eliminates the cognitive burden of document management that historically plagues healthcare professionals, transforming unstructured clinical documentation into actionable medical intelligence.`,
     slug: "products/blu-dms",
@@ -437,7 +437,7 @@ export default function HeroSection() {
 
 
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-              {activeProduct.features.map((feature, idx) => (
+              {activeProduct?.features.map((feature, idx) => (
                 <Chip
                   key={idx}
                   icon={<CheckCircleIcon sx={{ fontSize: 14 }} />}
@@ -471,7 +471,7 @@ export default function HeroSection() {
             mb: { xs: 2, sm: 0 },
           }}
         >
-          {products.map((product, idx) => (
+          {products?.map((product, idx) => (
             <Box
               key={product.id}
               sx={{
@@ -633,6 +633,7 @@ export default function HeroSection() {
         <Stack direction="row" spacing={1}>
           <IconButton
             onClick={handlePrev}
+            name="prev-button"
             sx={{
               color: "#fff",
               border: "1px solid rgba(255,255,255,0.2)",
@@ -646,6 +647,7 @@ export default function HeroSection() {
           </IconButton>
           <IconButton
             onClick={handleNext}
+            name="next-button"
             sx={{
               color: "#fff",
               border: "1px solid rgba(255,255,255,0.2)",

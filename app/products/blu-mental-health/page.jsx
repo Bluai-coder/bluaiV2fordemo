@@ -346,7 +346,7 @@ export default function MentalHealthModulePage() {
                                         }}
                                     >
                                         <Image
-                                            src="/hero-popup/blumental.png"
+                                            src="/hero-popup/blumental.webp"
                                             alt="BluHealth Mental Health Module"
                                             fill
                                             sizes="(max-width: 600px) 90vw, (max-width: 900px) 500px, (max-width: 1200px) 560px, 620px"

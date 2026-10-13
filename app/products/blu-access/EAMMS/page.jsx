@@ -971,13 +971,15 @@ export default function EAMMSPagePremium() {
             "linear-gradient(180deg, #ffffff 0%, #f6f9ff 55%, #ffffff 100%)",
         }}
       >
+        {/* FAQPage schema — matches visible content below */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqs) }}
+        />
+
         <Container maxWidth="xl">
           <SectionHead title="Frequently Asked Questions" />
-          <Grid
-            container
-            spacing={4}
-            justifyContent="center"
-          >
+          <Grid container spacing={4} justifyContent="center">
             {faqs.map((item, index) => (
               <Grid
                 item
@@ -992,8 +994,8 @@ export default function EAMMSPagePremium() {
                 <Accordion
                   elevation={0}
                   sx={{
-                    width: "100%",          //  SAME WIDTH
-                    maxWidth: 520,          //  CONTROLLED COLUMN WIDTH
+                    width: "100%",
+                    maxWidth: 520,
                     borderBottom: "1px solid #e5e7eb",
                     "&:before": { display: "none" },
                   }}
@@ -1003,16 +1005,19 @@ export default function EAMMSPagePremium() {
                       <ExpandMoreIcon sx={{ color: "#1b4dff" }} />
                     }
                   >
-                    <Typography fontWeight={600} color="#0b1b5c">
+                    {/* AEO: question as real H3 */}
+                    <Typography
+                      component="h3"
+                      fontWeight={600}
+                      color="#0b1b5c"
+                      sx={{ m: 0, fontSize: "1rem" }}
+                    >
                       {item.q}
                     </Typography>
                   </AccordionSummary>
 
                   <AccordionDetails>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                    >
+                    <Typography variant="body2" color="text.secondary">
                       {item.a}
                     </Typography>
                   </AccordionDetails>

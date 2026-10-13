@@ -143,7 +143,7 @@ export default function PartnerSlider() {
     <Box
       sx={{
         bgcolor: "#ffffff",
-        py: { xs: 8, sm: 10, md: 14 },
+        py: { xs: 2, sm: 4, md: 4 },
         overflow: "hidden",
         position: "relative",
       }}

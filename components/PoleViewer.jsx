@@ -185,7 +185,7 @@ export default function PoleViewer({ modelPath }) {
   const controlsRef = useRef(null);
   const interactionCountRef = useRef(0);
 
-  const DEFAULT_CAMERA_POSITION = [0, 0.5, 5];
+  const DEFAULT_CAMERA_POSITION = [0, 0.5, 4.5];
 
   useEffect(() => {
     setIsMounted(true);
@@ -309,8 +309,8 @@ export default function PoleViewer({ modelPath }) {
           });
         }}
       >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 10, 7]} intensity={1.5} />
+        <ambientLight intensity={1} />
+        {/* <directionalLight position={[5, 10, 7]} intensity={1.5} /> */}
         <hemisphereLight skyColor="#4488ff" groundColor="#e2e2e2" intensity={0.3} />
 
         <Suspense fallback={<Loader />}>

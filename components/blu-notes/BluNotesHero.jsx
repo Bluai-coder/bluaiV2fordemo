@@ -237,7 +237,7 @@ export default function BluNotesHero() {
               >
                 <Box
                   component="img"
-                  src="/hero-popup/blunotes.png"
+                  src="/hero-popup/blunotes.webp"
                   alt="BluNotes Product"
                   sx={{
                     width: "100%",

@@ -785,6 +785,7 @@ export default function Footer() {
                           <ReactCountryFlag
                             svg
                             countryCode={loc.country}
+                            alt={loc.country}
                             style={{
                               width: 22,
                               height: 16,

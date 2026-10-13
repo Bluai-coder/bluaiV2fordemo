@@ -23,7 +23,7 @@ const posts = [
       "Face Recognition Attendance in EAMMS: The Next Step in Smart Workforce Management",
     author: "Himanshu",
     date: "NOV 20, 2025",
-    image: "/hero-popup/face.png",
+    image: "/hero-popup/face.webp",
   },
   {
     id: 3,

@@ -15,7 +15,7 @@ const BriefcaseViewer = dynamic(() => import('@/components/BriefcaseViewer'), {
 
 export default function VitalsBriefcase3D() {
     // Try both paths
-    const modelPath = '/vitals-briefcase.glb';  // This should work
+    const modelPath = '/models/vitals-briefcase.glb';  // This should work
 
     return (
         <BriefcaseViewer modelPath={modelPath} />

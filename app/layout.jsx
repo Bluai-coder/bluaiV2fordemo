@@ -7,6 +7,7 @@ import Script from "next/script";
 
 // ✅ Metadata - Saare pages ke liye default
 export const metadata = {
+  metadataBase: new URL("https://www.bluai.ai"),
   title: "BluAI - AI-Powered Healthcare Solutions",
   description: "BluAI delivers AI-powered healthcare solutions including VitalsChair™ health monitoring chair, BluHealth™ portal, and smart access systems. Transforming healthcare with AI.",
   verification: {
@@ -14,6 +15,31 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "BluAI - AI-Powered Healthcare Solutions",
+    description:
+      "BluAI delivers AI-powered healthcare solutions including VitalsChair™ health monitoring chair, BluHealth™ portal, and smart access systems. Transforming healthcare with AI.",
+    url: "https://www.bluai.ai",
+    siteName: "BluAI",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "BluAI",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "BluAI - AI-Powered Healthcare Solutions",
+    description:
+      "BluAI delivers AI-powered healthcare solutions including VitalsChair™ health monitoring chair, BluHealth™ portal, and smart access systems. Transforming healthcare with AI.",
+    images: ["/logo.png"],
   },
 };
 
@@ -100,7 +126,7 @@ export default function RootLayout({ children }) {
             w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
             var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-            j.async=true;
+            j.async=true; 
             j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
             f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-MWM4NWTF');

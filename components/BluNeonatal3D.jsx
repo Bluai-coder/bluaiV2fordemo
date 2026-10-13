@@ -16,7 +16,7 @@ const BriefcaseViewer = dynamic(() => import('@/components/BriefcaseViewer'), {
 
 export default function BluNeonatal3D() { 
     // Try both paths
-    const modelPath = '/blu-neonatal.glb';  // This should work
+    const modelPath = '/models/blu-neonatal.glb';  // This should work
 
     return (
         <NeonatalViewer modelPath={modelPath} />

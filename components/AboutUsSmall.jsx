@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography, Button, Container } from "@mui/material";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";

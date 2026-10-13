@@ -38,7 +38,7 @@ export default function BlogCard({
           {author} • {date}
         </Typography>
 
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color="text.secondary">
           {excerpt}
         </Typography>
 

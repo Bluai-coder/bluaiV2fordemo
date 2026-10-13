@@ -482,9 +482,12 @@ export default function VitalsBriefcaseClient() {
       <Box sx={{ py: { xs: 6, md: 0 }, bgcolor: '#fff' }}>
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <SectionTitle> Frequently Asked Questions</SectionTitle>
+
           <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
             <AccordionSummary expandIcon={<ArrowDown />}>
-              <Typography sx={{ fontWeight: 600 }}>Why Choose Briefcase™ ?</Typography>
+              <Typography component="h3" sx={{ fontWeight: 600, m: 0, fontSize: "1rem" }}>
+                Why Choose Briefcase™ ?
+              </Typography>
             </AccordionSummary>
             {[
               "Efficient: One chair, multiple diagnostics—reducing patient wait time and resource load.",
@@ -501,8 +504,14 @@ export default function VitalsBriefcaseClient() {
 
           {faqs?.map((faq, i) => (
             <Accordion key={i} sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
-              <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
-              <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
+              <AccordionSummary expandIcon={<ArrowDown />}>
+                <Typography component="h3" sx={{ fontWeight: 600, m: 0, fontSize: "1rem" }}>
+                  {faq.q}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ color: "#555" }}>{faq.a}</Typography>
+              </AccordionDetails>
             </Accordion>
           ))}
         </Container>

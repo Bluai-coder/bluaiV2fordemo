@@ -781,9 +781,12 @@ export default function VitalsChairLanding() {
       {/* FAQ SECTION */}
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
         <SectionTitle> Frequently Asked Questions</SectionTitle>
+
         <Accordion sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
           <AccordionSummary expandIcon={<ArrowDown />}>
-            <Typography sx={{ fontWeight: 600 }}>Why Choose VitalsChair™ ?</Typography>
+            <Typography component="h3" sx={{ fontWeight: 600, m: 0, fontSize: "1rem" }}>
+              Why Choose VitalsChair™ ?
+            </Typography>
           </AccordionSummary>
           {[
             "Efficient: One chair, multiple diagnostics—reducing patient wait time and resource load.",
@@ -792,7 +795,7 @@ export default function VitalsChairLanding() {
             "Connected: Real-time sync to cloud platforms for continuous patient records.",
             "Scalable: Easily integrable into hospitals, diagnostics labs, corporate wellness programs, and telemedicine platforms.",
           ].map((faq, i) => (
-            <AccordionDetails key={i} >
+            <AccordionDetails key={i}>
               <Typography sx={{ color: "#555" }}>{faq}</Typography>
             </AccordionDetails>
           ))}
@@ -800,8 +803,14 @@ export default function VitalsChairLanding() {
 
         {faqs.map((faq, i) => (
           <Accordion key={i} sx={{ mb: 2, boxShadow: "none", border: "1px solid #eee", borderRadius: 2 }}>
-            <AccordionSummary expandIcon={<ArrowDown />}><Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography></AccordionSummary>
-            <AccordionDetails><Typography sx={{ color: "#555" }}>{faq.a}</Typography></AccordionDetails>
+            <AccordionSummary expandIcon={<ArrowDown />}>
+              <Typography component="h3" sx={{ fontWeight: 600, m: 0, fontSize: "1rem" }}>
+                {faq.q}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ color: "#555" }}>{faq.a}</Typography>
+            </AccordionDetails>
           </Accordion>
         ))}
       </Container>
