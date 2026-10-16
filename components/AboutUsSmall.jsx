@@ -13,11 +13,7 @@ const CAPABILITIES = [
     { title: "Enterprise Security", desc: "HIPAA-compliant workflows" },
 ];
 
-const STATS = [
-    { value: "800+", label: "Moves in the past year" },
-    { value: "4.8 / 5", label: "Customer satisfaction rate" },
-    { value: "800+", label: "Professional team members" },
-];
+
 
 const AboutUsSmall = () => {
     const router = useRouter();

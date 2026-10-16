@@ -26,7 +26,7 @@ const products = [
     id: 1,
     icon: "/logos/white/BluVital-logo.png",
     title: "VitalsChair™",
-    image: "/hero-popup/chair.png",
+    image: "/hero-popup/chair.webp",
     category: "Clinical Solutions",
     description: `VitalsChair™ is an AI-powered smart health assessment kiosk that measures multiple vital signs in a single seated session, delivering fast, accurate results with seamless EMR/EHR integration.`,
     slug: "products/vitals-chair",
@@ -39,7 +39,7 @@ const products = [
     id: 9,
     icon: "/logos/white/pole.png",
     title: "VitalsPole™",
-    image: "/hero-popup/pole.png",
+    image: "/hero-popup/pole.webp",
     category: "Clinical Solutions",
     description: `Smart patient monitoring pole, multi-vital health tracking`,
     slug: "products/vitals-pole",
@@ -590,6 +590,7 @@ export default function HeroSection() {
             </Typography>
           </Box>
         </Box>
+
       </Container>
 
       {/* ================== CAROUSEL CONTROLS ================== */}
@@ -633,7 +634,8 @@ export default function HeroSection() {
         <Stack direction="row" spacing={1}>
           <IconButton
             onClick={handlePrev}
-            name="prev-button"
+            aria-label="Previous slide"
+
             sx={{
               color: "#fff",
               border: "1px solid rgba(255,255,255,0.2)",
@@ -647,7 +649,8 @@ export default function HeroSection() {
           </IconButton>
           <IconButton
             onClick={handleNext}
-            name="next-button"
+            aria-label="Next slide"
+
             sx={{
               color: "#fff",
               border: "1px solid rgba(255,255,255,0.2)",

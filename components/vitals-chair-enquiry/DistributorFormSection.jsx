@@ -75,7 +75,7 @@ export default function DistributorFormSection() {
                             }}
                         >
                             <Image
-                                src="/hero-popup/chair.png" // replace
+                                src="/hero-popup/chair.webp" // replace
                                 alt="VitalsChair"
                                 fill
                                 style={{ objectFit: "contain" }}

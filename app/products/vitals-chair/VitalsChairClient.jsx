@@ -89,7 +89,7 @@ const ProductGallery = () => {
   const lastX = useRef(0);
 
   const galleryItems = [
-    { type: '360', label: '360° View', src: '/pole.png' },
+    { type: '360', label: '360° View', src: '/pole.webp' },
     { type: 'image', label: 'Side View', src: '/chair/1.webp', transform: 'bottom' },
     { type: 'image', label: 'Front View', src: '/chair/2.webp', transform: 'bottom' },
     // { type: 'image', label: 'Interface', src: '/pole.png', objectPosition: 'top' },
@@ -463,7 +463,7 @@ export default function VitalsChairLanding() {
                       // top: { xs: "10.5%", sm: "5.5%", md: "25.5%" },
                       left: { xs: "10.5%", sm: "10.5%", md: "1%" },
                       width: "100%",
-                      height: "100%",
+                      height: { xs: "80%", sm: "80%", md: "100%" },
                       overflow: "hidden",
                     }}
                   >

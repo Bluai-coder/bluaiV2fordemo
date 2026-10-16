@@ -13,7 +13,6 @@ import {
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import StepsExplain from "./popups/StepsExplain";
 
 const AUTO_SLIDE_DELAY = 3000;
 
@@ -239,11 +238,6 @@ export default function OurTeamSlider({ team: partners }) {
         </Stack>
       </Container>
 
-      <StepsExplain
-        handleClickOpen={handleClickOpen}
-        handleClose={handleClose}
-        open={open}
-      />
     </Box>
   );
 }

@@ -12,56 +12,56 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { keyframes } from "@mui/system";
-
 import HealingIcon from "@mui/icons-material/Healing";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+
 const medicalPartners = [
   {
     id: 1,
     name: "MSME",
-    logo: "/partners/msms.png",
+    logo: "/partners/msms.webp",
     des: "Government Initiative",
     category: "Government"
   },
   {
     id: 2,
     name: "DPIIT",
-    logo: "/partners/dpit.png",
+    logo: "/partners/dpit.webp",
     des: "Policy Support",
     category: "Government"
   },
   {
     id: 3,
     name: "Microsoft Azure",
-    logo: "/partners/Azure.png",
+    logo: "/partners/Azure.webp",
     des: "Cloud Healthcare",
     category: "Technology"
   },
   {
     id: 4,
     name: "NXP",
-    logo: "/partners/nxp.png",
+    logo: "/partners/nxp.webp",
     des: "Medical IoT",
     category: "Technology"
   },
   {
     id: 5,
     name: "Texas Instruments",
-    logo: "/partners/Texas.png",
+    logo: "/partners/Texas.webp",
     des: "Healthcare Tech",
     category: "Technology"
   },
   {
     id: 5,
     name: "NHA",
-    logo: "/partners/nha.png",
+    logo: "/partners/nha.webp",
     des: "",
     category: ""
   },
   {
     id: 5,
     name: "NABH",
-    logo: "/partners/nabh.png",
+    logo: "/partners/nabh.webp",
     des: "",
     category: ""
   },
@@ -82,7 +82,7 @@ const medicalPartners = [
   {
     id: 5,
     name: "JCI",
-    logo: "/partners/jci.png",
+    logo: "/partners/jci.webp",
     des: "",
     category: ""
   }
@@ -90,7 +90,7 @@ const medicalPartners = [
   {
     id: 5,
     name: "Microsoft",
-    logo: "/partners/micro001.png",
+    logo: "/partners/micro001.webp",
     des: "",
     category: ""
   }
@@ -98,7 +98,7 @@ const medicalPartners = [
   {
     id: 5,
     name: "FDA",
-    logo: "/partners/fda.png",
+    logo: "/partners/fda.webp",
     des: "",
     category: ""
   }
@@ -106,7 +106,7 @@ const medicalPartners = [
   {
     id: 6,
     name: "Athenahealth",
-    logo: "/partners/Athenahealth-Logo.png",
+    logo: "/partners/Athenahealth-Logo.webp",
     des: "",
     category: ""
   }

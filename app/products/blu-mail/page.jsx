@@ -1,4 +1,3 @@
-import React from 'react'
 import BluMailIntroSection from '../../../components/blu-mail/BluMailIntroSection'
 import BluMailVideoShowcase from '../../../components/blu-mail/BluMailVideoShowcase'
 

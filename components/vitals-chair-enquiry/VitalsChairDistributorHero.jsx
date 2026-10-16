@@ -100,7 +100,7 @@ export default function VitalsChairDistributorHero() {
               }}
             >
               <Image
-                src="/hero-popup/chair.png"
+                src="/hero-popup/chair.webp"
                 alt="VitalsChair Medical Device"
                 width={800}
                 height={500}

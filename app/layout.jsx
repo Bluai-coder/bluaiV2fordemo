@@ -4,6 +4,10 @@
 import BreadcrumbSchema from "../components/BreadcrumbSchema";
 import "./globals.css";
 import Script from "next/script";
+// import CookieConsent from '@/components/CookieConsent';
+// import Analytics from '@/components/Analytics';
+
+
 
 // ✅ Metadata - Saare pages ke liye default
 export const metadata = {
@@ -120,7 +124,7 @@ export default function RootLayout({ children }) {
 
       <body>
         {/* ✅ Google Tag Manager (Script) */}
-        <Script id="gtm-script" strategy="afterInteractive">
+        {/* <Script id="gtm-script" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];
             w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
@@ -131,7 +135,7 @@ export default function RootLayout({ children }) {
             f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-MWM4NWTF');
           `}
-        </Script>
+        </Script> */}
 
         {/* ✅ Google Tag Manager (noscript fallback) */}
         <noscript>
@@ -143,6 +147,9 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         <BreadcrumbSchema />
+
+        {/* <Analytics /> */}
+        {/* <CookieConsent /> */}
         {children}
       </body>
     </html>

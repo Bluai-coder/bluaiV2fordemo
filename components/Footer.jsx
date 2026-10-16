@@ -374,7 +374,7 @@ export default function Footer() {
 
             <Typography
               sx={{
-                fontSize: { xs: 20, md: 22 },
+                fontSize: { xs: 14, md: 22 },
                 fontWeight: 600,
                 lineHeight: 1.3,
                 color: "#F8FAFC",

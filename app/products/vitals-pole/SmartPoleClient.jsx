@@ -85,7 +85,7 @@ const ProductGallery = () => {
   const lastX = useRef(0);
 
   const galleryItems = [
-    { type: '360', label: '360° View', src: '/pole.png' },
+    { type: '360', label: '360° View', src: '/pole.webp' },
     { type: 'image', label: 'Side View', src: '/pole/pole1.webp', transform: 'bottom' },
     { type: 'image', label: 'Front View', src: '/pole/pole2.webp', transform: 'bottom' },
     { type: 'image', label: 'Deployment', src: '/pole/pole3.webp', objectPosition: 'bottom' },
